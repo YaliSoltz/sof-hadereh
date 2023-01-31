@@ -1,62 +1,61 @@
-const { Lecture, joiSchema } = require("../model/lecture");
+const { Article, joiSchema } = require("../model/article");
 
-// get all the lectures
-const getAllLectures = async (req, res) => {
-  const lectures = await Lecture.find();
-  res.status(200).send(lectures);
+// get all the articles
+const getAllArticles = async (req, res) => {
+  const article = await Article.find();
+  res.status(200).send(article);
 };
 
-// add new lecture
-const addNewLecture = async (req, res) => {
+// add new article
+const addNewArticle = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
   const { error } = joiSchema.validate(body); //joi validation
   if (error) return res.status(400).send(error.message);
 
-  let lecture = new Lecture({
+  let article = new Article({
     title,
     content,
     imgUrl,
   });
   try {
-    lecture = await lecture.save();
-    res.status(201).send(lecture);
+    article = await article.save();
+    res.status(201).send(article);
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
 
-// change lecture
-const changeLecture = async (req, res) => {
+// change article
+const changeArticle = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-
     
   const { title, content, imgUrl } = body;
   try {
-    const lecture = await Lecture.updateOne(
+    const article = await Article.updateOne(
       { _id: id },
       { $set: { title, content, imgUrl } }
     );
-    res.status(201).send(lecture);
+    res.status(201).send(article);
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
 
-// delete lecture by id
-const deleteLecture = async (req, res) => {
+// delete article by id
+const deleteArticle = async (req, res) => {
   const id = req.params.id;
-  await Lecture.findByIdAndDelete(id);
+  await Article.findByIdAndDelete(id);
   res.status(201).send("deleted");
 };
 
 module.exports = {
-  getAllLectures,
-  addNewLecture,
-  changeLecture,
-  deleteLecture,
+  getAllArticles,
+  addNewArticle,
+  changeArticle,
+  deleteArticle,
 };

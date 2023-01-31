@@ -20,7 +20,7 @@ const schema = new mongoose.Schema({
   },
 });
 
-const Lecture = mongoose.model("Lecture", schema);
+const HomeVisit = mongoose.model("HomeVisit", schema);
 
 // joi schema
 const joiSchema = Joi.object({
@@ -29,4 +29,4 @@ const joiSchema = Joi.object({
   imgUrl: Joi.string().min(3).required(),
 });
 
-module.exports = { Lecture, joiSchema };
+module.exports = { HomeVisit, joiSchema };
