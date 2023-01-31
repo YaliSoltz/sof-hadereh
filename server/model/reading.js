@@ -3,30 +3,30 @@ const Joi = require("joi");
 
 // mongoose schema
 const schema = new mongoose.Schema({
-  title: {
+  category: {
     type: String,
     min: 3,
     required: true,
   },
-  content: {
+  name: {
     type: String,
     min: 3,
     required: true,
   },
-  imgUrl: {
+  author: {
     type: String,
     min: 3,
     required: true,
   },
 });
 
-const Lecture = mongoose.model("Lecture", schema);
+const Reading = mongoose.model("Reading", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  title: Joi.string().min(3).required(),
-  content: Joi.string().min(3).required(),
-  imgUrl: Joi.string().min(3).required(),
+  category: Joi.string().min(3).required(),
+  name: Joi.string().min(3).required(),
+  author: Joi.string().min(3).required(),
 });
 
-module.exports = { Lecture, joiSchema };
+module.exports = { Reading, joiSchema };

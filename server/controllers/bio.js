@@ -1,62 +1,60 @@
-const { Lecture, joiSchema } = require("../model/lecture");
+const { Bio, joiSchema } = require("../model/bio");
 
-// get all the lectures
-const getAllLectures = async (req, res) => {
-  const lectures = await Lecture.find();
-  res.status(200).send(lectures);
+// get  bio
+const getBio = async (req, res) => {
+  const bio = await Bio.find();
+  res.status(200).send(bio);
 };
 
-// add new lecture
-const addNewLecture = async (req, res) => {
+// add new bio
+const addNewBio = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
   const { error } = joiSchema.validate(body); //joi validation
   if (error) return res.status(400).send(error.message);
 
-  let lecture = new Lecture({
+  let bio = new Bio({
     title,
     content,
     imgUrl,
   });
   try {
-    lecture = await lecture.save();
-    res.status(201).send(lecture);
+    bio = await bio.save();
+    res.status(201).send(bio);
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
 
-// change lecture
-const changeLecture = async (req, res) => {
+// change bio
+const changeBio = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-
-    
   const { title, content, imgUrl } = body;
   try {
-    const lecture = await Lecture.updateOne(
+    const bio = await Bio.updateOne(
       { _id: id },
       { $set: { title, content, imgUrl } }
     );
-    res.status(201).send(lecture);
+    res.status(201).send(bio);
   } catch (error) {
     res.status(400).send(error.message);
   }
 };
 
-// delete lecture by id
-const deleteLecture = async (req, res) => {
+// delete bio by id
+const deleteBio = async (req, res) => {
   const id = req.params.id;
-  await Lecture.findByIdAndDelete(id);
+  await Bio.findByIdAndDelete(id);
   res.status(201).send("deleted");
 };
 
 module.exports = {
-  getAllLectures,
-  addNewLecture,
-  changeLecture,
-  deleteLecture,
+  getBio,
+  addNewBio,
+  changeBio,
+  deleteBio,
 };

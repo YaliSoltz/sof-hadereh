@@ -9,7 +9,7 @@ router.get("/", getAllLectures);
 router.post("/", addNewLecture);
 
 // change lecture
-router.put("/:id", changeLecture);
+router.patch("/:id", changeLecture);
 
 // delete lecture by id
 router.delete("/:id", deleteLecture);
