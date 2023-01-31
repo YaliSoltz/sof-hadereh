@@ -8,13 +8,15 @@ const getAllLectures = async (req, res) => {
 
 // add new lecture
 const addNewLecture = async (req, res) => {
-  const { title, body } = req.body;
-  const { error } = joiSchema.validate(req.body); //joi validation
+  const body = req.body;
+  const { title, content, imgUrl } = body;
+  const { error } = joiSchema.validate(body); //joi validation
   if (error) return res.status(400).send(error.message);
 
   let lecture = new Lecture({
     title,
-    body,
+    content,
+    imgUrl,
   });
   try {
     lecture = await lecture.save();
