@@ -5,13 +5,15 @@ const lecture = require("./routes/lecture");
 
 mongoose.set("strictQuery", false);
 const app = express();
-const port = 4000;
+const port = 4040;
 
 app.use(cors());
 app.use(express.json());
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/sof-hadereh")
+  .connect(
+    "mongodb+srv://yalisoltz:sof-hadereh@sof-hadereh.v1c3byb.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => console.log("database connected successfully"))
   .catch(() => console.log("database failed to connect"));
 
