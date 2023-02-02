@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewConsultation, getAllConsultations, deleteConsultation, changeConsultation } = require("../controllers/Consultation");
+const {
+  addNewConsultation,
+  getAllConsultations,
+  deleteConsultation,
+  changeConsultation,
+} = require("../controllers/Consultation");
 const router = Router();
 
 // get all the consultations

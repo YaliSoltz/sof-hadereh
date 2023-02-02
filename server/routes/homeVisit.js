@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewHomeVisit, getAllHomeVisits, deleteHomeVisit, changeHomeVisit } = require("../controllers/homeVisit");
+const {
+  addNewHomeVisit,
+  getAllHomeVisits,
+  deleteHomeVisit,
+  changeHomeVisit,
+} = require("../controllers/homeVisit");
 const router = Router();
 
 // get all the home visits

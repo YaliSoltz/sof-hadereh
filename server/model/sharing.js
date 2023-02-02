@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const { min } = require("lodash");
 
 // mongoose schema
 const schema = new mongoose.Schema({
@@ -32,6 +31,7 @@ const schema = new mongoose.Schema({
   },
 });
 
+// wrapper of the Mongoose schema
 const Sharing = mongoose.model("Sharing", schema);
 
 // joi schema

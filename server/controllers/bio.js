@@ -10,14 +10,19 @@ const getBio = async (req, res) => {
 const addNewBio = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
-  const { error } = joiSchema.validate(body); //joi validation
+
+  //joi validation
+  const { error } = joiSchema.validate(body); 
   if (error) return res.status(400).send(error.message);
 
+   // define the new bio
   let bio = new Bio({
     title,
     content,
     imgUrl,
   });
+
+    // add the bio to database
   try {
     bio = await bio.save();
     res.status(201).send(bio);
@@ -30,10 +35,14 @@ const addNewBio = async (req, res) => {
 const changeBio = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
+  const { title, content, imgUrl } = body;
+
+   // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-  const { title, content, imgUrl } = body;
+
+    // change the title/content/imgUrl at the user's choice
   try {
     const bio = await Bio.updateOne(
       { _id: id },

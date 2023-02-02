@@ -1,12 +1,18 @@
 const { Router } = require("express");
-const { addNewLecture, getAllLectures, deleteLecture, changeLecture } = require("../controllers/lecture");
+const {
+  addNewLecture,
+  getAllLectures,
+  deleteLecture,
+  changeLecture,
+} = require("../controllers/lecture");
+const auth = require("../middleware/auth");
 const router = Router();
 
 // get all the lectures
 router.get("/", getAllLectures);
 
 // add new lecture
-router.post("/", addNewLecture);
+router.post("/", auth, addNewLecture);
 
 // change lecture
 router.patch("/:id", changeLecture);

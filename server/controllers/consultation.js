@@ -1,23 +1,28 @@
 const { Consultation, joiSchema } = require("../model/consultation");
 
-// get all the Consultations
+// get all the consultations
 const getAllConsultations = async (req, res) => {
   const consultations = await Consultation.find();
   res.status(200).send(consultations);
 };
 
-// add new Consultation
+// add new consultation
 const addNewConsultation = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
-  const { error } = joiSchema.validate(body); //joi validation
+
+  //joi validation
+  const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
+  // define the new consultation
   let consultation = new Consultation({
     title,
     content,
     imgUrl,
   });
+
+  // add the consultation to database
   try {
     consultation = await consultation.save();
     res.status(201).send(consultation);
@@ -26,14 +31,17 @@ const addNewConsultation = async (req, res) => {
   }
 };
 
-// change Consultation
+// change consultation
 const changeConsultation = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
+  const { title, content, imgUrl } = body;
+
+  // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-  const { title, content, imgUrl } = body;
+  // change the title/content/imgUrl at the user's choice
   try {
     const consultation = await Consultation.updateOne(
       { _id: id },
@@ -45,7 +53,7 @@ const changeConsultation = async (req, res) => {
   }
 };
 
-// delete Consultation by id
+// delete consultation by id
 const deleteConsultation = async (req, res) => {
   const id = req.params.id;
   await Consultation.findByIdAndDelete(id);

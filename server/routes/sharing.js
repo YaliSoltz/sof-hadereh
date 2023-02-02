@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewSharing, getAllSharings, deleteSharing, changeSharing } = require("../controllers/sharing");
+const {
+  addNewSharing,
+  getAllSharings,
+  deleteSharing,
+  changeSharing,
+} = require("../controllers/sharing");
 const router = Router();
 
 // get all the sharings
