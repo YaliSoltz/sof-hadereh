@@ -9,7 +9,7 @@ const getAllSharings = async (req, res) => {
 // add new sharing
 const addNewSharing = async (req, res) => {
   const body = req.body;
-  const { firstName, lastName, age, content, imgUrl } = body;
+  const { name, age, city, content, imgUrl } = body;
 
   //joi validation
   const { error } = joiSchema.validate(body);
@@ -17,9 +17,9 @@ const addNewSharing = async (req, res) => {
 
   // define the new sharing
   let sharing = new Sharing({
-    firstName,
-    lastName,
+    name,
     age,
+    city,
     content,
     imgUrl,
   });
@@ -37,17 +37,17 @@ const addNewSharing = async (req, res) => {
 const changeSharing = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  const { firstName, lastName, age, content, imgUrl } = body;
+  const { name, age, city, content, imgUrl } = body;
 
   // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-  // change the firstName/lastName/age/content/imgUrl at the user's choice
+  // change the name/city/age/content/imgUrl at the user's choice
   try {
     const sharing = await Sharing.updateOne(
       { _id: id },
-      { $set: { firstName, lastName, age, content, imgUrl } }
+      { $set: { name, age, city, content, imgUrl } }
     );
     res.status(201).send(sharing);
   } catch (error) {
