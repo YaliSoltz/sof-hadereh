@@ -3,12 +3,7 @@ const Joi = require("joi");
 
 // mongoose schema
 const schema = new mongoose.Schema({
-    firstName: {
-    type: String,
-    min: 3,
-    required: true,
-  },
-  lastName: {
+  name: {
     type: String,
     min: 3,
     required: true,
@@ -17,6 +12,11 @@ const schema = new mongoose.Schema({
     type: String,
     min: 1,
     max: 3,
+    required: true,
+  },
+  city: {
+    type: String,
+    min: 3,
     required: true,
   },
   content: {
@@ -36,11 +36,11 @@ const Sharing = mongoose.model("Sharing", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-    firstName: Joi.string().min(3).required(),
-    lastName: Joi.string().min(3).required(),
-    age: Joi.string().min(1).max(3).required(),
-    content: Joi.string().min(3).required(),
-    imgUrl: Joi.string().min(3).required(),
+  name: Joi.string().min(3).required(),
+  age: Joi.string().min(1).max(3).required(),
+  city: Joi.string().min(1).max(3).required(),
+  content: Joi.string().min(3).required(),
+  imgUrl: Joi.string().min(3).required(),
 });
 
 module.exports = { Sharing, joiSchema };
