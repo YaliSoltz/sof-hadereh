@@ -20,6 +20,7 @@ const schema = new mongoose.Schema({
   },
 });
 
+// wrapper of the Mongoose schema
 const Consultation = mongoose.model("Consultation", schema);
 
 // joi schema

@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewReading, getAllReadings, deleteReading, changeReading } = require("../controllers/reading");
+const {
+  addNewReading,
+  getAllReadings,
+  deleteReading,
+  changeReading,
+} = require("../controllers/reading");
 const router = Router();
 
 // get all the readings

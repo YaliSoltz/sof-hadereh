@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewBio, getBio, deleteBio, changeBio } = require("../controllers/bio");
+const {
+  addNewBio,
+  getBio,
+  deleteBio,
+  changeBio,
+} = require("../controllers/bio");
 const router = Router();
 
 // get bio

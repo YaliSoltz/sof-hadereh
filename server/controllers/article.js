@@ -10,14 +10,19 @@ const getAllArticles = async (req, res) => {
 const addNewArticle = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
-  const { error } = joiSchema.validate(body); //joi validation
+
+  //joi validation
+  const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
+  // define the new article
   let article = new Article({
     title,
     content,
     imgUrl,
   });
+
+  // add the article to database
   try {
     article = await article.save();
     res.status(201).send(article);
@@ -30,11 +35,13 @@ const addNewArticle = async (req, res) => {
 const changeArticle = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
+  const { title, content, imgUrl } = body;
+
+  // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-    
-  const { title, content, imgUrl } = body;
+  // change the title/content/imgUrl at the user's choice
   try {
     const article = await Article.updateOne(
       { _id: id },

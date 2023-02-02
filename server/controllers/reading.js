@@ -10,14 +10,19 @@ const getAllReadings = async (req, res) => {
 const addNewReading = async (req, res) => {
   const body = req.body;
   const { category, name, author } = body;
-  const { error } = joiSchema.validate(body); //joi validation
+
+  //joi validation
+  const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
+  // define the new reading
   let reading = new Reading({
     category,
     name,
     author,
   });
+
+  // add the reading to database
   try {
     reading = await reading.save();
     res.status(201).send(reading);
@@ -30,12 +35,13 @@ const addNewReading = async (req, res) => {
 const changeReading = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
+  const { category, name, author } = body;
+
+  // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-
-    
-  const { category, name, author } = body;
+  // change the title/content/imgUrl at the user's choice
   try {
     const reading = await Reading.updateOne(
       { _id: id },

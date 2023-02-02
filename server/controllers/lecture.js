@@ -10,14 +10,19 @@ const getAllLectures = async (req, res) => {
 const addNewLecture = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
-  const { error } = joiSchema.validate(body); //joi validation
+
+  //joi validation
+  const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
+  // define the new lecture
   let lecture = new Lecture({
     title,
     content,
     imgUrl,
   });
+
+  // add the lecture to database
   try {
     lecture = await lecture.save();
     res.status(201).send(lecture);
@@ -30,12 +35,13 @@ const addNewLecture = async (req, res) => {
 const changeLecture = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
+  const { title, content, imgUrl } = body;
+
+  // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-
-    
-  const { title, content, imgUrl } = body;
+  // change the title/content/imgUrl at the user's choice
   try {
     const lecture = await Lecture.updateOne(
       { _id: id },

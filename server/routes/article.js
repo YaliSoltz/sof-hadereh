@@ -1,5 +1,10 @@
 const { Router } = require("express");
-const { addNewArticle, getAllArticles, deleteArticle, changeArticle } = require("../controllers/article");
+const {
+  addNewArticle,
+  getAllArticles,
+  deleteArticle,
+  changeArticle,
+} = require("../controllers/article");
 const router = Router();
 
 // get all the articles
