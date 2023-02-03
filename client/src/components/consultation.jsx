@@ -1,52 +1,56 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { ArticleContext } from "../context/article";
+import { ConsultationContext } from "../context/consultation";
 
-const Article = () => {
-  const { articles, addNewArticle, deleteArticle, changeArticle } =
-    useContext(ArticleContext);
+const Consultation = () => {
+  const {
+    consultations,
+    addNewConsultation,
+    deleteConsultation,
+    changeConsultation,
+  } = useContext(ConsultationContext);
 
-  const [newArticle, setNewArticle] = useState({}); // new article object
+  const [newConsultation, setNewConsultation] = useState({}); // new consultation object
 
-  // function that add new article and reset the form
+  // function that add new consultation and reset the form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewArticle(newArticle); // add newArticle to database
+    addNewConsultation(newConsultation); // add newConsultation to database
     document.getElementById("form").reset(); // reset the form
   };
 
-  // function that set the newArticle obj with imgUrl
+  // function that set the newConsultation obj with imgUrl
   const setImgUrl = (e) => {
     const file = e.target.files[0]; // defines file as an object who contain image data
     const reader = new FileReader(); // defines new instance from FileReader class
     reader.readAsDataURL(file); // converts the file to base64
 
-    //func that get the image in base64 and add it to newArticle object
+    //func that get the image in base64 and add it to newConsultation object
     reader.onloadend = () => {
       console.log(reader.result);
-      setNewArticle({ ...newArticle, imgUrl: "reader.result" });
+      setNewConsultation({ ...newConsultation, imgUrl: "reader.result" });
     };
   };
 
   return (
     <div className="App-header">
       <div style={{ display: "flex" }}>
-        {articles.map((article, index) => (
+        {consultations.map((consultation, index) => (
           <div className="card" style={{ width: "18rem" }} key={index}>
-            <img src={article.imgUrl} className="card-img-top" alt="..." />
+            <img src={consultation.imgUrl} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">
-                <span>כותרת: {article.title}</span>
+                <span>כותרת: {consultation.title}</span>
                 <input
                   type="text"
-                  id={"title" + article._id}
+                  id={"title" + consultation._id}
                   placeholder="כותרת חדשה.."
                 />
                 <button
                   onClick={() =>
-                    changeArticle(article._id, {
-                      title: document.getElementById("title" + article._id)
+                    changeConsultation(consultation._id, {
+                      title: document.getElementById("title" + consultation._id)
                         .value,
                     })
                   }
@@ -56,17 +60,18 @@ const Article = () => {
               </h5>
               <br />
               <h5 className="card-text">
-                <span>תוכן: {article.content}</span>
+                <span>תוכן: {consultation.content}</span>
                 <input
                   type="text"
-                  id={"content" + article._id}
+                  id={"content" + consultation._id}
                   placeholder="תוכן חדש.."
                 />
                 <button
                   onClick={() =>
-                    changeArticle(article._id, {
-                      content: document.getElementById("content" + article._id)
-                        .value,
+                    changeConsultation(consultation._id, {
+                      content: document.getElementById(
+                        "content" + consultation._id
+                      ).value,
                     })
                   }
                 >
@@ -75,7 +80,7 @@ const Article = () => {
               </h5>
               <button
                 className="btn btn-primary"
-                onClick={() => deleteArticle(article._id)}
+                onClick={() => deleteConsultation(consultation._id)}
               >
                 מחיקה
               </button>
@@ -98,7 +103,7 @@ const Article = () => {
             placeholder="כותרת:"
             required
             onChange={(e) =>
-              setNewArticle({ ...newArticle, title: e.target.value })
+              setNewConsultation({ ...newConsultation, title: e.target.value })
             }
           />
           <input
@@ -107,7 +112,10 @@ const Article = () => {
             placeholder="תוכן:"
             required
             onChange={(e) =>
-              setNewArticle({ ...newArticle, content: e.target.value })
+              setNewConsultation({
+                ...newConsultation,
+                content: e.target.value,
+              })
             }
           />
           <label
@@ -136,4 +144,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Consultation;
