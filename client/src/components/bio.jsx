@@ -1,53 +1,51 @@
 import React, { useState } from "react";
 import { useContext } from "react";
-import { ArticleContext } from "../context/article";
+import { BioContext } from "../context/bio";
 
-const Article = () => {
-  const { articles, addNewArticle, deleteArticle, changeArticle } =
-    useContext(ArticleContext);
+const Bio = () => {
+  const { bio, addNewBio, deleteBio, changeBio } = useContext(BioContext);
 
-  const [newArticle, setNewArticle] = useState({}); // new article object
+  const [newBio, setNewBio] = useState({}); // new bio object
 
-  // function that add new article and reset the form
+  // function that add new bio and reset the form
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewArticle(newArticle); // add newArticle to database
+    addNewBio(newBio); // add newBio to database
     document.getElementById("form").reset(); // reset the form
   };
 
-  // function that set the newArticle obj with imgUrl
+  // function that set the newBio obj with imgUrl
   const setImgUrl = (e) => {
     const file = e.target.files[0]; // defines file as an object who contain image data
     const reader = new FileReader(); // defines new instance from FileReader class
     reader.readAsDataURL(file); // converts the file to base64
 
-    //func that get the image in base64 and add it to newArticle object
+    //func that get the image in base64 and add it to newBio object
     reader.onloadend = () => {
       console.log(reader.result);
-      setNewArticle({ ...newArticle, imgUrl: "reader.result" });
+      setNewBio({ ...newBio, imgUrl: "reader.result" });
     };
   };
 
   return (
     <div className="App-header">
       <div style={{ display: "flex" }}>
-        {articles.map((article, index) => (
+        {bio.map((bio, index) => (
           <div className="card" style={{ width: "18rem" }} key={index}>
-            <img src={article.imgUrl} className="card-img-top" alt="..." />
+            <img src={bio.imgUrl} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">
-                <span>כותרת: {article.title}</span>
+                <span>כותרת: {bio.title}</span>
                 <input
                   type="text"
-                  id={"title" + article._id}
+                  id={"title" + bio._id}
                   placeholder="כותרת חדשה.."
                 />
                 <button
                   onClick={() =>
-                    changeArticle(article._id, {
-                      title: document.getElementById("title" + article._id)
-                        .value,
+                    changeBio(bio._id, {
+                      title: document.getElementById("title" + bio._id).value,
                     })
                   }
                 >
@@ -56,16 +54,16 @@ const Article = () => {
               </h5>
               <br />
               <h5 className="card-text">
-                <span>תוכן: {article.content}</span>
+                <span>תוכן: {bio.content}</span>
                 <input
                   type="text"
-                  id={"content" + article._id}
+                  id={"content" + bio._id}
                   placeholder="תוכן חדש.."
                 />
                 <button
                   onClick={() =>
-                    changeArticle(article._id, {
-                      content: document.getElementById("content" + article._id)
+                    changeBio(bio._id, {
+                      content: document.getElementById("content" + bio._id)
                         .value,
                     })
                   }
@@ -75,7 +73,7 @@ const Article = () => {
               </h5>
               <button
                 className="btn btn-primary"
-                onClick={() => deleteArticle(article._id)}
+                onClick={() => deleteBio(bio._id)}
               >
                 מחיקה
               </button>
@@ -97,18 +95,14 @@ const Article = () => {
             className="form-control mb-3"
             placeholder="כותרת:"
             required
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, title: e.target.value })
-            }
+            onChange={(e) => setNewBio({ ...newBio, title: e.target.value })}
           />
           <input
             type="text"
             className="form-control mb-3"
             placeholder="תוכן:"
             required
-            onChange={(e) =>
-              setNewArticle({ ...newArticle, content: e.target.value })
-            }
+            onChange={(e) => setNewBio({ ...newBio, content: e.target.value })}
           />
           <label
             htmlFor="img-upload"
@@ -136,4 +130,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Bio;
