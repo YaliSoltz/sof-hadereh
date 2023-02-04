@@ -32,8 +32,12 @@ const addNewContactUs = async (req, res) => {
 // delete contactUs by id
 const deleteContactUs = async (req, res) => {
   const id = req.params.id;
-  await ContactUs.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+try {
+    await ContactUs.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+} catch (error) {
+  res.status(400).send(error.message);
+}
 };
 
 module.exports = {

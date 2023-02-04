@@ -66,8 +66,12 @@ const changeArticle = async (req, res) => {
 // delete article by id
 const deleteArticle = async (req, res) => {
   const id = req.params.id;
-  await Article.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await Article.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {

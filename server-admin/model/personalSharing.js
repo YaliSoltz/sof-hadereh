@@ -5,7 +5,6 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   name: {
     type: String,
-    min: 3,
   },
   age: {
     type: String,
@@ -30,7 +29,7 @@ const PersonalSharing = mongoose.model("PersonalSharing", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  name: Joi.string().min(3),
+  name: Joi.string(),
   age: Joi.string().min(1).max(3).required(),
   city: Joi.string().min(3).required(),
   content: Joi.string().min(3).required(),
