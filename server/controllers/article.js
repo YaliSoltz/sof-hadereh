@@ -1,4 +1,5 @@
 const { Article, joiSchema } = require("../model/article");
+const cloudinary=require('../utils/cloudinary')
 
 // get all the articles
 const getAllArticles = async (req, res) => {
@@ -10,20 +11,29 @@ const getAllArticles = async (req, res) => {
 const addNewArticle = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
+  const result=await cloudinary.uploader.upload(imgUrl,{
+    folder:"Articles"
+  })
 
   //joi validation
   const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
+  
+
   // define the new article
   let article = new Article({
     title,
     content,
-    imgUrl,
+    imgUrl:{
+      public_id:result.public_id,
+      url:result.secure_url
+    },
   });
 
   // add the article to database
   try {
+    
     article = await article.save();
     res.status(201).send(article);
   } catch (error) {

@@ -12,11 +12,13 @@ import Reading from "./components/reading";
 import Sentence from "./components/sentence";
 import Sharing from "./components/sharing";
 const App = () => {
+
   return (
     <div>
       <PersonalSharing />
     </div>
   );
+
 };
 
 export default App;

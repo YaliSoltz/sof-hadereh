@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
+const { string } = require("joi");
+
 
 // mongoose schema
 const schema = new mongoose.Schema({
@@ -17,6 +19,14 @@ const schema = new mongoose.Schema({
     type: String,
     min: 3,
     required: true,
+    public_id:{
+      type:String,
+      required:true
+    },
+    url:{
+      type:String,
+      required:true
+    }
   },
 });
 
