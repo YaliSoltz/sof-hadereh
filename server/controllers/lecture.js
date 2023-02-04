@@ -56,8 +56,12 @@ const changeLecture = async (req, res) => {
 // delete lecture by id
 const deleteLecture = async (req, res) => {
   const id = req.params.id;
-  await Lecture.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await Lecture.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {

@@ -56,8 +56,12 @@ const changeConsultation = async (req, res) => {
 // delete consultation by id
 const deleteConsultation = async (req, res) => {
   const id = req.params.id;
-  await Consultation.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await Consultation.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {

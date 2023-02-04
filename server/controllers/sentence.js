@@ -54,8 +54,12 @@ const changeSentence = async (req, res) => {
 // delete sentence by id
 const deleteSentence = async (req, res) => {
   const id = req.params.id;
-  await Sentence.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+ try {
+   await Sentence.findByIdAndDelete(id);
+   res.status(201).send("deleted");
+ } catch (error) {
+  res.status(400).send(error.message)
+ }
 };
 
 module.exports = {

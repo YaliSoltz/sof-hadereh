@@ -38,7 +38,7 @@ const Sharing = mongoose.model("Sharing", schema);
 const joiSchema = Joi.object({
   name: Joi.string().min(3).required(),
   age: Joi.string().min(1).max(3).required(),
-  city: Joi.string().min(1).max(3).required(),
+  city: Joi.string().min(3).required(),
   content: Joi.string().min(3).required(),
   imgUrl: Joi.string().min(3).required(),
 });
