@@ -9,7 +9,7 @@ const getAllPersonalSharing = async (req, res) => {
 // add new personalSharing
 const addNewPersonalSharing = async (req, res) => {
   const body = req.body;
-  const { name, age, city, content } = body;
+  const { name = 'אלמוני/ת', age, city, content } = body;
 
   //joi validation
   const { error } = joiSchema.validate(body);
@@ -35,8 +35,12 @@ const addNewPersonalSharing = async (req, res) => {
 // delete personalSharing by id
 const deletePersonalSharing = async (req, res) => {
   const id = req.params.id;
-  await PersonalSharing.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+try {
+    await PersonalSharing.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+} catch (error) {
+  res.status(400).send(error.message);
+}
 };
 
 module.exports = {

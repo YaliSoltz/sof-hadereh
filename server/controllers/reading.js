@@ -56,8 +56,12 @@ const changeReading = async (req, res) => {
 // delete reading by id
 const deleteReading = async (req, res) => {
   const id = req.params.id;
-  await Reading.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await Reading.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {

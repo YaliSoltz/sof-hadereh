@@ -38,8 +38,12 @@ const addNewUser = async (req, res) => {
 // delete user by id
 const deleteUser = async (req, res) => {
   const id = req.params.id;
-  await User.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await User.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {

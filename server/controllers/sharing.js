@@ -58,8 +58,12 @@ const changeSharing = async (req, res) => {
 // delete sharing by id
 const deleteSharing = async (req, res) => {
   const id = req.params.id;
-  await Sharing.findByIdAndDelete(id);
-  res.status(201).send("deleted");
+  try {
+    await Sharing.findByIdAndDelete(id);
+    res.status(201).send("deleted");
+  } catch (error) {
+   res.status(400).send(error.message)
+  }
 };
 
 module.exports = {
