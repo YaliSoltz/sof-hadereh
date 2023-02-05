@@ -5,7 +5,7 @@ export const ConsultationContext = createContext(); // the consultation context
 
 const ConsultationProvider = ({ children }) => {
   const [consultations, setConsultations] = useState([]); // all the consultations
-  const url = "http://localhost:4040/api/consultations/";
+  const url = "http://localhost:4001/api/consultations/";
 
   // function that pulls all the consultations from the server
   const getConsultations = async () => {

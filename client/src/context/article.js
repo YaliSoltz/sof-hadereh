@@ -5,7 +5,7 @@ export const ArticleContext = createContext(); // the article context
 
 const ArticleProvider = ({ children }) => {
   const [articles, setArticles] = useState([]); // all the articles
-  const url = "http://localhost:4040/api/articles/";
+  const url = "http://localhost:4001/api/articles/";
 
   // function that pulls all the articles from the server
   const getArticles = async () => {

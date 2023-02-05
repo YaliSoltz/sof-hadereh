@@ -38,12 +38,11 @@ const Login = () => {
             required
             onChange={(e) =>
               setUser({
-                ...user,
+                ...user,  
                 password: e.target.value,
               })
             }
           />
-
           <button type="submit" className="btn btn-primary m-2">
             הוספה
           </button>

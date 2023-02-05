@@ -5,7 +5,7 @@ export const PersonalSharingContext = createContext(); // the personalSharing co
 
 const PersonalSharingProvider = ({ children }) => {
   const [personalSharings, setPersonalSharings] = useState([]); // all the personalSharings
-  const url = "http://localhost:4050/api/personalSharings/";
+  const url = "http://localhost:4002/api/personalSharings/";
 
   // function that pulls all the personalSharings from the server
   const getPersonalSharing = async () => {

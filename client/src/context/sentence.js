@@ -5,7 +5,7 @@ export const SentenceContext = createContext(); // the sentence context
 
 const SentenceProvider = ({ children }) => {
   const [sentences, setSentences] = useState([]); // all the sentences
-  const url = "http://localhost:4040/api/sentences/";
+  const url = "http://localhost:4001/api/sentences/";
 
   // function that pulls all the sentences from the server
   const getSentences = async () => {

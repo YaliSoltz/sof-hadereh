@@ -21,7 +21,6 @@ const Article = () => {
     const file = e.target.files[0]; // defines file as an object who contain image data
     const reader = new FileReader(); // defines new instance from FileReader class
     reader.readAsDataURL(file); // converts the file to base64
-
     //func that get the image in base64 and add it to newArticle object
     reader.onloadend = () => {
       console.log(reader.result);

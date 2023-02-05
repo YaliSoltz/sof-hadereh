@@ -1,24 +1,21 @@
-import React from "react";
-import "./App.css";
-import Article from "./components/article";
-import Bio from "./components/bio";
-import Consultation from "./components/consultation";
-import ContactUs from "./components/contactUs";
-import HomeVisit from "./components/homeVisit";
-import Lecture from "./components/lecture";
-import Login from "./components/login";
-import PersonalSharing from "./components/personalSharing";
-import Reading from "./components/reading";
-import Sentence from "./components/sentence";
-import Sharing from "./components/sharing";
+import React, { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
+import AdminInterface from "./comp-admin/Admin-interface";
+import UserInterface from "./comp-user/User-interface";
+import { UserContext } from "./context/user";
+import Login from "./login";
+
 const App = () => {
-
+  const { token } = useContext(UserContext);
   return (
-    <div>
-      <Article/>
-    </div>
+    <Routes>
+      <Route
+        path="/"
+        element={token ? <AdminInterface /> : <UserInterface />}
+      />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
-
 };
 
 export default App;

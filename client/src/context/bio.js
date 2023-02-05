@@ -5,7 +5,7 @@ export const BioContext = createContext(); // the bio context
 
 const BioProvider = ({ children }) => {
   const [bio, setBio] = useState([]); // all the bio
-  const url = "http://localhost:4040/api/bio/";
+  const url = "http://localhost:4001/api/bio/";
 
   // function that pulls the bio from the server
   const getBio = async () => {

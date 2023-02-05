@@ -5,7 +5,7 @@ export const LectureContext = createContext(); // the lecture context
 
 const LectureProvider = ({ children }) => {
   const [lectures, setLectures] = useState([]); // all the lectures
-  const url = "http://localhost:4040/api/lectures/";
+  const url = "http://localhost:4001/api/lectures/";
 
   // function that pulls all the lectures from the server
   const getLectures = async () => {

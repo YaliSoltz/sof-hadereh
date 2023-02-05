@@ -9,6 +9,7 @@ import PersonalSharingProvider from "./personalSharing";
 import ReadingProvider from "./reading";
 import SentenceProvider from "./sentence";
 import SharingProvider from "./sharing";
+import UserProvider from "./user";
 
 const Store = ({ children }) => {
   return (
@@ -22,7 +23,9 @@ const Store = ({ children }) => {
                   <SharingProvider>
                     <ContactUsProvider>
                       <PersonalSharingProvider>
-                        {children}
+                        <UserProvider>
+                          {children}
+                        </UserProvider>
                       </PersonalSharingProvider>
                     </ContactUsProvider>
                   </SharingProvider>

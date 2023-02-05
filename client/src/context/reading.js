@@ -5,7 +5,7 @@ export const ReadingContext = createContext(); // the reading context
 
 const ReadingProvider = ({ children }) => {
   const [readings, setReadings] = useState([]); // all the readings
-  const url = "http://localhost:4040/api/Readings/";
+  const url = "http://localhost:4001/api/Readings/";
 
   // function that pulls all the readings from the server
   const getReadings = async () => {
