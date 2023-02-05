@@ -3,19 +3,22 @@ const Joi = require("joi");
 
 // mongoose schema
 const schema = new mongoose.Schema({
-  title: {
-    type: String,
-    min: 3,
-    required: true,
-  },
   content: {
     type: String,
-    min: 3,
+
+    max: 1024,
     required: true,
   },
   imgUrl: {
-    type: String,
-    min: 3,
+    type: Object,
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
     required: true,
   },
 });
@@ -25,9 +28,8 @@ const Consultation = mongoose.model("Consultation", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  title: Joi.string().min(3).required(),
-  content: Joi.string().min(3).required(),
-  imgUrl: Joi.string().min(3).required(),
+  content: Joi.string().max(1024).required(),
+  imgUrl: Joi.string().required(),
 });
 
 module.exports = { Consultation, joiSchema };
