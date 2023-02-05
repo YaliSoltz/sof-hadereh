@@ -1,0 +1,23 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.header {
+  height: 13%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main {
+  height: 87%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  justify-content: center;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

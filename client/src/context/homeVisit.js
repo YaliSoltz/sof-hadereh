@@ -5,7 +5,7 @@ export const HomeVisitContext = createContext(); // the homeVisit context
 
 const HomeVisitProvider = ({ children }) => {
   const [homeVisits, setHomeVisits] = useState([]); // all the homeVisits
-  const url = "http://localhost:4040/api/homeVisits/";
+  const url = "http://localhost:4001/api/homeVisits/";
 
   // function that pulls all the homeVisits from the server
   const getHomeVisits = async () => {

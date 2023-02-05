@@ -11,14 +11,13 @@ const getAllArticles = async (req, res) => {
 const addNewArticle = async (req, res) => {
   const body = req.body;
   let { title, content, imgUrl } = body;
-  let result;
   try {
-    result = await cloudinary.uploader.upload(imgUrl, {
+    const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
       folder: "Articles",
     });
     imgUrl = {
-      public_id: result.public_id,
-      url: result.secure_url,
+      public_id,
+      url: secure_url,
     };
   } catch (error) {
     return res.status(400).send(error.message);
@@ -32,7 +31,7 @@ const addNewArticle = async (req, res) => {
   let article = new Article({
     title,
     content,
-    imgUrl
+    imgUrl,
   });
 
   // add the article to database

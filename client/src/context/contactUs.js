@@ -5,7 +5,7 @@ export const ContactUsContext = createContext(); // the contactUs context
 
 const ContactUsProvider = ({ children }) => {
   const [contactUs, setContactUs] = useState([]); // all the contactUs
-  const url = "http://localhost:4050/api/contactUs/";
+  const url = "http://localhost:4002/api/contactUs/";
 
   // function that pulls all the contactUs from the server
   const getContactUs = async () => {
