@@ -18,7 +18,7 @@ const {
 
 mongoose.set("strictQuery", true);
 const app = express();
-const port = 4040;
+const port = 4001;
 
 app.use(cors());
 app.use(express.json());

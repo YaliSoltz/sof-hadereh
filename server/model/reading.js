@@ -5,17 +5,32 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   category: {
     type: String,
-    min: 3,
+
+    max: 55,
     required: true,
   },
   name: {
     type: String,
-    min: 3,
+
+    max: 55,
     required: true,
   },
   author: {
     type: String,
-    min: 3,
+
+    max: 55,
+    required: true,
+  },
+  imgUrl: {
+    type: Object,
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
     required: true,
   },
 });
@@ -25,9 +40,10 @@ const Reading = mongoose.model("Reading", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  category: Joi.string().min(3).required(),
-  name: Joi.string().min(3).required(),
-  author: Joi.string().min(3).required(),
+  category: Joi.string().max(55).required(),
+  name: Joi.string().max(55).required(),
+  author: Joi.string().max(55).required(),
+  imgUrl: Joi.string().required(),
 });
 
 module.exports = { Reading, joiSchema };

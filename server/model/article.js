@@ -6,20 +6,24 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   title: {
     type: String,
-    min: 1,
     max: 55,
     required: true,
   },
   content: {
     type: String,
-    min: 1,
     max: 1024,
     required: true,
   },
   imgUrl: {
     type: Object,
-    public_id:String,
-    url:  String,
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
     required: true,
   },
 });
@@ -29,8 +33,9 @@ const Article = mongoose.model("Article", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  title: Joi.string().min(1).max(55).required(),
-  content: Joi.string().min(1).max(1024).required(),
+
+  title: Joi.string().max(55).required(),
+  content: Joi.string().max(1024).required(),
   imgUrl: Joi.string().required(),
 });
 

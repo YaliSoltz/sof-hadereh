@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+require("mongoose-type-email");
+mongoose.SchemaTypes.Email.defaults.message = "Email address is invalid";
 const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 
@@ -6,22 +8,23 @@ const jwt = require("jsonwebtoken");
 const schema = new mongoose.Schema({
   name: {
     type: String,
-    min: 3,
+    max: 55,
     required: true,
   },
   email: {
     type: String,
-    min: 1,
+    required: true,
+    match: /.+\@.+\..+/,
     required: true,
   },
   password: {
     type: String,
-    min: 3,
+    max: 1024,
     required: true,
   },
   role: {
     type: String,
-    min: 3,
+    enum: ["admin"],
     required: true,
   },
 });
@@ -37,10 +40,10 @@ function generateJWT(name, role) {
 
 // joi schema
 const joiSchema = Joi.object({
-  name: Joi.string().min(3).required(),
-  email: Joi.string().min(3).required(),
-  password: Joi.string().min(3).required(),
-  role: Joi.string().min(3).required(),
+  name: Joi.string().max(55).required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().min(8).max(55).required(),
+  role: Joi.string().valid("admin").required(),
 });
 
 module.exports = { User, joiSchema, generateJWT };
