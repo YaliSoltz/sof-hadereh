@@ -15,6 +15,7 @@ const {
   sentence,
 } = require("./routes"); // all the routes
 
+
 mongoose.set("strictQuery", true);
 const app = express();
 const port = 4040;

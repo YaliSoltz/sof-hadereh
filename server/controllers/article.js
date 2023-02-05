@@ -1,5 +1,5 @@
 const { Article, joiSchema } = require("../model/article");
-const cloudinary=require('../utils/cloudinary')
+const cloudinary = require("../utils/cloudinary");
 
 // get all the articles
 const getAllArticles = async (req, res) => {
@@ -10,30 +10,34 @@ const getAllArticles = async (req, res) => {
 // add new article
 const addNewArticle = async (req, res) => {
   const body = req.body;
-  const { title, content, imgUrl } = body;
-  const result=await cloudinary.uploader.upload(imgUrl,{
-    folder:"Articles"
-  })
+  let { title, content, imgUrl } = body;
+  let result;
+  try {
+    result = await cloudinary.uploader.upload(imgUrl, {
+      folder: "Articles",
+    });
+    imgUrl = {
+      public_id: result.public_id,
+      url: result.secure_url,
+    };
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
 
   //joi validation
   const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
-  
-
   // define the new article
   let article = new Article({
     title,
     content,
-    imgUrl:{
-      public_id:result.public_id,
-      url:result.secure_url
-    },
+    imgUrl
   });
 
   // add the article to database
   try {
-    
+    console.log("hello2");
     article = await article.save();
     res.status(201).send(article);
   } catch (error) {
@@ -70,7 +74,7 @@ const deleteArticle = async (req, res) => {
     await Article.findByIdAndDelete(id);
     res.status(201).send("deleted");
   } catch (error) {
-   res.status(400).send(error.message)
+    res.status(400).send(error.message);
   }
 };
 
