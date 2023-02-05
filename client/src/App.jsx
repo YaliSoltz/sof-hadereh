@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <div>
-      <PersonalSharing />
+      <Article/>
     </div>
   );
 

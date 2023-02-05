@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const Joi = require("joi");
 
@@ -32,6 +33,7 @@ const Article = mongoose.model("Article", schema);
 
 // joi schema
 const joiSchema = Joi.object({
+
   title: Joi.string().max(55).required(),
   content: Joi.string().max(1024).required(),
   imgUrl: Joi.string().required(),

@@ -25,7 +25,7 @@ const Article = () => {
     //func that get the image in base64 and add it to newArticle object
     reader.onloadend = () => {
       console.log(reader.result);
-      setNewArticle({ ...newArticle, imgUrl: "reader.result" });
+      setNewArticle({ ...newArticle, imgUrl: reader.result });
     };
   };
 
@@ -34,7 +34,7 @@ const Article = () => {
       <div style={{ display: "flex" }}>
         {articles.map((article, index) => (
           <div className="card" style={{ width: "18rem" }} key={index}>
-            <img src={article.imgUrl} className="card-img-top" alt="..." />
+            <img src={article.imgUrl.url} className="card-img-top" alt="..." />
             <div className="card-body">
               <h5 className="card-title">
                 <span>כותרת: {article.title}</span>
