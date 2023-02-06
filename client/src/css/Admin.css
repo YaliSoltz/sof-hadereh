@@ -1,18 +1,20 @@
-.Container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  .header {
-    height: 13%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .main {
-    height: 87%;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    display: flex;
-    justify-content: center;
-  }
+.header {
+  height: 13vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  background: #ffffe8;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: rgb(40, 39, 36);
+}
