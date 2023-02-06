@@ -1,4 +1,5 @@
 const { Consultation, joiSchema } = require("../model/consultation");
+const cloudinary = require("../utils/cloudinary");
 
 // get all the consultations
 const getAllConsultations = async (req, res) => {
@@ -10,7 +11,17 @@ const getAllConsultations = async (req, res) => {
 const addNewConsultation = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
-
+  try {
+    const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
+      folder: "Articles",
+    });
+    imgUrl = {
+      public_id,
+      url: secure_url,
+    };
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
   //joi validation
   const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
