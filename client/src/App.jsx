@@ -4,6 +4,7 @@ import AdminInterface from "./comp-admin/Admin-interface";
 import UserInterface from "./comp-user/User-interface";
 import { UserContext } from "./context/user";
 import Login from "./login";
+import Article from './components/article'
 
 const App = () => {
   const { token } = useContext(UserContext);
@@ -15,6 +16,7 @@ const App = () => {
         element={token ? <AdminInterface /> : <UserInterface />}
       />
       <Route path="/login" element={<Login />} />
+      <Route path="/add" element={<Article />} />
     </Routes>
   );
 };

@@ -1,18 +1,15 @@
+import React from "react";
 import "../css/Admin.css";
+import Footer from "./footer";
 import Header from "./header";
 import Main from "./main";
 const AdminInterface = () => {
   return (
-    <>
-      <div className="Container">
-        <div className="header">
-          <Header />
-        </div>
-        <div className="main">
-          <Main />
-        </div>
-      </div>
-    </>
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   );
 };
 

@@ -5,19 +5,11 @@ import Header from "./header";
 import Main from "./main";
 const UserInterface = () => {
   return (
-        <>
-      <div className="Container">
-      <div className="header">
-        <Header />
-      </div>
-      <div className="main">
-        <Main />
-      </div>
+    <div>
+      <Header />
+      <Main />
+      <Footer />
     </div>
-      <div className="footer">
-        <Footer />
-      </div>
-    </>
   );
 };
 
