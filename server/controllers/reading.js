@@ -1,4 +1,5 @@
 const { Reading, joiSchema } = require("../model/reading");
+const cloudinary = require("../utils/cloudinary");
 
 // get all the readings
 const getAllReadings = async (req, res) => {
@@ -10,6 +11,18 @@ const getAllReadings = async (req, res) => {
 const addNewReading = async (req, res) => {
   const body = req.body;
   const { category, name, author } = body;
+
+  try {
+    const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
+      folder: "Articles",
+    });
+    imgUrl = {
+      public_id,
+      url: secure_url,
+    };
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
 
   //joi validation
   const { error } = joiSchema.validate(body);

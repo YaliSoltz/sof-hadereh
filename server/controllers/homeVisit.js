@@ -1,4 +1,5 @@
 const { HomeVisit, joiSchema } = require("../model/homeVisit");
+const cloudinary = require("../utils/cloudinary");
 
 // get all the homeVisits
 const getAllHomeVisits = async (req, res) => {
@@ -10,6 +11,20 @@ const getAllHomeVisits = async (req, res) => {
 const addNewHomeVisit = async (req, res) => {
   const body = req.body;
   const { title, content, imgUrl } = body;
+
+  try {
+    const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
+      folder: "homeVisit",
+    });
+    imgUrl = {
+      public_id,
+      url: secure_url,
+    };
+  } catch (error) {
+    return res.status(400).send(error.message);
+  }
+
+
 
   //joi validation
   const { error } = joiSchema.validate(body);
