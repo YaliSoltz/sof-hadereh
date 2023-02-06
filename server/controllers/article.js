@@ -37,7 +37,7 @@ const addNewArticle = async (req, res) => {
 
   // add the article to database
   try {
-    console.log("hello2");
+  
     article = await article.save();
     res.status(201).send(article);
   } catch (error) {

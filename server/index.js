@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const morgan = require("morgan");
-require('dotenv').config()
+
 const {
   lecture,
   consultation,
@@ -24,7 +24,7 @@ const port = 4001;
 app.use(cors());
 app.use(express.json({limit:'20mb'}));
 app.use(morgan("tiny"));
-console.log(process.env.CLOUD_NAME)
+
 
 mongoose // connection to the database
   .connect(

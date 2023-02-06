@@ -1,4 +1,3 @@
-require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -22,4 +21,4 @@ mongoose // connection to the database
 app.use("/api/contactUs", contactUs); //show the contactUs route
 app.use("/api/personalSharings", personalSharing); //show the personalSharing route
 
-app.listen(port, () => {console.log(`Example app listening on port ${port}!`); console.log('ss',process.env.CLOUD_NAME)});
+app.listen(port, () => {console.log(`Example app listening on port ${port}!`)});
