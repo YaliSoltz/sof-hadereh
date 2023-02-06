@@ -15,7 +15,7 @@ const addNewUser = async (req, res) => {
   const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
 
-  const salt = await bcrypt.genSalt(15); // generate the salt
+  const salt = await bcrypt.genSalt(10); // generate the salt
   password = await bcrypt.hash(password, salt); // change the password to hashing password
 
   // define the new user

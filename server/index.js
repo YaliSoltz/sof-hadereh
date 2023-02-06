@@ -20,7 +20,7 @@ const app = express();
 const port = 4001;
 
 app.use(cors());
-app.use(express.json({limit: '20mb'}));
+app.use(express.json({ limit: "20mb" }));
 app.use(morgan("tiny"));
 
 mongoose // connection to the database
