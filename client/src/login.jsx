@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState } from "react";
+import { AiOutlineEye, AiFillEye } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "./context/user";
 
@@ -8,6 +9,7 @@ const Login = () => {
   const { setToken } = useContext(UserContext);
   const [user, setUser] = useState({}); // user object with email and passwsord
   const [show, setShow] = useState(false); // invalid email or password
+  const [showPassEye, setShowPassEye] = useState(false); // show password or not
   const navigate = useNavigate();
 
   // login function that add token to localstorage
@@ -26,10 +28,22 @@ const Login = () => {
       console.log(error.message);
     }
   };
+
+  // function that show the password
+  const showPassword = () => {
+    let input = document.getElementById("password");
+    if (input.type === "password") {
+      input.type = "text";
+      setShowPassEye(true);
+    } else {
+      input.type = "password";
+      setShowPassEye(false);
+    }
+  };
   return (
     <div className="login-main">
       <div className="center">
-        <h1>כניסת מנהל</h1>
+        <h1>כניסת מנהלת </h1>
         <form
           id="form"
           onSubmit={(e) => {
@@ -47,15 +61,20 @@ const Login = () => {
           <div className="txt_field">
             <input
               type="password"
+              id="password"
+              minLength={8}
+              max={64}
               required
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
             <label>סיסמא</label>
+            <span className="password-eye" onClick={() => showPassword()}>
+              {showPassEye ? <AiFillEye /> : <AiOutlineEye />}
+            </span>
           </div>
           <div className="forgot-invalid">
             <span className="forgot-password">שכחת סיסמא?</span>
             <article className="invalid" hidden={!show}>
-              {" "}
               סיסמא או אימייל שגויים
             </article>
           </div>
