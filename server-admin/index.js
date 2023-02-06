@@ -1,11 +1,13 @@
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { contactUs, personalSharing } = require("./routes");
-
 mongoose.set("strictQuery", true);
 const app = express();
-const port = 4050;
+const port = 4002;
+
+
 
 app.use(cors());
 app.use(express.json());
@@ -20,4 +22,4 @@ mongoose // connection to the database
 app.use("/api/contactUs", contactUs); //show the contactUs route
 app.use("/api/personalSharings", personalSharing); //show the personalSharing route
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => {console.log(`Example app listening on port ${port}!`); console.log('ss',process.env.CLOUD_NAME)});
