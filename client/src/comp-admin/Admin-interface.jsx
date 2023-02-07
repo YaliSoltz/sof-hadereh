@@ -7,7 +7,7 @@ const AdminInterface = () => {
   return (
     <div>
       <Header />
-      <Main />
+      
       <Footer />
     </div>
   );
