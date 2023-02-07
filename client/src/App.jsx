@@ -9,14 +9,10 @@ const App = () => {
   const { token } = useContext(UserContext);
 
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={token ? <AdminInterface /> : <UserInterface />}
-      />
-      <Route path="/login" element={<Login />} />
-    </Routes>
-  );
+    <div>
+      {token ? <AdminInterface /> : <UserInterface />}
+    </div>
+  )
 };
 
 export default App;
