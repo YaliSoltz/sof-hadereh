@@ -20,7 +20,6 @@ const Main = () => {
       <Route path="/lectures" element={<Lecture />} />
       <Route path="/personalsharing" element={<PersonalSharing />} />
       <Route path="/reading" element={<Reading />} />
-
     </Routes>
   );
 };

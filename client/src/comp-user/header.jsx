@@ -26,6 +26,7 @@ const Header = (props) => {
         <div className="bar"></div>
       </div>
         
+
         </div>
     );
 }
