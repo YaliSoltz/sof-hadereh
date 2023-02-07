@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/User.css";
-import {GiHamburgerMenu} from 'react-icons/gi'
-const Header = (props) => {
+const Header = () => {
     
   const [isOpen, setIsOpen] = useState(false);
     return (
@@ -10,13 +9,13 @@ const Header = (props) => {
        
        <span className="nav-logo">הסוף הטוב</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-      <Link to='/' className='labelNav'>דף הבית</Link>
-        <Link to='/ ' className='labelNav'>הרצאות</Link>
+      <Link to='/' className='labelNav' >דף הבית</Link>
+        <Link to='/lecture' className='labelNav'>הרצאות</Link>
         <Link to='/' className='labelNav'>ייעוץ משפחתי להוספיס בית</Link>
-        <Link to='/homevisit' className='labelNav'>ביקורי בית פרטיים </Link>
+        <Link to='/' className='labelNav'>ביקורי בית פרטיים </Link>
         <Link to='/article' className='labelNav'>מאמרים</Link>
-        <Link to='/reading' className='labelNav'>המלצות קריאה</Link>
-        <Link to='/' className='labelNav'>מטופלים משתפים</Link>
+        <Link to='/' className='labelNav'>המלצות קריאה</Link>
+        <Link to='/sharing' className='labelNav'>מטופלים משתפים</Link>
         <Link to='/' className='labelNav'>אודות עליי</Link> 
       </div>
       <div
