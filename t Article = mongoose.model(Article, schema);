@@ -1,0 +1,172 @@
+[33mcommit dabcdbddd7fd707e73ce776dbf69588edd543ced[m[33m ([m[1;36mHEAD -> [m[1;32mdan2[m[33m, [m[1;31morigin/dan2[m[33m, [m[1;32mdan1[m[33m)[m
+Author: dan volper <danvolper2205@gmail.com>
+Date:   Mon Feb 6 09:57:21 2023 +0200
+
+    solving git problem
+
+[33mcommit 4042e0b6e511b78ae776be9c493a65de41b0b92b[m[33m ([m[1;31morigin/env-file[m[33m, [m[1;32menv-file[m[33m)[m
+Author: dan volper <danvolper2205@gmail.com>
+Date:   Mon Feb 6 09:45:51 2023 +0200
+
+    context update
+
+[33mcommit 23a8986490c8f4d205f1ecaa475a5c72fd0dc752[m
+Author: dan volper <danvolper2205@gmail.com>
+Date:   Mon Feb 6 09:39:50 2023 +0200
+
+    solving env
+
+[33mcommit 5ff96bd4a092bec27a48399dcd8ab67c4bacfe65[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 345cf99 59dc64e
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sun Feb 5 14:59:56 2023 +0200
+
+    Merge pull request #9 from YaliSoltz/cloudinary-test1
+    
+    adding image to cloudinary
+
+[33mcommit 59dc64e124ae79b5382e490d79aadc8199596d1d[m
+Merge: 395785f 345cf99
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sun Feb 5 14:59:47 2023 +0200
+
+    Merge branch 'main' into cloudinary-test1
+
+[33mcommit 395785f6b5252d4dd71e71c99be972324208b2c7[m[33m ([m[1;31morigin/cloudinary-test1[m[33m, [m[1;32mcloudinary-test1[m[33m)[m
+Author: dan volper <danvolper2205@gmail.com>
+Date:   Sun Feb 5 14:56:37 2023 +0200
+
+    adding image to cloudinary
+
+[33mcommit 345cf99e3e807129a89dad882e8d79d4d33ed461[m
+Merge: 502743a 8e64aff
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sun Feb 5 14:52:51 2023 +0200
+
+    Merge pull request #8 from YaliSoltz/newSchemas
+    
+    set all the schemas
+
+[33mcommit 8e64aff156329307091f2922329ee3b5e8d0076c[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Sun Feb 5 14:52:01 2023 +0200
+
+    set all the schemas
+
+[33mcommit 502743ab31e5610d185d867fc0812368faf510ae[m
+Merge: 48cee47 82a937a
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sat Feb 4 18:53:29 2023 +0200
+
+    Merge pull request #6 from YaliSoltz/adding-image-with-cloudinary
+    
+    adding image to db with cloudinary-check google drive
+
+[33mcommit 82a937a5328d5beda711ef765fe48b5cfa2a52f8[m
+Merge: c6b9d94 48cee47
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sat Feb 4 18:53:21 2023 +0200
+
+    Merge branch 'main' into adding-image-with-cloudinary
+
+[33mcommit 48cee47fb11f122dfd3ce88a724bb300b394f38d[m
+Merge: 6151acd 472550e
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Sat Feb 4 18:41:41 2023 +0200
+
+    Merge pull request #7 from YaliSoltz/addNewContext2
+    
+    added new context: contactUs, homeVisit, lecture, personalSharing, re…
+
+[33mcommit 472550eba2dbf2bc49d945b892b26fafb6b86558[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Sat Feb 4 18:40:53 2023 +0200
+
+    added new context: contactUs, homeVisit, lecture, personalSharing, reading, sentence, sharing and login component
+
+[33mcommit c6b9d941b25190776c37f5a49d0f3091241688f1[m[33m ([m[1;31morigin/adding-image-with-cloudinary[m[33m, [m[1;32madding-image-with-cloudinary[m[33m)[m
+Author: dan volper <danvolper2205@gmail.com>
+Date:   Sat Feb 4 15:56:05 2023 +0200
+
+    adding image to db with cloudinary
+
+[33mcommit 6151acd1127b2bf98cd8ca03855113a77179fd3f[m
+Merge: b76d51a 15c5b3d
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Fri Feb 3 18:41:57 2023 +0200
+
+    Merge pull request #5 from YaliSoltz/newContext
+    
+    add bio and consultation context
+
+[33mcommit 15c5b3d70a7d78f0bd2f2929d80bf4b1aa017034[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Fri Feb 3 18:41:12 2023 +0200
+
+    add bio and consultation context
+
+[33mcommit b76d51aa00a3454d6a42df4cb2458f16b5e2890d[m
+Merge: 36c94a3 1f7c1f3
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Thu Feb 2 17:33:02 2023 +0200
+
+    Merge pull request #4 from YaliSoltz/articleContext
+    
+    set the article context
+
+[33mcommit 1f7c1f36efe56d27b9ba5f9f202bda3acdab60f1[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Thu Feb 2 17:31:52 2023 +0200
+
+    set the article context
+
+[33mcommit 36c94a35f2141590b73566d57165f153f418ea67[m
+Merge: a3d3a21 6390426
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Thu Feb 2 11:14:50 2023 +0200
+
+    Merge pull request #3 from YaliSoltz/set-routes
+    
+    set all the routes in the server
+
+[33mcommit 63904262c26168660c1b4ce73eff57479e14721f[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Thu Feb 2 11:13:38 2023 +0200
+
+    set all the routes in the server
+
+[33mcommit a3d3a21c2709df5219450a72f61f763a3e4fca26[m
+Merge: 723503c 625bacd
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Tue Jan 31 18:37:31 2023 +0200
+
+    Merge pull request #2 from YaliSoltz/newRoutes
+    
+    adding new routes
+
+[33mcommit 625bacddc205d06e3c7244579f00c1f9e0a21d8a[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Tue Jan 31 18:35:28 2023 +0200
+
+    adding new routes
+
+[33mcommit 723503c942e5a6b199c7970c31783bd36e8cbed6[m
+Merge: fddd391 8caa9e9
+Author: yali soltz <117067703+YaliSoltz@users.noreply.github.com>
+Date:   Tue Jan 31 12:19:03 2023 +0200
+
+    Merge pull request #1 from YaliSoltz/connect-db
+    
+    connect to mongoDB at web
+
+[33mcommit 8caa9e9e05acccf9860214e5d5a05850ff8afa6e[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Tue Jan 31 12:16:11 2023 +0200
+
+    connect to mongoDB at web
+
+[33mcommit fddd391cf9eec08d4d519ba4c2b8c1c06f220d85[m
+Author: YaliSoltz <yali.soltz11@gmail.com>
+Date:   Tue Jan 31 09:13:15 2023 +0200
+
+    first commit
