@@ -1,10 +1,11 @@
 import React from "react";
 import "../css/User.css";
-import Footer from "./footer";
+
 import Header from "./header";
 import Article from "./main/article";
 import Bio from "./main/bio";
 import Lecture from "./main/lecture";
+import ContactUs from './contactUs';
 import Sharing from "./main/sharing";
 const UserInterface = ({ id }) => {
   return (
@@ -26,7 +27,7 @@ const UserInterface = ({ id }) => {
           }
         })()}
       </div>
-      <Footer />
+      <ContactUs/>
     </div>
   );
 };

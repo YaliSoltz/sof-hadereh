@@ -10,7 +10,8 @@ const schema = new mongoose.Schema({
   },
   phoneNumber: {
     type: String,
-    min: 3,
+    min: 10,
+    max:10,
     required: true,
   },
   email: {
@@ -36,8 +37,8 @@ const ContactUs = mongoose.model("ContactUs", schema);
 // joi schema
 const joiSchema = Joi.object({
   name: Joi.string().min(3).required(),
-  phoneNumber: Joi.string().min(3).required(),
-  email: Joi.string().min(3).required(),
+  phoneNumber: Joi.string().min(10).max(10).required(),
+  email: Joi.string().min(3).required().email(),
   subject: Joi.string().min(3).required(),
   content: Joi.string().min(3).required(),
 });
