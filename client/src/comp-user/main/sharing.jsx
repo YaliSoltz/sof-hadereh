@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 const Sharing = () => {
   const [newPersonalSharing, setNewPersonalSharing] = useState({}); // new PersonalSharing object
+  const [sended, setSended] = useState(false); // change the modal if the sharing is sended
+  const [open, setOpen] = useState(false); // show the modal or not
 
   // function that add new PersonalSharing and reset the form
   const handleSubmit = async (e) => {
@@ -9,26 +11,13 @@ const Sharing = () => {
     console.log(newPersonalSharing);
 
     document.getElementsByClassName("sharing-form")[0].reset(); // reset the form
-    document.getElementById("status-select")[0].value = ""; // reset the select
-    alert("השיתוף שלך הוא השראה לאנשים אחרים, תודה.");
-    document.getElementsByClassName("modal")[0].style.display = "none"; // close the sharing form
-  };
-
-  // function that open the add sharing form
-  const openModal = () => {
-    document.getElementsByClassName("modal")[0].style.display = "block";
-  };
-
-  // function that close the add sharing form
-  const closeModal = () => {
-    document.getElementsByClassName("modal")[0].style.display = "none";
+    setSended(true);
   };
 
   // When the user clicks anywhere outside of the sharing form it close it
   window.onclick = function (e) {
-    if (e.target === document.getElementsByClassName("modal")[0]) {
-      document.getElementsByClassName("modal")[0].style.display = "none";
-    }
+    if (e.target === document.getElementsByClassName("modal")[0])
+      setOpen(false);
   };
 
   return (
@@ -110,87 +99,97 @@ const Sharing = () => {
         </div>
       </div>
 
-      <button className="modal-open" onClick={() => openModal()}>
+      <button className="modal-open" onClick={() => setOpen(true)}>
         הוספת שיתוף
       </button>
-      <div className="modal">
-        <div className="modal-content">
-          <span className="modal-close" onClick={() => closeModal()}>
-            &times;
-          </span>
+      {open ? (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="modal-close" onClick={() => setOpen(false)}>
+              &times;
+            </span>
 
-          <form
-            className="sharing-form"
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-          >
-            <input
-              name="name"
-              type="text"
-              onChange={(e) =>
-                setNewPersonalSharing({
-                  ...newPersonalSharing,
-                  name: e.target.value,
-                })
-              }
-              placeholder="שם: (מוזמן/ת להישאר אנונימי/ת)"
-            />
+            {sended ? (
+              <div className="sharing-sended">
+                <h1>השיתוף שלך הוא השראה לאנשים אחרים, תודה.</h1>
+              </div>
+            ) : (
+              <form
+                className="sharing-form"
+                onSubmit={(e) => {
+                  handleSubmit(e);
+                }}
+              >
+                <input
+                  name="name"
+                  type="text"
+                  onChange={(e) =>
+                    setNewPersonalSharing({
+                      ...newPersonalSharing,
+                      name: e.target.value,
+                    })
+                  }
+                  placeholder="שם: (מוזמן/ת להישאר אנונימי/ת)"
+                />
 
-            <input
-              name="age"
-              type="number"
-              placeholder="גיל:"
-              min={1}
-              maxLength={2}
-              required
-              onChange={(e) =>
-                setNewPersonalSharing({
-                  ...newPersonalSharing,
-                  age: e.target.value,
-                })
-              }
-            />
-            <select
-              id="status-select"
-              name="status"
-              required
-              defaultValue=""
-              onChange={(e) =>
-                setNewPersonalSharing({
-                  ...newPersonalSharing,
-                  status: e.target.value,
-                })
-              }
-            >
-              <option value="" disabled>
-                סטטוס:
-              </option>
-              <option value="נשוי/נשואה">נשוי/נשואה</option>
-              <option value="רווק/ה">רווק/ה</option>
-              <option value="גרוש/ה">גרוש/ה</option>
-              <option value="אלמן/ה">אלמן/ה</option>
-              <option value="ערירי/ת">ערירי/ת</option>
-            </select>
+                <input
+                  name="age"
+                  type="number"
+                  placeholder="גיל:"
+                  min={1}
+                  maxLength={2}
+                  required
+                  onChange={(e) =>
+                    setNewPersonalSharing({
+                      ...newPersonalSharing,
+                      age: e.target.value,
+                    })
+                  }
+                />
+                <select
+                  id="status-select"
+                  name="status"
+                  required
+                  defaultValue=""
+                  onChange={(e) =>
+                    setNewPersonalSharing({
+                      ...newPersonalSharing,
+                      status: e.target.value,
+                    })
+                  }
+                >
+                  <option value="" disabled>
+                    סטטוס:
+                  </option>
+                  <option value="נשוי/נשואה">נשוי/נשואה</option>
+                  <option value="רווק/ה">רווק/ה</option>
+                  <option value="גרוש/ה">גרוש/ה</option>
+                  <option value="אלמן/ה">אלמן/ה</option>
+                  <option value="ערירי/ת">ערירי/ת</option>
+                </select>
 
-            <textarea
-              placeholder="הסיפור שלך.."
-              required
-              onChange={(e) =>
-                setNewPersonalSharing({
-                  ...newPersonalSharing,
-                  content: e.target.value,
-                })
-              }
-            ></textarea>
-            <div>
-              <button type="submit" className="send">
-                שלח/י
-              </button>
-            </div>
-          </form>
+                <textarea
+                  placeholder="הסיפור שלך.."
+                  required
+                  onChange={(e) =>
+                    setNewPersonalSharing({
+                      ...newPersonalSharing,
+                      content: e.target.value,
+                    })
+                  }
+                ></textarea>
+                <div>
+                  <button type="submit" className="send">
+                    שלח/י
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };
