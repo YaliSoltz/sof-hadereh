@@ -93,7 +93,7 @@ body {
   display: flex;
   justify-content:baseline;
   align-items: center;
-  background:linear-gradient(to right,#98b9b4,#e4e4c0 ,#ECB390);  
+  background:linear-gradient(to right,#98b9b4,#e4e4c0 ,#ECB390);
 }
 .Navbar > .nav-logo {
   font-weight: 700;
