@@ -152,7 +152,7 @@ body {
 }
 
 .modal {
-  display: none;
+  /* display: none; */
   position: fixed;
   z-index: 1;
   padding-top: 20vh;
@@ -239,6 +239,14 @@ textarea {
 
 .send:hover {
   background-color: #45a049;
+}
+
+/* --------------------------------after sending the sharing--------------------------------------- */
+.sharing-sended{
+  display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
 }
 
 /* ----------------------------------------phone---------------------------------------------------- */
