@@ -42,8 +42,11 @@ const ContactUs = () => {
     
   // }, [errors]);
   return (
-      <div className="form m-3">
-        <h1> נשמח לשמוע ממך</h1>
+      <div className="container">
+        <div className="contact-box">
+        <div className="left"></div>
+        <div className="right">
+        <h2> נשמח לשמוע ממך</h2>
         <form
           id="form"
           onSubmit={(e) => {
@@ -53,7 +56,7 @@ const ContactUs = () => {
         >
           <input
             type="text"
-            className="form-control mb-3"
+            class="field"
             placeholder="שם:"
             // required
             name="name"
@@ -63,13 +66,12 @@ const ContactUs = () => {
             }
 
           />
-          {errors.name && <p> {errors.name}</p> } 
-          <br/>
+          {errors.name && <p className="error"> {errors.name}</p> } 
           <input
           
             id="phone"
             type="number"
-            className="form-control mb-3"
+            class="field"
             placeholder="טלפון:"
             minLength={10}
             // required
@@ -78,11 +80,10 @@ const ContactUs = () => {
             onChange={(e) =>
               setNewContactUs({...newContactUs,phoneNumber:e.target.value})            }
           />
-           {errors.phoneNumber && <p> {errors.phoneNumber}</p> } 
-          <br/>
+           {errors.phoneNumber && <p className="error"> {errors.phoneNumber}</p> } 
           <input
             type="email"
-            className="form-control mb-3"
+            class="field"
             placeholder="אימייל:"
             // required
             name="email"
@@ -90,11 +91,10 @@ const ContactUs = () => {
             onChange={(e) =>
               setNewContactUs({...newContactUs,email:e.target.value})            }
           />
-          {errors.email && <p> {errors.email}</p> } 
-          <br/>
+          {errors.email && <p className="error"> {errors.email}</p> } 
           <input
             type="text"
-            className="form-control mb-3"
+            class="field"
             placeholder="נושא:"
             // required
             name="subject"
@@ -102,11 +102,10 @@ const ContactUs = () => {
             onChange={(e) =>
               setNewContactUs({...newContactUs,subject:e.target.value})            }
           />
-          {errors.subject && <p> {errors.subject}</p> } 
-          <br/>
+          {errors.subject && <p className="error"> {errors.subject}</p> } 
           <input
             type="text"
-            className="form-control mb-3"
+            class="field"
             placeholder="תוכן:"
             // required
             name="content"
@@ -114,19 +113,20 @@ const ContactUs = () => {
             onChange={(e) =>
               setNewContactUs({...newContactUs,content:e.target.value})            }
           /> 
-          <br/> 
-          {errors.content && <p> {errors.content}</p> } 
-          <button type="submit" className="btn btn-primary m-2">
+          
+          {errors.content && <p className="error"> {errors.content}</p> } 
+
+          <button className='add' type="submit">
             הוספה
           </button>
-          
-
-          <button type="reset" className="btn btn-secondary m-2">
+          <button  className="delete" type="reset" >
             מחיקה
           </button>
-         <alert> </alert>
+         
 
         </form>
+          </div>
+        </div>
       </div>
     
   );

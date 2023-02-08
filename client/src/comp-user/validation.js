@@ -1,3 +1,4 @@
+// validtion file for user input in contactUs
 const Validation=(newContactUs)=>{
 let errors={};
 if (!newContactUs.name){
