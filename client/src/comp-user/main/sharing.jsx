@@ -23,11 +23,6 @@ const Sharing = () => {
   return (
     <div className="sharing-container">
       <div className="card">
-        <img
-          className="card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
         <h3 className="card-title">שם</h3>
         <h3 className="card-title">מצב משפחתי</h3>
         <h3 className="card-title">הסיפור שלי</h3>
@@ -44,11 +39,6 @@ const Sharing = () => {
         </div>
       </div>
       <div className="card">
-        <img
-          className="card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
         <h3 className="card-title">שם</h3>
         <h3 className="card-title">מצב משפחתי</h3>
         <h3 className="card-title">הסיפור שלי</h3>
@@ -78,11 +68,6 @@ const Sharing = () => {
         </div>
       </div>
       <div className="card">
-        <img
-          className="card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
         <h3 className="card-title">שם</h3>
         <h3 className="card-title">מצב משפחתי</h3>
         <h3 className="card-title">הסיפור שלי</h3>
