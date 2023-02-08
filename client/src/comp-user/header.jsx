@@ -14,7 +14,7 @@ const Header = () => {
         <Link to='/' className='labelNav'>ייעוץ משפחתי להוספיס בית</Link>
         <Link to='/' className='labelNav'>ביקורי בית פרטיים </Link>
         <Link to='/article' className='labelNav'>מאמרים</Link>
-        <Link to='/' className='labelNav'>המלצות קריאה</Link>
+        <Link to='/reading' className='labelNav'>המלצות קריאה</Link>
         <Link to='/sharing' className='labelNav'>מטופלים משתפים</Link>
         <Link to='/' className='labelNav'>אודות עליי</Link> 
       </div>

@@ -7,6 +7,7 @@ import Bio from "./main/bio";
 import Lecture from "./main/lecture";
 import ContactUs from './contactUs';
 import Sharing from "./main/sharing";
+import Reading from "./main/reading";
 const UserInterface = ({ id }) => {
   return (
     <div>
@@ -22,6 +23,8 @@ const UserInterface = ({ id }) => {
               return <Lecture />;
             case 3:
               return <Bio />;
+            case 4:
+              return <Reading />;
             default:
               return;
           }

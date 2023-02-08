@@ -32,6 +32,10 @@ const App = () => {
         path="/bio"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={3} />}
       />
+      <Route
+        path="/reading"
+        element={token ? <AdminInterface id={3} /> : <UserInterface id={4} />}
+      />
 
       <Route path="/login" element={<Login />} />
       <Route path="/add" element={<Lecture />} />
