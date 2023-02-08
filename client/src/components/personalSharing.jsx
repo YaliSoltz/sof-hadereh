@@ -6,7 +6,7 @@ const PersonalSharing = () => {
   const { personalSharings, addNewPersonalSharing, deletePersonalSharing } =
     useContext(PersonalSharingContext);
 
-  const [newPersonalSharing, setNewPersonalSharing] = useState({}); // new PersonalSharing object
+    const [newPersonalSharing, setNewPersonalSharing] = useState({}); // new PersonalSharing object
 
   // function that add new PersonalSharing and reset the form
   const handleSubmit = async (e) => {

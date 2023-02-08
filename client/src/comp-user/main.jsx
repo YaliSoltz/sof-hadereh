@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Article from "./main/article";
 import Bio from "./main/bio";
 import Lecture from "./main/lecture";
-import PersonalSharing from "./main/personalSharing";
+import PersonalSharing from "./main/sharing";
 const Main = () => {
   return (
     <div className="main">
