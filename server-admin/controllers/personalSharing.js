@@ -9,17 +9,19 @@ const getAllPersonalSharing = async (req, res) => {
 // add new personalSharing
 const addNewPersonalSharing = async (req, res) => {
   const body = req.body;
-  const { name = 'אלמוני/ת', age, city, content } = body;
-
+  let { name = 'אלמוני/ת', age, status, content } = body;
+  
   //joi validation
   const { error } = joiSchema.validate(body);
   if (error) return res.status(400).send(error.message);
-
+  
+  age = parseInt(age)
+  
   // define the new personalSharing
   let personalSharing = new PersonalSharing({
     name,
     age,
-    city,
+    status,
     content,
   });
 
