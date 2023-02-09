@@ -15,14 +15,14 @@ body {
 .sharing-container {
   display: grid;
   justify-items: center;
-  gap: 4em;
+  gap: 3em;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   padding-bottom: 3%;
 }
 
 .sharing-container .card {
-  width: 40vw;
+  width: 35vw;
   min-width: 20em;
   height: 80vh;
   background-color: white;
@@ -131,18 +131,26 @@ body {
 /* the open button */
 .modal-open {
   position: fixed;
-  left: 2vw;
+  left: 1vw;
   bottom: 6vh;
-  width: 50px;
+  width: 55px;
   height: 50px;
   border-radius: 50px;
   cursor: pointer;
   color: white;
-  background: rgb(191, 181, 181);
+  background: rgb(5, 100, 124);
+  background-size: 100% auto;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  transition: all 0.3s ease-in-out;
+
+  
 }
 
 .modal-open:hover {
-  background: rgb(166, 158, 158);
+  background: rgb(13, 148, 158);
+  box-shadow: 2px 5px 0 0 black;
+  transform: translateY(-4px) translateX(-2px);
 }
 
 .modal {
@@ -156,6 +164,12 @@ body {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease-in-out;
+  
+}
+.modal-open:active{
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 black;
 }
 
 /* modal Content */

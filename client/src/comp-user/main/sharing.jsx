@@ -100,7 +100,7 @@ const Sharing = () => {
       </div>
 
       <button className="modal-open" onClick={() => setOpen(true)}>
-        הוספת שיתוף
+      הוספת שיתוף
       </button>
       {open ? (
         <div className="modal">
