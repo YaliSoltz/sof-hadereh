@@ -4,8 +4,16 @@ body {
   word-wrap: break-word;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 p {
   font-family: "Noto Sans Hebrew";
+}
+
+a {
+  cursor: pointer;
 }
 
 .Main {
@@ -413,15 +421,13 @@ textarea {
   position: relative;
 }
 
-.credit-text{
+.credit-text {
   position: absolute;
-font-size: 22px;
-font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 22px;
+  font-family: Georgia, "Times New Roman", Times, serif;
   bottom: 20px;
-  color: #f9DD95;
-
+  color: #f9dd95;
 }
-
 
 /* -----------------------------------------------reading----------------------------------------- */
 
@@ -525,4 +531,3 @@ font-family:Georgia, 'Times New Roman', Times, serif;
   max-width: 30%;
   float: right;
 }
-
