@@ -13,7 +13,7 @@ const addNewConsultation = async (req, res) => {
   const { title, content, imgUrl } = body;
   try {
     const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
-      folder: "Articles",
+      folder: "Consultations",
     });
     imgUrl = {
       public_id,

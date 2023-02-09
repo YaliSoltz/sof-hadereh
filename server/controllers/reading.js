@@ -10,11 +10,11 @@ const getAllReadings = async (req, res) => {
 // add new reading
 const addNewReading = async (req, res) => {
   const body = req.body;
-  const { category, name, author } = body;
+  let { category, imgUrl } = body;
 
   try {
     const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
-      folder: "Articles",
+      folder: "Readings",
     });
     imgUrl = {
       public_id,
@@ -31,8 +31,7 @@ const addNewReading = async (req, res) => {
   // define the new reading
   let reading = new Reading({
     category,
-    name,
-    author,
+    imgUrl,
   });
 
   // add the reading to database
@@ -48,7 +47,7 @@ const addNewReading = async (req, res) => {
 const changeReading = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  const { category, name, author } = body;
+  const { category, imgUrl } = body;
 
   // check if there are inserted values when update
   if (Object.keys(body).length === 0)
@@ -58,7 +57,7 @@ const changeReading = async (req, res) => {
   try {
     const reading = await Reading.updateOne(
       { _id: id },
-      { $set: { category, name, author } }
+      { $set: { category, imgUrl } }
     );
     res.status(201).send(reading);
   } catch (error) {
@@ -73,7 +72,7 @@ const deleteReading = async (req, res) => {
     await Reading.findByIdAndDelete(id);
     res.status(201).send("deleted");
   } catch (error) {
-   res.status(400).send(error.message)
+    res.status(400).send(error.message);
   }
 };
 
