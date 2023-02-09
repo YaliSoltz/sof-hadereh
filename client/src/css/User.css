@@ -551,11 +551,12 @@ textarea {
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto;
+  transform-origin: 60% 20%;
+  transition: transform 1s, filter .5s ease-out;
 }
 
 .book:hover {
-  width: 240px;
-  height: 360px;
+  transform: scale(2);
 }
 
 .books-category {
@@ -566,8 +567,6 @@ textarea {
 
 /* ----------------------------------------------bio-------------------------------------------- */
 
-.bio-container {
-}
 
 .bio-text {
   padding-top: 2vh;
@@ -580,7 +579,7 @@ textarea {
   padding-top: 8vh;
 }
 
-.bio-container img {
+.bio-img {
   height: 70vh;
   max-width: 30%;
   float: right;
