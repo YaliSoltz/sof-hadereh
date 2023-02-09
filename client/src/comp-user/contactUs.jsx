@@ -39,7 +39,7 @@ const ContactUs = () => {
       <h2> נשמח לשמוע ממך</h2>
       <form
         id="form"
-        onSubmit={(e) => {
+        onSubmit={(e) => { 
           handleSubmit(e);
         }}
       >
