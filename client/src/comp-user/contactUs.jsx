@@ -34,95 +34,95 @@ const ContactUs = () => {
   // }, [errors]);
 
   return (
-    <div className="contact-container">
-      <div className="contact-box">
-        <div className="left"></div>
-        <div className="right">
-          <h2> נשמח לשמוע ממך</h2>
-          <form
-            id="form"
-            onSubmit={(e) => {
-              handleSubmit(e);
-            }}
-          >
-            <input
-              type="text"
-              class="field"
-              placeholder="שם:"
-              // required
-              name="name"
-              value={newContactUs.name}
-              onChange={(e) =>
-                setNewContactUs({ ...newContactUs, name: e.target.value })
-              }
-            />
-            {errors.name && <p className="error"> {errors.name}</p>}
-            <input
-              id="phone"
-              type="number"
-              class="field"
-              placeholder="טלפון:"
-              minLength={10}
-              // required
-              name="phoneNumber"
-              value={newContactUs.phoneNumber}
-              onChange={(e) =>
-                setNewContactUs({
-                  ...newContactUs,
-                  phoneNumber: e.target.value,
-                })
-              }
-            />
-            {errors.phoneNumber && (
-              <p className="error"> {errors.phoneNumber}</p>
-            )}
-            <input
-              type="email"
-              class="field"
-              placeholder="אימייל:"
-              // required
-              name="email"
-              value={newContactUs.email}
-              onChange={(e) =>
-                setNewContactUs({ ...newContactUs, email: e.target.value })
-              }
-            />
-            {errors.email && <p className="error"> {errors.email}</p>}
-            <input
-              type="text"
-              class="field"
-              placeholder="נושא:"
-              // required
-              name="subject"
-              value={newContactUs.subject}
-              onChange={(e) =>
-                setNewContactUs({ ...newContactUs, subject: e.target.value })
-              }
-            />
-            {errors.subject && <p className="error"> {errors.subject}</p>}
-            <input
-              type="text"
-              class="field"
-              placeholder="תוכן:"
-              // required
-              name="content"
-              value={newContactUs.content}
-              onChange={(e) =>
-                setNewContactUs({ ...newContactUs, content: e.target.value })
-              }
-            />
+    <div className="contact-box">
+      <h2> נשמח לשמוע ממך</h2>
+      <form
+        id="form"
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        {errors.name && <span className="error"> {errors.name}</span>}
 
-            {errors.content && <p className="error"> {errors.content}</p>}
+        <input
+          type="text"
+          className="field"
+          placeholder="שם:"
+          // required
+          name="name"
+          value={newContactUs.name}
+          onChange={(e) =>
+            setNewContactUs({ ...newContactUs, name: e.target.value })
+          }
+        />
 
-            <button className="add" type="submit">
-              הוספה
-            </button>
-            <button className="delete" type="reset">
-              מחיקה
-            </button>
-          </form>
-        </div>
-      </div>
+        {errors.phoneNumber && (
+          <span className="error"> {errors.phoneNumber}</span>
+        )}
+
+        <input
+          id="phone"
+          type="number"
+          className="field"
+          placeholder="טלפון:"
+          minLength={10}
+          // required
+          name="phoneNumber"
+          value={newContactUs.phoneNumber}
+          onChange={(e) =>
+            setNewContactUs({
+              ...newContactUs,
+              phoneNumber: e.target.value,
+            })
+          }
+        />
+
+        {errors.email && <span className="error"> {errors.email}</span>}
+
+        <input
+          type="email"
+          className="field"
+          placeholder="אימייל:"
+          // required
+          name="email"
+          value={newContactUs.email}
+          onChange={(e) =>
+            setNewContactUs({ ...newContactUs, email: e.target.value })
+          }
+        />
+
+        {errors.subject && <span className="error"> {errors.subject}</span>}
+
+        <input
+          type="text"
+          className="field"
+          placeholder="נושא:"
+          // required
+          name="subject"
+          value={newContactUs.subject}
+          onChange={(e) =>
+            setNewContactUs({ ...newContactUs, subject: e.target.value })
+          }
+        />
+
+        {errors.content && <span className="error"> {errors.content}</span>}
+
+        <input
+          type="text"
+          className="field"
+          placeholder="תוכן:"
+          // required
+          name="content"
+          value={newContactUs.content}
+          onChange={(e) =>
+            setNewContactUs({ ...newContactUs, content: e.target.value })
+          }
+        />
+
+        <button className="add" type="submit">
+          שליחת הודעה
+        </button>
+      </form>
     </div>
   );
 };
