@@ -17,23 +17,23 @@ const App = () => {
         element={token ? <AdminInterface /> : <UserInterface />}
       />
       <Route
-        path="/article"
+        path="/articles"
         element={token ? <AdminInterface id={0} /> : <UserInterface id={0} />}
       />
       <Route
-        path="/sharing"
+        path="/sharings"
         element={token ? <AdminInterface id={1} /> : <UserInterface id={1} />}
       />
       <Route
-        path="/lecture"
+        path="/lectures"
         element={token ? <AdminInterface id={2} /> : <UserInterface id={2} />}
       />
       <Route
-        path="/bio"
+        path="/about-me"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={3} />}
       />
       <Route
-        path="/reading"
+        path="/readings"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={4} />}
       />
 

@@ -26,11 +26,13 @@ const ContactUs = () => {
     console.log(newContactUs);
     document.getElementById("form").reset(); // reset the form
   };
+
   // useEffect(() => {
   //   if(Object.keys(errors).length===0 &&)
   //   alert('נשלח בהצלחה')
 
   // }, [errors]);
+
   return (
     <div className="contact-container">
       <div className="contact-box">

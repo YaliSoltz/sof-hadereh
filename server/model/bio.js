@@ -5,7 +5,6 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   content: {
     type: String,
-
     max: 1024,
     required: true,
   },

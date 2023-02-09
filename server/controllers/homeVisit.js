@@ -14,7 +14,7 @@ const addNewHomeVisit = async (req, res) => {
 
   try {
     const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
-      folder: "homeVisit",
+      folder: "HomeVisits",
     });
     imgUrl = {
       public_id,
