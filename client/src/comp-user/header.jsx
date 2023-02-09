@@ -8,18 +8,10 @@ const Header = () => {
     <div className="Navbar">
       <span className="nav-logo">הסוף הטוב</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <Link
-          to="/about-me"
-          className="labelNav"
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to="/about-me" onClick={() => window.scrollTo(0, 0)}>
           אודות
         </Link>
-        <Link
-          to="/lectures"
-          className="labelNav"
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to="/lectures" onClick={() => window.scrollTo(0, 0)}>
           הרצאות
         </Link>
         <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
@@ -28,29 +20,16 @@ const Header = () => {
         <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
           ביקורי בית פרטיים
         </Link>
-        <Link
-          to="/articles"
-          className="labelNav"
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to="/articles" onClick={() => window.scrollTo(0, 0)}>
           מאמרים
         </Link>
-        <Link
-          to="/readings"
-          className="labelNav"
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to="/readings" onClick={() => window.scrollTo(0, 0)}>
           המלצות קריאה
         </Link>
-        <Link
-          to="/sharings"
-          className="labelNav"
-          onClick={() => window.scrollTo(0, 0)}
-        >
+        <Link to="/sharings" onClick={() => window.scrollTo(0, 0)}>
           מטופלים משתפים
         </Link>
         <a
-          className="labelNav"
           onClick={(e) => {
             e.preventDefault();
             window.scrollTo(0, 100000);
