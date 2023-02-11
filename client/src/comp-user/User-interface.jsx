@@ -8,6 +8,7 @@ import Lecture from "./main/lecture";
 import Sharing from "./main/sharing";
 import Reading from "./main/reading";
 import Footer from "./footer";
+import Page404 from "./main/page404";
 const UserInterface = ({ id }) => {
   return (
     <div>
@@ -25,6 +26,8 @@ const UserInterface = ({ id }) => {
               return <Bio />;
             case 4:
               return <Reading />;
+            case 5:
+              return <Page404 />;
             default:
               return;
           }

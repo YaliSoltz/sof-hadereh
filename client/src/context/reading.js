@@ -27,12 +27,14 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                <span
-                  className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
-                >
-                  &times;
-                </span>
+                {true && (
+                  <span
+                    className="delete-book"
+                    onClick={() => deleteReading(reading._id)}
+                  >
+                    &times;
+                  </span>
+                )}
               </div>
             </div>
           );
@@ -44,12 +46,14 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                <span
-                  className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
-                >
-                  &times;
-                </span>
+                {true && (
+                  <span
+                    className="delete-book"
+                    onClick={() => deleteReading(reading._id)}
+                  >
+                    &times;
+                  </span>
+                )}
               </div>
             </div>
           );
@@ -61,12 +65,14 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                <span
-                  className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
-                >
-                  &times;
-                </span>
+                {true && (
+                  <span
+                    className="delete-book"
+                    onClick={() => deleteReading(reading._id)}
+                  >
+                    &times;
+                  </span>
+                )}
               </div>
             </div>
           );
@@ -78,12 +84,14 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                <span
-                  className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
-                >
-                  &times;
-                </span>
+                {true && (
+                  <span
+                    className="delete-book"
+                    onClick={() => deleteReading(reading._id)}
+                  >
+                    &times;
+                  </span>
+                )}
               </div>
             </div>
           );
