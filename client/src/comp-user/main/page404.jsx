@@ -5,7 +5,7 @@ const Page404 = () => {
   return (
     <div className="page404">
       <h1>404 Error</h1>
-      <h1>העמוד שאתם מחפשים לא קיים - לחזרה אל דף הבית לחץ על האוגר.</h1>
+      <h1>העמוד שאתם מחפשים לא קיים - לחזרה אל דף הבית לחצו על האוגר.</h1>
       <Link to="/">
         <div
           aria-label="Orange and tan hamster running in a metal wheel"
