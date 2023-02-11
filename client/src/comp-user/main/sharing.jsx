@@ -29,29 +29,27 @@ const Sharing = () => {
 
   return (
     <div className="sharing-container">
-
-      {sharings.map((sharing, index) => 
-         <div className="sharing-card" key={index}>
-         <img
-           className="sharing-card-img"
-           src={sharing.imgUrl.url}
-           alt="IMG"
-         />
-         <h3 className="sharing-card-title">שם: {sharing.name}</h3>
-         <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
-         <h3 className="sharing-card-title">הסיפור שלי</h3>
-         <div className="sharing-card-content">
-         <div>
+      {/* need to check if server connected */}
+      {sharings.map((sharing, index) => (
+        <div className="sharing-card" key={index}>
+          <img
+            className="sharing-card-img"
+            src={sharing.imgUrl.url}
+            alt="IMG"
+          />
+          <h3 className="sharing-card-title">שם: {sharing.name}</h3>
+          <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
+          <h3 className="sharing-card-title">הסיפור שלי</h3>
+          <div className="sharing-card-content">
+            <div>
               {/* need to check if work */}
               {sharing.content.split(".").map((word, index) => (
-                <p key={index}>
-                  {word + "."}
-                </p>
+                <p key={index}>{word + "."}</p>
               ))}
             </div>
-         </div>
-       </div>
-      )}
+          </div>
+        </div>
+      ))}
       <div className="sharing-card">
         <img
           className="sharing-card-img"
