@@ -7,7 +7,8 @@ import Validation from "./validation";
 const ContactUs = () => {
   const { addNewContactUs } = useContext(ContactUsContext);
 
-  const [newContactUs, setNewContactUs] = useState({ // new ContactUs object
+  // new ContactUs object
+  const [newContactUs, setNewContactUs] = useState({
     name: "",
     phoneNumber: "",
     email: "",
@@ -20,11 +21,11 @@ const ContactUs = () => {
   // function that add new ContactUs and reset the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrors(Validation(newContactUs));
-    if(Object.keys(errors).length>0) return
-    // addNewContactUs(newContactUs); // add newContactUs to database
+
+    setErrors(Validation(newContactUs)); // validate the inputs
+    if (Object.keys(errors).length > 0) return;
+    addNewContactUs(newContactUs); // add newContactUs to database
     document.getElementById("form").reset(); // reset the form
-    console.log(newContactUs);
   };
 
   // useEffect(() => {
@@ -38,7 +39,7 @@ const ContactUs = () => {
       <h2> נשמח לשמוע ממך</h2>
       <form
         id="form"
-        onSubmit={(e) => { 
+        onSubmit={(e) => {
           handleSubmit(e);
         }}
       >
@@ -47,7 +48,6 @@ const ContactUs = () => {
             type="text"
             className="field"
             placeholder="שם:"
-            // required
             name="name"
             value={newContactUs.name}
             onChange={(e) =>
@@ -64,7 +64,6 @@ const ContactUs = () => {
             className="field"
             placeholder="טלפון:"
             minLength={10}
-            // required
             name="phoneNumber"
             value={newContactUs.phoneNumber}
             onChange={(e) =>
@@ -84,7 +83,6 @@ const ContactUs = () => {
             type="email"
             className="field"
             placeholder="אימייל:"
-            // required
             name="email"
             value={newContactUs.email}
             onChange={(e) =>
@@ -99,7 +97,6 @@ const ContactUs = () => {
             type="text"
             className="field"
             placeholder="נושא:"
-            // required
             name="subject"
             value={newContactUs.subject}
             onChange={(e) =>
@@ -114,7 +111,6 @@ const ContactUs = () => {
             type="text"
             className="field"
             placeholder="תוכן:"
-            // required
             name="content"
             value={newContactUs.content}
             onChange={(e) =>
@@ -127,9 +123,8 @@ const ContactUs = () => {
           שליחת הודעה
         </button>
       </form>
-    
-        <p className="credit-text">אפיון, עיצוב ובניה ע"י דן וולפר ויה-לי סולץ</p>
-        
+
+      <p className="credit-text">אפיון, עיצוב ובניה ע"י דן וולפר ויה-לי סולץ</p>
     </div>
   );
 };
