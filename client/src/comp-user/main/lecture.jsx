@@ -15,14 +15,17 @@ const Lecture = () => {
       {/* need to check if server connected */}
       {lectures.map((lecture, index) => (
         <div className="lecture-card" key={index}>
-          <img className="lecture-card-img" src={lecture.imgUrl.url} alt="IMG" />
+          <img
+            className="lecture-card-img"
+            src={lecture.imgUrl.url}
+            alt="IMG"
+          />
           <h3 className="lecture-card-title">{lecture.title}</h3>
           <div className="lecture-card-content">
             <div>
+              {/* need to check if work */}
               {lecture.content.split(".").map((word, index) => (
-                <p key={index}>
-                  {word + "."}
-                </p>
+                <p key={index}>{word + "."}</p>
               ))}
             </div>
           </div>

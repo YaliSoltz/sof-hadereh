@@ -33,7 +33,7 @@ a {
   padding-bottom: 3%;
 }
 
-.sharing-container .card {
+.sharing-card {
   width: 33vw;
   min-width: 20em;
   height: 80vh;
@@ -41,13 +41,13 @@ a {
   border-radius: 30px;
 }
 
-.sharing-container .card-img {
+.sharing-card-img {
   height: 30%;
   width: 100%;
   border-radius: 30px 30px 0 0;
 }
 
-.sharing-container .card-content {
+.sharing-card-content {
   overflow-y: auto;
   height: 30vh;
   padding: 0px 10% 0 10%;

@@ -11,7 +11,7 @@ import {
 const Article = () => {
   const { articles } = useContext(ArticleContext);
   return (
-    <Container>
+    <Container sx={{paddingBottom: '4em'}}>
       <Grid container spacing={16}>
         {articles.map((article, index) => (
           <Grid item xs={12} sm={6} key={index}>
