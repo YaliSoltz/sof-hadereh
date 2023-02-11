@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../../images/profile.png";
+import profile from "../../images/profile4.png";
 
 const Bio = () => {
   let content =
@@ -11,10 +11,12 @@ const Bio = () => {
   ));
 
   return (
-    <div>
+    <div className="bio">
       <img className="bio-img" src={profile} alt="profile" />
-      <h1 className="bio-title">אז מי אני?</h1>
-      <div>{content}</div>
+      <div>
+        <h1 className="bio-title">אז מי אני?</h1>
+        <div>{content}</div>
+      </div>
     </div>
   );
 };
