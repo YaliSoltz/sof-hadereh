@@ -4,7 +4,9 @@ import AdminInterface from "./comp-admin/Admin-interface";
 import UserInterface from "./comp-user/User-interface";
 import { UserContext } from "./context/user";
 import Login from "./login";
-import Reading from "./components/reading";
+
+import ContactUs from './comp-user/admin/contactUs';
+
 
 const App = () => {
   const { token } = useContext(UserContext);
@@ -41,7 +43,9 @@ const App = () => {
       />
 
       <Route path="/login" element={<Login />} />
-      <Route path="/add" element={<Reading />} />
+
+      <Route path="/add" element={<ContactUs />} />
+
     </Routes>
   );
 };

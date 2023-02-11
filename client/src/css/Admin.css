@@ -8,7 +8,7 @@
 .main {
   padding-top: 5%;
   padding-bottom: 5%;
-  background: #ffffe8;
+  background: #f1f1c0;
 }
 
 .footer {
@@ -18,3 +18,24 @@
   color: white;
   background: rgb(40, 39, 36);
 }
+
+
+/* ----------------contact Us ------------------ */
+.deletecontactUs {
+  font-size: 17px;
+  padding: 0.5em 2em;
+  border: transparent;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+  background: rgb(161, 27, 4);
+  color: white;
+  border-radius: 4px;
+ }
+ 
+ .deletecontactUs:hover {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgb(255, 30, 30) 0%, rgb(255, 174, 0) 100%);
+ }
+ 
+ .deletecontactUs:active {
+  transform: translate(0em, 0.2em);
+ }

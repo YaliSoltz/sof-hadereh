@@ -28,10 +28,10 @@ const ContactUs = () => {
     document.getElementById("form").reset(); // reset the form
   };
 
-  // useEffect(() => {
-  //   if(Object.keys(errors).length===0 &&)
-  //   alert('נשלח בהצלחה')
-  // }, [errors]);
+  useEffect(() => {
+    if(Object.keys(errors).length===0 && (newContactUs.name!=="")&& (newContactUs.phoneNumber!=="")&& (newContactUs.email!=="")&& (newContactUs.subject!=="")&& (newContactUs.content!==""))
+    alert('נשלח בהצלחה')
+  }, [errors]);
 
   return (
     <div className="contact-box">
