@@ -9,7 +9,7 @@ const getAllSharings = async (req, res) => {
 // add new sharing
 const addNewSharing = async (req, res) => {
   const body = req.body;
-  const { name, age, status, content } = body;
+  const { name='אלמוני/ת', age, status, content } = body;
 
   //joi validation
   const { error } = joiSchema.validate(body);
