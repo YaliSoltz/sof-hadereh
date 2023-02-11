@@ -25,7 +25,7 @@ const Lecture = () => {
     //func that get the image in base64 and add it to newLecture object
     reader.onloadend = () => {
       console.log(reader.result);
-      setNewLecture({ ...newLecture, imgUrl: "reader.result" });
+      setNewLecture({ ...newLecture, imgUrl: reader.result });
     };
   };
 
