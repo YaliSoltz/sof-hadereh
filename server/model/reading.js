@@ -5,7 +5,7 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   category: {
     type: String,
-    max: 55,
+    enum: ["מה קורה ברגע המוות ואחרי", "ספרי השראה", "הגיל השלישי", "ליווי ילדים"],
     required: true,
   },
   imgUrl: {
@@ -27,7 +27,7 @@ const Reading = mongoose.model("Reading", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  category: Joi.string().max(55).required(),
+  category: Joi.string().valid("מה קורה ברגע המוות ואחרי", "ספרי השראה", "הגיל השלישי", "ליווי ילדים").required(),
   imgUrl: Joi.string().required(),
 });
 
