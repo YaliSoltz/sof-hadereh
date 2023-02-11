@@ -5,24 +5,24 @@ const Joi = require("joi");
 const schema = new mongoose.Schema({
   name: {
     type: String,
-  max: 55,
+    max: 55,
     required: true,
   },
+
   age: {
     type: Number,
     min: 1,
-    max: 120,
     required: true,
   },
+
   status: {
     type: String,
-    enum: ["רווק", "רווקה", "נשוי", "נשואה", "אלמן", "אלמנה", "גרוש", "גרושה"],
+    enum: ["נשוי/נשואה", "רווק/ה", "גרוש/ה", "אלמן/ה", "ערירי/ת"],
     required: true,
   },
 
   content: {
     type: String,
-
     required: true,
   },
 });
@@ -32,9 +32,11 @@ const Sharing = mongoose.model("Sharing", schema);
 
 // joi schema
 const joiSchema = Joi.object({
-  name: Joi.string().max(55).required(),
-  age: Joi.number().min(1).max(120).required(),
-  status: Joi.string().valid("רווק", "רווקה", "נשוי", "נשואה", "אלמן", "אלמנה", "גרוש", "גרושה").required(),
+  name: Joi.string().max(55),
+  age: Joi.string().min(1).max(3).required(),
+  status: Joi.string()
+    .valid("נשוי/נשואה", "רווק/ה", "גרוש/ה", "אלמן/ה", "ערירי/ת")
+    .required(),
   content: Joi.string().required(),
 });
 
