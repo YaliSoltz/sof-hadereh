@@ -14,12 +14,12 @@ const Header = () => {
         <Link to="/lectures" onClick={() => window.scrollTo(0, 0)}>
           הרצאות
         </Link>
-        <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
+        {/* <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
           ייעוץ משפחתי להוספיס בית
         </Link>
         <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
           ביקורי בית פרטיים
-        </Link>
+        </Link> */}
         <Link to="/articles" onClick={() => window.scrollTo(0, 0)}>
           מאמרים
         </Link>

@@ -355,6 +355,10 @@ textarea {
     width: 100%;
     margin-top: 0;
   }
+
+  .books-category {
+    font-size: 1em;
+  }
 }
 
 /* ----------------------------------------contactUs------------------------- */
@@ -525,16 +529,34 @@ textarea {
   margin: auto;
   transform-origin: 60% 20%;
   transition: transform 1s, filter 0.5s ease-out;
+  position: relative;
 }
 
 .book:hover {
   transform: scale(2);
+  z-index: 1;
+  position: relative;
+}
+
+.delete-book {
+  position: absolute;
+  top: 2vh;
+  cursor: pointer;
+  color: black;
+
+  font-size: 2em;
+}
+.delete-book:hover {
+  color: red;
 }
 
 .books-category {
   position: absolute;
-  right: 4%;
-  top: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  right: 2%;
+  text-decoration: underline;
+  width: 10vw;
 }
 
 /* ----------------------------------------------bio-------------------------------------------- */
@@ -614,7 +636,9 @@ textarea {
   position: absolute;
 }
 
-.article-modal {
+/* -----------------------------------------------edit modal------------------------------ */
+
+.edit-modal {
   position: fixed;
   z-index: 1;
   padding-top: 20vh;
@@ -625,9 +649,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.article-modal-content{
-  /* margin: auto; */
+.edit-modal-content {
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }

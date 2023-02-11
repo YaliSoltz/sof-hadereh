@@ -16,6 +16,19 @@ const Reading = () => {
     document.getElementById("form").reset(); // reset the form
   };
 
+  // function that set the newLecture obj with imgUrl
+  const setImgUrl = (e) => {
+    const file = e.target.files[0]; // defines file as an object who contain image data
+    const reader = new FileReader(); // defines new instance from FileReader class
+    reader.readAsDataURL(file); // converts the file to base64
+
+    //func that get the image in base64 and add it to newLecture object
+    reader.onloadend = () => {
+      console.log(reader.result);
+      setNewReading({ ...newReading, imgUrl: reader.result });
+    };
+  };
+
   return (
     <div className="App-header">
       <div style={{ display: "flex" }}>
@@ -100,41 +113,33 @@ const Reading = () => {
           }}
           style={{ border: "solid black 20px" }}
         >
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="קטגוריה:"
-            required
+
+
+          <select name="" id=""  required
             onChange={(e) =>
               setNewReading({
                 ...newReading,
                 category: e.target.value,
               })
-            }
-          />
+            }>
+            <option value="ליווי ילדים">ליווי ילדים</option>
+            <option value="הגיל השלישי">הגיל השלישי</option>
+            <option value="מה קורה ברגע המוות ואחרי">מה קורה במוות ואחרי</option>
+            <option value="ספרי השראה">ספרי השראה</option>
+          </select>
+          <label
+            htmlFor="img-upload"
+            className="form-label"
+            style={{ color: "white" }}
+          >
+            העלאת תמונה
+          </label>
           <input
-            type="text"
+            type="file"
             className="form-control mb-3"
-            placeholder="שם:"
+            name="img-upload"
             required
-            onChange={(e) =>
-              setNewReading({
-                ...newReading,
-                name: e.target.value,
-              })
-            }
-          />
-          <input
-            type="text"
-            className="form-control mb-3"
-            placeholder="סופר:"
-            required
-            onChange={(e) =>
-              setNewReading({
-                ...newReading,
-                author: e.target.value,
-              })
-            }
+            onChange={(e) => setImgUrl(e)}
           />
 
           <button type="submit" className="btn btn-primary m-2">

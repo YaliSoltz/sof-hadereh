@@ -14,10 +14,7 @@ const Sharing = () => {
   // function that add new PersonalSharing and reset the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(newPersonalSharing);
     addNewPersonalSharing(newPersonalSharing);
-
-    document.getElementsByClassName("sharing-form")[0].reset(); // reset the form
     setSended(true);
   };
 
@@ -29,98 +26,17 @@ const Sharing = () => {
 
   return (
     <div className="sharing-container">
-      {/* need to check if server connected */}
       {sharings.map((sharing, index) => (
         <div className="sharing-card" key={index}>
-          <img
-            className="sharing-card-img"
-            src={sharing.imgUrl.url}
-            alt="IMG"
-          />
           <h3 className="sharing-card-title">שם: {sharing.name}</h3>
+          <h3 className="sharing-card-title">גיל: {sharing.age}</h3>
           <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
           <h3 className="sharing-card-title">הסיפור שלי</h3>
           <div className="sharing-card-content">
-           <p>{sharing.content}</p>
+            <p>{sharing.content}</p>
           </div>
         </div>
       ))}
-      <div className="sharing-card">
-        <img
-          className="sharing-card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
-        <h3 className="sharing-card-title">שם</h3>
-        <h3 className="sharing-card-title">מצב משפחתי</h3>
-        <h3 className="sharing-card-title">הסיפור שלי</h3>
-        <div className="sharing-card-content">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-            dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
-            atque ab enim reprehenderit esse voluptates exercitationem dolore
-            est explicabo minus in vero nostrum sint. Ipsa officiis pariatur ex
-            error autem maiores nisi nesciunt id. Velit, aliquid delectus.
-            Deserunt accusantium, consequatur ipsa iste libero nobis molestiae
-            suscipit beatae, saepe odit ipsam.
-          </p>
-        </div>
-      </div>
-      <div className="sharing-card">
-        <img
-          className="sharing-card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
-        <h3 className="sharing-card-title">שם</h3>
-        <h3 className="sharing-card-title">מצב משפחתי</h3>
-        <h3 className="sharing-card-title">הסיפור שלי</h3>
-        <div className="sharing-card-content">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-            dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
-            atque ab enim reprehenderit esse voluptates exercitationem dolore
-            est explicabo minus in vero nostrum sint. Ipsa officiis pariatur ex
-            error autem maiores nisi nesciunt id. Velit, aliquid delectus.
-            Deserunt accusantium, consequatur ipsa iste libero nobis molestiae
-            suscipit beatae, saepe odit ipsam. Lorem ipsum dolor, sit amet
-            consectetur adipisicing elit. Deleniti dolores ipsam soluta odit
-            maxime harum eveniet dolor fugit, velit atque ab enim reprehenderit
-            esse voluptates exercitationem dolore est explicabo minus in vero
-            nostrum sint. Ipsa officiis pariatur ex error autem maiores nisi
-            nesciunt id. Velit, aliquid delectus. Deserunt accusantium,
-            consequatur ipsa iste libero nobis molestiae suscipit beatae, saepe
-            odit ipsam. Lorem ipsum dolor, sit amet consectetur adipisicing
-            elit. Deleniti dolores ipsam soluta odit maxime harum eveniet dolor
-            fugit, velit atque ab enim reprehenderit esse voluptates
-            exercitationem dolore est explicabo minus in vero nostrum sint. Ipsa
-            officiis pariatur ex error autem maiores nisi nesciunt id. Velit,
-            aliquid delectus. Deserunt accusantium, consequatur ipsa iste libero
-            nobis molestiae suscipit beatae, saepe odit ipsam.
-          </p>
-        </div>
-      </div>
-      <div className="sharing-card">
-        <img
-          className="sharing-card-img"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
-          alt="IMG"
-        />
-        <h3 className="sharing-card-title">שם</h3>
-        <h3 className="sharing-card-title">מצב משפחתי</h3>
-        <h3 className="sharing-card-title">הסיפור שלי</h3>
-        <div className="sharing-card-content">
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
-            dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
-            atque ab enim reprehenderit esse voluptates exercitationem dolore
-            est explicabo minus in vero nostrum sint. Ipsa officiis pariatur ex
-            error autem maiores nisi nesciunt id. Velit, aliquid delectus.
-            Deserunt accusantium, consequatur ipsa iste libero nobis molestiae
-            suscipit beatae, saepe odit ipsam.
-          </p>
-        </div>
-      </div>
 
       <button className="modal-open" onClick={() => setOpen(true)}>
         הוספת שיתוף
