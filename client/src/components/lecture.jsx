@@ -6,7 +6,7 @@ const Lecture = () => {
   const { lectures, addNewLecture, deleteLecture, changeLecture } =
     useContext(LectureContext);
 
-  const [newLecture, setNewLecture] = useState({}); // new lecture object
+    const [newLecture, setNewLecture] = useState({}); // new lecture object
 
   // function that add new lecture and reset the form
   const handleSubmit = async (e) => {
