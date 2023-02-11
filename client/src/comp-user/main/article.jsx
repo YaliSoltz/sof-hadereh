@@ -19,8 +19,8 @@ const Article = () => {
 
   return (
     <div className="article-container">
-      <div className="article-modal" hidden={!open}>
-        <div className="article-modal-content">
+      <div className="edit-modal" hidden={!open}>
+        <div className="edit-modal-content">
           <textarea
             id="textarea"
             value={value}

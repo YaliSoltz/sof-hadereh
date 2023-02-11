@@ -614,7 +614,12 @@ textarea {
   position: absolute;
 }
 
-.article-modal {
+
+
+
+/* -----------------------------------------------edit modal------------------------------ */
+
+.edit-modal {
   position: fixed;
   z-index: 1;
   padding-top: 20vh;
@@ -625,9 +630,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.article-modal-content{
-  /* margin: auto; */
+.edit-modal-content{
   display: flex;
-  /* align-items: center; */
   justify-content: center;
 }
