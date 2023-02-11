@@ -6,7 +6,7 @@ const Article = () => {
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(); // selected article id
   const [key, setKey] = useState(); // selected article key
-  const [value, setValue] = useState(""); // selected article value
+  const [value, setValue] = useState(); // selected article value
 
   // funcion that show the edit modal and declare id + key + value
   const openEdit = (id, key, value) => {
@@ -43,7 +43,6 @@ const Article = () => {
         </div>
       </div>
 
-      {/* need to check if server connected */}
       {articles.map((article, index) => (
         <div className="article-card" key={index}>
           {true && (
