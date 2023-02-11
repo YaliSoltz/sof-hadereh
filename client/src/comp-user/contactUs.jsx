@@ -22,7 +22,6 @@ const ContactUs = () => {
     e.preventDefault();
     setErrors(Validation(newContactUs));
     if(Object.keys(errors).length>0) return
-    document.getElementsByName("name")[0].style.border = "2px solid red";
     // addNewContactUs(newContactUs); // add newContactUs to database
     document.getElementById("form").reset(); // reset the form
     console.log(newContactUs);
