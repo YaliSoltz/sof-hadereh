@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,  } from "react-router-dom";
 import AdminInterface from "./comp-admin/Admin-interface";
 import UserInterface from "./comp-user/User-interface";
 import { UserContext } from "./context/user";
 import Login from "./login";
-import Lecture from "./components/lecture";
+
 import ContactUs from './comp-user/admin/contactUs';
+
 
 const App = () => {
   const { token } = useContext(UserContext);
@@ -17,28 +18,34 @@ const App = () => {
         element={token ? <AdminInterface /> : <UserInterface />}
       />
       <Route
-        path="/articles"
+        path="/מאמרים"
         element={token ? <AdminInterface id={0} /> : <UserInterface id={0} />}
       />
       <Route
-        path="/sharings"
+        path="/מטופלים-משתפים"
         element={token ? <AdminInterface id={1} /> : <UserInterface id={1} />}
       />
       <Route
-        path="/lectures"
+        path="/הרצאות"
         element={token ? <AdminInterface id={2} /> : <UserInterface id={2} />}
       />
       <Route
-        path="/about-me"
+        path="/קצת-עליי"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={3} />}
       />
       <Route
-        path="/readings"
+        path="/המלצות-קריאה"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={4} />}
+      />
+      <Route
+        path="*"
+        element={token ? <AdminInterface id={3} /> : <UserInterface id={5} />}
       />
 
       <Route path="/login" element={<Login />} />
+
       <Route path="/add" element={<ContactUs />} />
+
     </Routes>
   );
 };

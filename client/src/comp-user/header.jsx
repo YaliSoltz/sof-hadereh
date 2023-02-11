@@ -8,25 +8,25 @@ const Header = () => {
     <div className="Navbar">
       <span className="nav-logo">הסוף הטוב</span>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <Link to="/about-me" onClick={() => window.scrollTo(0, 0)}>
-          אודות
+        <Link to="/קצת-עליי" onClick={() => window.scrollTo(0, 0)}>
+          קצת עליי
         </Link>
-        <Link to="/lectures" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/הרצאות" onClick={() => window.scrollTo(0, 0)}>
           הרצאות
         </Link>
-        <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
+        {/* <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
           ייעוץ משפחתי להוספיס בית
         </Link>
         <Link to="/" className="labelNav" onClick={() => window.scrollTo(0, 0)}>
           ביקורי בית פרטיים
-        </Link>
-        <Link to="/articles" onClick={() => window.scrollTo(0, 0)}>
+        </Link> */}
+        <Link to="/מאמרים" onClick={() => window.scrollTo(0, 0)}>
           מאמרים
         </Link>
-        <Link to="/readings" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/המלצות-קריאה" onClick={() => window.scrollTo(0, 0)}>
           המלצות קריאה
         </Link>
-        <Link to="/sharings" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/מטופלים-משתפים" onClick={() => window.scrollTo(0, 0)}>
           מטופלים משתפים
         </Link>
         <a
