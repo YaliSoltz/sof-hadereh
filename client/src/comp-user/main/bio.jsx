@@ -12,11 +12,12 @@ const Bio = () => {
 
   return (
     <div className="bio">
-      <img className="bio-img" src={profile} alt="profile" />
-      <div>
+      <div className="bio-container">
         <h1 className="bio-title">אז מי אני?</h1>
         <div>{content}</div>
       </div>
+      <img className="bio-img" src={profile} alt="profile" />
+
     </div>
   );
 };

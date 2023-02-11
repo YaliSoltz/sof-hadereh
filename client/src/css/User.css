@@ -543,7 +543,11 @@ textarea {
 
 .bio {
   display: flex;
-  padding-left: 25vw;
+  justify-content: space-between;
+}
+
+.bio-container{
+  padding-right: 3vw;
 }
 
 .bio-text {
@@ -557,9 +561,8 @@ textarea {
 }
 
 .bio-img {
-  max-width: 50%;
   height: 65vh;
-  float: right;
   object-fit: cover;
-  margin: -15vh 0px 0px 7vw;
+  margin: -15vh 0px 0px 3vw;
+  float: left;
 }
