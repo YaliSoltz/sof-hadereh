@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes,  } from "react-router-dom";
 import AdminInterface from "./comp-admin/Admin-interface";
 import UserInterface from "./comp-user/User-interface";
 import { UserContext } from "./context/user";
@@ -34,6 +34,10 @@ const App = () => {
       <Route
         path="/המלצות-קריאה"
         element={token ? <AdminInterface id={3} /> : <UserInterface id={4} />}
+      />
+      <Route
+        path="*"
+        element={token ? <AdminInterface id={3} /> : <UserInterface id={5} />}
       />
 
       <Route path="/login" element={<Login />} />
