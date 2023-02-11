@@ -5,9 +5,9 @@ import Header from "./header";
 import Article from "./main/article";
 import Bio from "./main/bio";
 import Lecture from "./main/lecture";
-import ContactUs from './contactUs';
 import Sharing from "./main/sharing";
 import Reading from "./main/reading";
+import Footer from "./footer";
 const UserInterface = ({ id }) => {
   return (
     <div>
@@ -30,7 +30,7 @@ const UserInterface = ({ id }) => {
           }
         })()}
       </div>
-      <ContactUs/>
+      <Footer/>
     </div>
   );
 };

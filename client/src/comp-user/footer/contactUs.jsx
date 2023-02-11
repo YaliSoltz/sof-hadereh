@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { useEffect } from "react";
-import { ContactUsContext } from "../context/contactUs";
-import Validation from "./validation";
+import { ContactUsContext } from "../../context/contactUs";
+import Validation from "../validation";
 
 const ContactUs = () => {
   const { addNewContactUs } = useContext(ContactUsContext);
@@ -124,7 +124,6 @@ const ContactUs = () => {
         </button>
       </form>
 
-      <p className="credit-text">אפיון, עיצוב ובניה ע"י דן וולפר ויה-לי סולץ</p>
     </div>
   );
 };

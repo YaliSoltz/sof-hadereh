@@ -14,12 +14,21 @@ p {
 
 a {
   cursor: pointer;
+  text-decoration: none;
 }
 
 .Main {
   min-height: 90vh;
   background: linear-gradient(to top, #98b9b4, #e4e4c0);
   padding-top: 7em;
+}
+
+.Footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(to top, #b0b0a7, #9ebeba);
+
 }
 
 /* ----------------------------------------personalSharing------------------------------------- */
@@ -370,9 +379,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: linear-gradient(to top, #b0b0a7, #9ebeba);
   padding: 3vh 37% 5vh 37%;
-  position: relative;
 }
 
 .contact-box h2 {
@@ -438,8 +445,16 @@ textarea {
   position: relative;
 }
 
-.credit-text {
-  position: absolute;
+
+/* --------------------------------------------created by------------------------------------------- */
+
+.created-by{
+  display: flex;
+  align-items: center;
+  gap: 0.33em;
+}
+
+.credit-text {  
   font-size: 22px;
   font-family: Georgia, "Times New Roman", Times, serif;
   bottom: 20px;
