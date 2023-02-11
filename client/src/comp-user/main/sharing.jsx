@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { PersonalSharingContext } from "../../context/personalSharing";
+import { SharingContext } from "../../context/sharing";
 
 const Sharing = () => {
+  const { addNewPersonalSharing } = useContext(PersonalSharingContext);
+
+  const { sharings } = useContext(SharingContext);
+
   const [newPersonalSharing, setNewPersonalSharing] = useState({}); // new PersonalSharing object
   const [sended, setSended] = useState(false); // change the modal if the sharing is sended
   const [open, setOpen] = useState(false); // show the modal or not
@@ -9,6 +15,7 @@ const Sharing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(newPersonalSharing);
+    addNewPersonalSharing(newPersonalSharing);
 
     document.getElementsByClassName("sharing-form")[0].reset(); // reset the form
     setSended(true);
@@ -22,16 +29,37 @@ const Sharing = () => {
 
   return (
     <div className="sharing-container">
-      <div className="card">
+      {/* need to check if server connected */}
+      {sharings.map((sharing, index) => (
+        <div className="sharing-card" key={index}>
+          <img
+            className="sharing-card-img"
+            src={sharing.imgUrl.url}
+            alt="IMG"
+          />
+          <h3 className="sharing-card-title">שם: {sharing.name}</h3>
+          <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
+          <h3 className="sharing-card-title">הסיפור שלי</h3>
+          <div className="sharing-card-content">
+            <div>
+              {/* need to check if work */}
+              {sharing.content.split(".").map((word, index) => (
+                <p key={index}>{word + "."}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+      <div className="sharing-card">
         <img
-          className="card-img"
+          className="sharing-card-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
           alt="IMG"
         />
-        <h3 className="card-title">שם</h3>
-        <h3 className="card-title">מצב משפחתי</h3>
-        <h3 className="card-title">הסיפור שלי</h3>
-        <div className="card-content">
+        <h3 className="sharing-card-title">שם</h3>
+        <h3 className="sharing-card-title">מצב משפחתי</h3>
+        <h3 className="sharing-card-title">הסיפור שלי</h3>
+        <div className="sharing-card-content">
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
             dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
@@ -43,16 +71,16 @@ const Sharing = () => {
           </p>
         </div>
       </div>
-      <div className="card">
+      <div className="sharing-card">
         <img
-          className="card-img"
+          className="sharing-card-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
           alt="IMG"
         />
-        <h3 className="card-title">שם</h3>
-        <h3 className="card-title">מצב משפחתי</h3>
-        <h3 className="card-title">הסיפור שלי</h3>
-        <div className="card-content">
+        <h3 className="sharing-card-title">שם</h3>
+        <h3 className="sharing-card-title">מצב משפחתי</h3>
+        <h3 className="sharing-card-title">הסיפור שלי</h3>
+        <div className="sharing-card-content">
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
             dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
@@ -77,16 +105,16 @@ const Sharing = () => {
           </p>
         </div>
       </div>
-      <div className="card">
+      <div className="sharing-card">
         <img
-          className="card-img"
+          className="sharing-card-img"
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg/1200px-Paracas_National_Reserve%2C_Ica%2C_Peru-3April2011.jpg"
           alt="IMG"
         />
-        <h3 className="card-title">שם</h3>
-        <h3 className="card-title">מצב משפחתי</h3>
-        <h3 className="card-title">הסיפור שלי</h3>
-        <div className="card-content">
+        <h3 className="sharing-card-title">שם</h3>
+        <h3 className="sharing-card-title">מצב משפחתי</h3>
+        <h3 className="sharing-card-title">הסיפור שלי</h3>
+        <div className="sharing-card-content">
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti
             dolores ipsam soluta odit maxime harum eveniet dolor fugit, velit
@@ -100,7 +128,7 @@ const Sharing = () => {
       </div>
 
       <button className="modal-open" onClick={() => setOpen(true)}>
-      הוספת שיתוף
+        הוספת שיתוף
       </button>
       {open ? (
         <div className="modal">

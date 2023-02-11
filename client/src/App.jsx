@@ -8,7 +8,6 @@ import Lecture from "./components/lecture";
 
 const App = () => {
   const { token } = useContext(UserContext);
-  const id = 0;
 
   return (
     <Routes>

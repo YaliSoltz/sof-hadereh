@@ -10,10 +10,10 @@ const getAllLectures = async (req, res) => {
 // add new lecture
 const addNewLecture = async (req, res) => {
   const body = req.body;
-  const { title, content, imgUrl } = body;
+ let { title, content, imgUrl } = body;
   try {
     const { public_id, secure_url } = await cloudinary.uploader.upload(imgUrl, {
-      folder: "Lectures",
+      folder: "Articles",
     });
     imgUrl = {
       public_id,
