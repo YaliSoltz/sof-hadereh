@@ -29,8 +29,15 @@ const ContactUs = () => {
   };
 
   useEffect(() => {
-    if(Object.keys(errors).length===0 && (newContactUs.name!=="")&& (newContactUs.phoneNumber!=="")&& (newContactUs.email!=="")&& (newContactUs.subject!=="")&& (newContactUs.content!==""))
-    alert('נשלח בהצלחה')
+    if (
+      Object.keys(errors).length === 0 &&
+      newContactUs.name !== "" &&
+      newContactUs.phoneNumber !== "" &&
+      newContactUs.email !== "" &&
+      newContactUs.subject !== "" &&
+      newContactUs.content !== ""
+    )
+      alert("נשלח בהצלחה");
   }, [errors]);
 
   return (
@@ -106,9 +113,12 @@ const ContactUs = () => {
         </div>
 
         <div className="input-wrapper">
-          <input
+          <textarea
+            cols="30"
+            rows="10"
             type="text"
             className="field"
+            id="content"
             placeholder="תוכן:"
             name="content"
             value={newContactUs.content}
@@ -122,7 +132,6 @@ const ContactUs = () => {
           שליחת הודעה
         </button>
       </form>
-
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Header = () => {
           setToken();
         }}
       >
-        logout
+        התנ
       </button>
     </div>
   );

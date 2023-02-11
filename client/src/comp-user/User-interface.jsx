@@ -9,6 +9,8 @@ import Sharing from "./main/sharing";
 import Reading from "./main/reading";
 import Footer from "./footer";
 import Page404 from "./main/page404";
+import Add from "./admin/add";
+import ContactUs from "./admin/contactUs";
 const UserInterface = ({ id }) => {
   return (
     <div>
@@ -28,6 +30,10 @@ const UserInterface = ({ id }) => {
               return <Reading />;
             case 5:
               return <Page404 />;
+            case 6:
+              return <Add />;
+            case 7:
+              return <ContactUs />;
             default:
               return;
           }

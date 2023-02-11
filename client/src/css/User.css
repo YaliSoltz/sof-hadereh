@@ -413,9 +413,13 @@ textarea {
   border: 2px solid rgba(30, 85, 250, 0.47);
   background-color: #fff;
 }
+textarea::placeholder{
+  font-size: 20px;
+}
 
 .contact-box .send {
   padding: 0.5em 1em;
+  margin-top: 1vh;
   background-color: #2ecc71;
   color: #fff;
   font-size: 1.1em;
@@ -423,6 +427,7 @@ textarea {
   cursor: pointer;
   transition: 0.5s;
   border: 1px solid;
+  width: 100%;
 }
 
 .contact-box .send:hover {
@@ -581,10 +586,12 @@ textarea {
 }
 
 .bio-img {
-  height: 65vh;
+  height: 60vh;
+  width: 30vw;
   object-fit: cover;
-  margin: -15vh 0px 0px 3vw;
+  margin: 0 00 00 3vw;
   float: left;
+  border-radius: 20px;
 }
 
 /* --------------------------------------------article----------------------------------------- */
@@ -1013,4 +1020,12 @@ textarea {
   to {
     transform: rotate(-1turn);
   }
+}
+
+
+/* -----------------------------------------------add--------------------------------------------- */
+
+.add{
+  width: 40vw;
+  margin: auto;
 }
