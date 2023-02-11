@@ -9,7 +9,7 @@ const getAllSharings = async (req, res) => {
 // add new sharing
 const addNewSharing = async (req, res) => {
   const body = req.body;
-  const { name, age, city, content, imgUrl } = body;
+  const { name, age, status, content } = body;
 
   //joi validation
   const { error } = joiSchema.validate(body);
@@ -19,9 +19,8 @@ const addNewSharing = async (req, res) => {
   let sharing = new Sharing({
     name,
     age,
-    city,
+    status,
     content,
-    imgUrl,
   });
 
   // add the sharing to database
@@ -37,17 +36,17 @@ const addNewSharing = async (req, res) => {
 const changeSharing = async (req, res) => {
   const id = req.params.id;
   const body = req.body;
-  const { name, age, city, content, imgUrl } = body;
+  const { name, age, status, content } = body;
 
   // check if there are inserted values when update
   if (Object.keys(body).length === 0)
     return res.status(400).send("must contain value");
 
-  // change the name/city/age/content/imgUrl at the user's choice
+  // change the name/age/status/content at the user's choice
   try {
     const sharing = await Sharing.updateOne(
       { _id: id },
-      { $set: { name, age, city, content, imgUrl } }
+      { $set: { name, age, status, content } }
     );
     res.status(201).send(sharing);
   } catch (error) {
@@ -62,7 +61,7 @@ const deleteSharing = async (req, res) => {
     await Sharing.findByIdAndDelete(id);
     res.status(201).send("deleted");
   } catch (error) {
-   res.status(400).send(error.message)
+    res.status(400).send(error.message);
   }
 };
 
