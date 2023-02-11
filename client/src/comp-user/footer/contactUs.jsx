@@ -31,7 +31,6 @@ const ContactUs = () => {
   // useEffect(() => {
   //   if(Object.keys(errors).length===0 &&)
   //   alert('נשלח בהצלחה')
-
   // }, [errors]);
 
   return (

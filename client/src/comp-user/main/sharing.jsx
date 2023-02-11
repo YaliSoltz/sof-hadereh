@@ -41,12 +41,7 @@ const Sharing = () => {
           <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
           <h3 className="sharing-card-title">הסיפור שלי</h3>
           <div className="sharing-card-content">
-            <div>
-              {/* need to check if work */}
-              {sharing.content.split(".").map((word, index) => (
-                <p key={index}>{word + "."}</p>
-              ))}
-            </div>
+           <p>{sharing.content}</p>
           </div>
         </div>
       ))}

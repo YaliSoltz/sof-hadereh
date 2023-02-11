@@ -1,58 +1,92 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ArticleContext } from "../../context/article";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Container,
-  Grid,
-  Typography,
-} from "@mui/material";
 const Article = () => {
-  const { articles } = useContext(ArticleContext);
-  return (
-    <Container sx={{paddingBottom: '4em'}}>
-      <Grid container spacing={16}>
-        {articles.map((article, index) => (
-          <Grid item xs={12} sm={6} key={index}>
-            <Card sx={{ width: 550 }}>
-              <CardMedia
-                sx={{ height: 140 }}
-                image={article.imgUrl.url}
-                title={article.title}
-              />
-              <CardContent
-                sx={{
-                  overflowY: "auto",
-                  height: "50vh",
-                }}
-              >
-                <Typography
-                  gutterBottom
-                  variant="h5"
-                  fontWeight="bold"
-                  component="div"
-                >
-                  {article.title}
-                </Typography>
-                <Typography variant="p" fontSize={20}>
-                  {article.content}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+  const { articles, deleteArticle, changeArticle } = useContext(ArticleContext);
 
-    //   {articles.map((article, index) => (
-    //     <div className="card_article" key={index}>
-    //       <div id="inner">
-    //         <h2 id="title">{article.title}</h2>
-    //         <p id="content">{article.content}</p>
-    //       </div>
-    //     </div>
-    //   ))}
+  const [open, setOpen] = useState(false);
+  const [id, setId] = useState(); // selected article id
+  const [key, setKey] = useState(); // selected article key
+  const [value, setValue] = useState(""); // selected article value
+
+  // funcion that show the edit modal and declare id + key + value
+  const openEdit = (id, key, value) => {
+    setId(id);
+    setKey(key);
+    setValue(value);
+    console.log(value);
+    setOpen(true);
+  };
+
+  return (
+    <div className="article-container">
+      <div className="article-modal" hidden={!open}>
+        <div className="article-modal-content">
+          <textarea
+            id="textarea"
+            value={value}
+            cols="50"
+            rows="15"
+            onChange={(e) => setValue(e.target.value)}
+          ></textarea>
+
+          <button onClick={() => setOpen(false)}>ביטול</button>
+          <button
+            onClick={() => {
+              changeArticle(id, {
+                [key]: value,
+              });
+              setOpen(false);
+            }}
+          >
+            אישור
+          </button>
+        </div>
+      </div>
+
+      {/* need to check if server connected */}
+      {articles.map((article, index) => (
+        <div className="article-card" key={index}>
+          {true && (
+            <button
+              className="article-delete"
+              onClick={() => deleteArticle(article._id)}
+            >
+              מחיקה
+            </button>
+          )}
+          {true && (
+            <button
+              className="article-change-title"
+              onClick={() => openEdit(article._id, "title", article.title)}
+            >
+              שינוי כותרת
+            </button>
+          )}
+          {true && (
+            <button
+              className="article-change-content"
+              onClick={() => openEdit(article._id, "content", article.content)}
+            >
+              שינוי תוכן
+            </button>
+          )}
+          <img
+            className="article-card-img"
+            src={article.imgUrl.url}
+            alt="IMG"
+          />
+          <h3 className="article-card-title">{article.title}</h3>
+          <div className="article-card-content">
+            <div>
+              {/* need to check if work */}
+              {article.content.split(".").map((word, index) => (
+                <p key={index}>{word + "."}</p>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 };
 
