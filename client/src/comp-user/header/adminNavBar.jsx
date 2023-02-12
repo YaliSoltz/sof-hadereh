@@ -1,9 +1,15 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user";
+import { PersonalSharingContext } from "../../context/personalSharing";
+import { ContactUsContext } from './../../context/contactUs';
+import image from '../../images/logout2.png'
 
 const AdminNavBar = () => {
   const { setToken, user } = useContext(UserContext);
+  const { personalSharings } = useContext(PersonalSharingContext);
+  const { contactUs } = useContext(ContactUsContext);
+  
   const navigate = useNavigate();
 
   const logout = () => {
@@ -42,12 +48,14 @@ const AdminNavBar = () => {
           הוספה
         </Link>
         <Link to="/contact-us" onClick={() => window.scrollTo(0, 0)}>
-          הודעות חדשות
+          הודעות צור קשר
+          <span className="badge"> {contactUs.length}</span>
         </Link>
         <Link to="/personal-sharing" onClick={() => window.scrollTo(0, 0)}>
           שיתופים חדשים
+          <span className="badge"> {personalSharings.length}</span>
         </Link>
-        <button onClick={() => logout()}>התנתקות</button>
+        <img src={image}className="adminLogout" onClick={() => logout()}></img>
       </div>
     </div>
   );
