@@ -5,46 +5,18 @@ const Article = () => {
   const { articles, deleteArticle, changeArticle } = useContext(ArticleContext);
   const { user } = useContext(UserContext);
 
-  const [open, setOpen] = useState(false);
-  const [id, setId] = useState(); // selected article id
-  const [key, setKey] = useState(); // selected article key
-  const [value, setValue] = useState(); // selected article value
-
-  // funcion that show the edit modal and declare id + key + value
-  const openEdit = (id, key, value) => {
-    setId(id);
-    setKey(key);
-    setValue(value);
+  // funcion that change title/content or delete
+  const edit = (id, key, value) => {
+    let text;
+    if (key === "title") text = "הכניסי כותרת חדשה";
+    else if (key === "content") text = "הכניסי תוכן חדש";
+    value = prompt(text, value);
+    if (value) changeArticle(id, { [key]: value });
     console.log(value);
-    setOpen(true);
   };
 
   return (
     <div className="article-container">
-      <div className="edit-modal" hidden={!open}>
-        <div className="edit-modal-content">
-          <textarea
-            id="textarea"
-            value={value}
-            cols="50"
-            rows="15"
-            onChange={(e) => setValue(e.target.value)}
-          ></textarea>
-
-          <button onClick={() => setOpen(false)}>ביטול</button>
-          <button
-            onClick={() => {
-              changeArticle(id, {
-                [key]: value,
-              });
-              setOpen(false);
-            }}
-          >
-            אישור
-          </button>
-        </div>
-      </div>
-
       {articles.map((article, index) => (
         <div
           key={index}
@@ -60,15 +32,18 @@ const Article = () => {
               onChange={(e) => {
                 switch (e.target.value) {
                   case "title":
-                    openEdit(article._id, "title", article.title);
+                    edit(article._id, "title", article.title);
+                    e.target.value = "";
                     break;
 
                   case "content":
-                    openEdit(article._id, "content", article.content);
+                    edit(article._id, "content", article.content);
+                    e.target.value = "";
                     break;
 
                   case "delete":
                     deleteArticle(article._id);
+                    e.target.value = "";
                     break;
 
                   default:
@@ -88,7 +63,7 @@ const Article = () => {
             <h2 className="card-title">{article.title}</h2>
             <div className="card-body">
               <div>
-                {article.content.split(".").map((word, index) => (
+                {article.content?.split(".").map((word, index) => (
                   <p key={index}>{word + "."}</p>
                 ))}
               </div>

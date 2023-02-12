@@ -589,24 +589,6 @@ textarea::placeholder {
   gap: 2em;
 }
 
-/* -----------------------------------------------edit modal------------------------------ */
-
-.edit-modal {
-  position: fixed;
-  z-index: 1;
-  padding-top: 20vh;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.edit-modal-content {
-  display: flex;
-  justify-content: center;
-}
-
 /* -----------------------------------page 404------------------------------ */
 
 .page404 {
@@ -1168,3 +1150,4 @@ textarea::placeholder {
   margin-right: 4vw;
   border-radius: 30px;
 }
+
