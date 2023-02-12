@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import { LectureContext } from "../../context/lecture";
 import { UserContext } from "../../context/user";
+import whatsApp from "../../images/whatsApp.png";
+import email from "../../images/email.png";
+import phone from "../../images/phone.png";
 
 const Lecture = () => {
   const { lectures, deleteLecture, changeLecture } = useContext(LectureContext);
@@ -50,8 +53,15 @@ const Lecture = () => {
           </button>
         </div>
       </div>
+
       {lectures.map((lecture, index) => (
-        <div className="lecture-card" key={index}>
+        <div
+          key={index}
+          className="card"
+          style={{
+            backgroundImage: `url(${lecture.imgUrl.url})`,
+          }}
+        >
           {user.role === "admin" && (
             <select
               className="editor"
@@ -83,36 +93,35 @@ const Lecture = () => {
               <option value="delete">מחיקה</option>
             </select>
           )}
-          <img
-            className="lecture-card-img"
-            src={lecture.imgUrl.url}
-            alt="ERR"
-          />
-          <h3 className="lecture-card-title">{lecture.title}</h3>
-          <div className="lecture-card-content">
-            <div>
-              {lecture.content.split(".").map((word, index) => (
-                <p key={index}>{word + "."}</p>
-              ))}
+          <div className="card-content">
+            <h2 className="card-title">{lecture.title}</h2>
+            <div className="card-body">
+              <div>
+                {lecture.content.split(".").map((word, index) => (
+                  <p key={index}>{word + "."}</p>
+                ))}
+              </div>
             </div>
-          </div>
-          <div className="lecture-order">
-            <h4>להזמנה</h4>
-            <a
-              className="icon"
-              href={whatsappUrl.replace("כותרת", lecture.title)}
-              target="_blank"
-            >
-              ווצאפ
-            </a>
-
-            <a className="icon" href={emailUrl.replace("כותרת", lecture.title)}>
-              אימייל
-            </a>
-
-            <a className="icon" href="tel:+972543997375" dir="ltr">
-              טלפון
-            </a>
+            <div className="order">
+              <span className="btn">להזמנה</span>
+              <a
+                className="icon"
+                href="tel:+972543997375"
+                dir="ltr"
+                style={{ backgroundImage: `url(${phone})` }}
+              ></a>
+              <a
+                className="icon"
+                href={emailUrl.replace("כותרת", lecture.title)}
+                style={{ backgroundImage: `url(${email})` }}
+              ></a>
+              <a
+                className="icon"
+                href={whatsappUrl.replace("כותרת", lecture.title)}
+                target="_blank"
+                style={{ backgroundImage: `url(${whatsApp})` }}
+              ></a>
+            </div>
           </div>
         </div>
       ))}

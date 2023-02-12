@@ -46,7 +46,13 @@ const Article = () => {
       </div>
 
       {articles.map((article, index) => (
-        <div className="article-card" key={index}>
+        <div
+          key={index}
+          className="card"
+          style={{
+            backgroundImage: `url(${article.imgUrl.url})`,
+          }}
+        >
           {user.role === "admin" && (
             <select
               className="editor"
@@ -78,18 +84,14 @@ const Article = () => {
               <option value="delete">מחיקה</option>
             </select>
           )}
-          <img
-            className="article-card-img"
-            src={article.imgUrl.url}
-            alt="IMG"
-          />
-          <h3 className="article-card-title">{article.title}</h3>
-          <div className="article-card-content">
-            <div>
-             
-              {article.content.split(".").map((word, index) => (
-                <p key={index}>{word + "."}</p>
-              ))}
+          <div className="card-content">
+            <h2 className="card-title">{article.title}</h2>
+            <div className="card-body">
+              <div>
+                {article.content.split(".").map((word, index) => (
+                  <p key={index}>{word + "."}</p>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -33,7 +33,7 @@ const ReadingProvider = ({ children }) => {
               {user.role === "admin" && (
                 <span
                   className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
+                  onDoubleClick={() => deleteReading(reading._id)}
                 >
                   &times;
                 </span>
@@ -50,7 +50,7 @@ const ReadingProvider = ({ children }) => {
               {user.role === "admin" && (
                 <span
                   className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
+                  onDoubleClick={() => deleteReading(reading._id)}
                 >
                   &times;
                 </span>
@@ -67,7 +67,7 @@ const ReadingProvider = ({ children }) => {
               {user.role === "admin" && (
                 <span
                   className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
+                  onDoubleClick={() => deleteReading(reading._id)}
                 >
                   &times;
                 </span>
@@ -84,7 +84,7 @@ const ReadingProvider = ({ children }) => {
               {user.role === "admin" && (
                 <span
                   className="delete-book"
-                  onClick={() => deleteReading(reading._id)}
+                  onDoubleClick={() => deleteReading(reading._id)}
                 >
                   &times;
                 </span>
