@@ -22,6 +22,7 @@ const App = () => {
       <Route path="*" element={<UserInterface id={5} />} />
       {token && <Route path="/add" element={<UserInterface id={6} />} />}
       {token && <Route path="/contact-us" element={<UserInterface id={7} />} />}
+      {token && <Route path="/personal-sharing" element={<UserInterface id={8} />} />}
 
       <Route path="/login" element={<Login />} />
     </Routes>

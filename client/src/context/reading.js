@@ -1,10 +1,14 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { UserContext } from "./user";
 
 export const ReadingContext = createContext(); // the reading context
 
 const ReadingProvider = ({ children }) => {
+  const { user } = useContext(UserContext);
+
   const [readings, setReadings] = useState([]); // all the readings
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/Readings/";
 
   // function that pulls all the readings from the server
@@ -27,7 +31,7 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                {true && (
+                {user.role === "admin" && (
                   <span
                     className="delete-book"
                     onClick={() => deleteReading(reading._id)}
@@ -46,7 +50,7 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                {true && (
+                {user.role === "admin" && (
                   <span
                     className="delete-book"
                     onClick={() => deleteReading(reading._id)}
@@ -65,7 +69,7 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                {true && (
+                {user.role === "admin" && (
                   <span
                     className="delete-book"
                     onClick={() => deleteReading(reading._id)}
@@ -84,7 +88,7 @@ const ReadingProvider = ({ children }) => {
                 className="book"
                 style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
               >
-                {true && (
+                {user.role === "admin" && (
                   <span
                     className="delete-book"
                     onClick={() => deleteReading(reading._id)}
@@ -109,12 +113,16 @@ const ReadingProvider = ({ children }) => {
   const addNewReading = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete reading by id
   const deleteReading = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that change reading
@@ -122,11 +130,13 @@ const ReadingProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
     getReadings();
-  }, []);
+  }, [user, refresh]);
 
   return (
     <ReadingContext.Provider

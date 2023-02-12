@@ -1,16 +1,21 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../context/user";
 
 const AdminNavBar = () => {
   const { setToken, user } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("x-auth-token");
+    setToken();
+    navigate("/");
+  };
 
   return (
     <div>
       <div className="admin-navBar">
-        <a className="active">
-          היי {user.name}
-        </a>
+        <a className="active">היי {user.name}</a>
 
         <Link to="/קצת-עליי" onClick={() => window.scrollTo(0, 0)}>
           קצת עליי
@@ -39,14 +44,10 @@ const AdminNavBar = () => {
         <Link to="/contact-us" onClick={() => window.scrollTo(0, 0)}>
           הודעות חדשות
         </Link>
-        <button
-          onClick={() => {
-            localStorage.removeItem("x-auth-token");
-            setToken();
-          }}
-        >
-          התנתקות
-        </button>
+        <Link to="/personal-sharing" onClick={() => window.scrollTo(0, 0)}>
+          שיתופים חדשים
+        </Link>
+        <button onClick={() => logout()}>התנתקות</button>
       </div>
     </div>
   );

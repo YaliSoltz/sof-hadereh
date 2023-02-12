@@ -11,6 +11,8 @@ import Footer from "./footer";
 import Page404 from "./main/page404";
 import Add from "./admin/add";
 import ContactUs from "./admin/contactUs";
+import Home from "./main/home";
+import PersonalSharing from "./admin/personalSharing";
 const UserInterface = ({ id }) => {
   return (
     <div>
@@ -34,12 +36,14 @@ const UserInterface = ({ id }) => {
               return <Add />;
             case 7:
               return <ContactUs />;
+            case 8:
+              return <PersonalSharing />;
             default:
-              return;
+              return <Home />;
           }
         })()}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

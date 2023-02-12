@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { ArticleContext } from "../../context/article";
+import { UserContext } from "../../context/user";
 const Article = () => {
   const { articles, deleteArticle, changeArticle } = useContext(ArticleContext);
+  const { user } = useContext(UserContext);
 
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(); // selected article id
@@ -45,29 +47,36 @@ const Article = () => {
 
       {articles.map((article, index) => (
         <div className="article-card" key={index}>
-          {true && (
-            <button
-              className="article-delete"
-              onClick={() => deleteArticle(article._id)}
+          {user.role === "admin" && (
+            <select
+              className="editor"
+              defaultValue=""
+              onChange={(e) => {
+                switch (e.target.value) {
+                  case "title":
+                    openEdit(article._id, "title", article.title);
+                    break;
+
+                  case "content":
+                    openEdit(article._id, "content", article.content);
+                    break;
+
+                  case "delete":
+                    deleteArticle(article._id);
+                    break;
+
+                  default:
+                    break;
+                }
+              }}
             >
-              מחיקה
-            </button>
-          )}
-          {true && (
-            <button
-              className="article-change-title"
-              onClick={() => openEdit(article._id, "title", article.title)}
-            >
-              שינוי כותרת
-            </button>
-          )}
-          {true && (
-            <button
-              className="article-change-content"
-              onClick={() => openEdit(article._id, "content", article.content)}
-            >
-              שינוי תוכן
-            </button>
+              <option value="" hidden>
+                עריכה
+              </option>
+              <option value="title">שינוי כותרת</option>
+              <option value="content">שינוי תוכן</option>
+              <option value="delete">מחיקה</option>
+            </select>
           )}
           <img
             className="article-card-img"

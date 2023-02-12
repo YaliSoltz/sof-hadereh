@@ -115,7 +115,7 @@ const ContactUs = () => {
         <div className="input-wrapper">
           <textarea
             cols="30"
-            rows="10"
+            rows="6"
             type="text"
             className="field"
             id="content"

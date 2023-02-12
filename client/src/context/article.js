@@ -5,6 +5,7 @@ export const ArticleContext = createContext(); // the article context
 
 const ArticleProvider = ({ children }) => {
   const [articles, setArticles] = useState([]); // all the articles
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/articles/";
 
   // function that pulls all the articles from the server
@@ -18,12 +19,16 @@ const ArticleProvider = ({ children }) => {
   const addNewArticle = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete article by id
   const deleteArticle = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   // function that change article
@@ -31,11 +36,12 @@ const ArticleProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
   };
 
   useEffect(() => {
     getArticles();
-  }, []);
+  }, [refresh]);
 
   return (
     <ArticleContext.Provider

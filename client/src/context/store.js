@@ -13,29 +13,29 @@ import UserProvider from "./user";
 
 const Store = ({ children }) => {
   return (
-    <ArticleProvider>
-      <BioProvider>
-        <ConsultationProvider>
-          <HomeVisitProvider>
-            <LectureProvider>
-              <ReadingProvider>
-                <SentenceProvider>
-                  <SharingProvider>
-                    <ContactUsProvider>
-                      <PersonalSharingProvider>
-                        <UserProvider>
+    <UserProvider>
+      <ArticleProvider>
+        <BioProvider>
+          <ConsultationProvider>
+            <HomeVisitProvider>
+              <LectureProvider>
+                <ReadingProvider>
+                  <SentenceProvider>
+                    <SharingProvider>
+                      <ContactUsProvider>
+                        <PersonalSharingProvider>
                           {children}
-                        </UserProvider>
-                      </PersonalSharingProvider>
-                    </ContactUsProvider>
-                  </SharingProvider>
-                </SentenceProvider>
-              </ReadingProvider>
-            </LectureProvider>
-          </HomeVisitProvider>
-        </ConsultationProvider>
-      </BioProvider>
-    </ArticleProvider>
+                        </PersonalSharingProvider>
+                      </ContactUsProvider>
+                    </SharingProvider>
+                  </SentenceProvider>
+                </ReadingProvider>
+              </LectureProvider>
+            </HomeVisitProvider>
+          </ConsultationProvider>
+        </BioProvider>
+      </ArticleProvider>
+    </UserProvider>
   );
 };
 

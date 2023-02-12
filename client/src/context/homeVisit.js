@@ -5,6 +5,7 @@ export const HomeVisitContext = createContext(); // the homeVisit context
 
 const HomeVisitProvider = ({ children }) => {
   const [homeVisits, setHomeVisits] = useState([]); // all the homeVisits
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/homeVisits/";
 
   // function that pulls all the homeVisits from the server
@@ -18,12 +19,16 @@ const HomeVisitProvider = ({ children }) => {
   const addNewHomeVisit = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete homeVisit by id
   const deleteHomeVisit = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   // function that change homeVisit
@@ -31,10 +36,12 @@ const HomeVisitProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
-    getHomeVisits();
+    getHomeVisits(refresh);
   }, []);
 
   return (

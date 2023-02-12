@@ -5,6 +5,7 @@ export const PersonalSharingContext = createContext(); // the personalSharing co
 
 const PersonalSharingProvider = ({ children }) => {
   const [personalSharings, setPersonalSharings] = useState([]); // all the personalSharings
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4002/api/personalSharings/";
 
   // function that pulls all the personalSharings from the server
@@ -18,17 +19,21 @@ const PersonalSharingProvider = ({ children }) => {
   const addNewPersonalSharing = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete personalSharing by id
   const deletePersonalSharing = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
     getPersonalSharing();
-  }, []);
+  }, [refresh]);
 
   return (
     <PersonalSharingContext.Provider
