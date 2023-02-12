@@ -22,7 +22,7 @@ a {
 .Main {
   min-height: 90vh;
   background: linear-gradient(to top, #98b9b4, #e4e4c0);
-  padding-top: 5vh;
+  padding-top: 10vh;
 }
 
 .Footer {
@@ -324,6 +324,10 @@ textarea {
   .lecture-container {
     grid-template-columns: 1fr;
   }
+
+  .article-container {
+    grid-template-columns: 1fr;
+  }
   .sharing-container {
     grid-template-columns: 1fr;
   }
@@ -358,7 +362,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3vh 37% 0 37%;
+  padding: 3vh 0 0 0;
   margin-bottom: 0;
 }
 
@@ -380,10 +384,10 @@ textarea {
 }
 
 .contact-box .field {
-  min-width: 28vw;
+  width: 30vw;
   border: 2px solid rgba(0, 0, 0, 0);
   background-color: rgba(230, 230, 230, 0.6);
-  padding: 15px 5px 15px 0;
+  padding: 15px 5px 15px 5px;
   font-size: 1em;
   margin-top: 5px;
   transition: 0.3s;
@@ -397,7 +401,7 @@ textarea {
   border: 2px solid rgba(30, 85, 250, 0.47);
   background-color: #fff;
 }
-textarea::placeholder {
+.contact-box textarea::placeholder {
   font-size: 20px;
 }
 
@@ -997,7 +1001,7 @@ textarea::placeholder {
 
 /* -------------------------------------------edit/delete database ------------------------------- */
 
-.delete-btn{
+.delete-btn {
   position: absolute;
   top: 0;
   left: 0;
@@ -1050,9 +1054,6 @@ textarea::placeholder {
 .editor-dropdown > *:hover {
   background-color: #ddd;
 }
-
-
-
 
 /* ----------------------------------------------------card------------------------------------------ */
 
@@ -1198,7 +1199,3 @@ textarea::placeholder {
   margin-right: 4vw;
   border-radius: 30px;
 }
-
-
-
-

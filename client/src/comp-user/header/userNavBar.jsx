@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const UserNavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [chosenLink, setChosenLink] = useState("");
 
+  const navigate = useNavigate();
+
   return (
     <div className="Navbar">
-      <span className="nav-logo" onClick={() => window.scrollTo(0, 0)}>
+      <span
+        className="nav-logo"
+        onClick={() => {
+          navigate("/");
+          window.scrollTo(0, 0);
+        }}
+      >
         הסוף הטוב
       </span>
       <div className={`nav-items ${isOpen && "open"}`}>
@@ -29,14 +37,16 @@ const UserNavBar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          בלוג
+          הרצאות
         </Link>
+
         {/* <Link to="/" className="labelNav" onClick={() => {setChosenLink('bio') ;window.scrollTo(0, 0)}}>
           ייעוץ משפחתי להוספיס בית
         </Link>
         <Link to="/" className="labelNav" onClick={() => {setChosenLink('bio') ;window.scrollTo(0, 0)}}>
           ביקורי בית פרטיים
         </Link> */}
+
         <Link
           to="/בלוג"
           style={{ color: chosenLink === "blog" && "white" }}
@@ -45,7 +55,7 @@ const UserNavBar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          מאמרים
+          בלוג
         </Link>
         <Link
           to="/המלצות-קריאה"

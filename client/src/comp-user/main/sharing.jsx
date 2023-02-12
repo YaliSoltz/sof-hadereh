@@ -30,7 +30,12 @@ const Sharing = () => {
       {sharings.map((sharing, index) => (
         <div className="sharing-card" key={index}>
           {user.role === "admin" && (
-            <button className="delete-sharing-btn" onClick={() => deleteSharing(sharing._id)}>מחיקה</button>
+            <button
+              className="delete-sharing-btn"
+              onClick={() => deleteSharing(sharing._id)}
+            >
+              מחיקה
+            </button>
           )}
           <h3 className="sharing-card-title">שם: {sharing.name}</h3>
           <h3 className="sharing-card-title">גיל: {sharing.age}</h3>
@@ -42,9 +47,11 @@ const Sharing = () => {
         </div>
       ))}
 
-      <button className="modal-open" onClick={() => setOpen(true)}>
-        הוספת שיתוף
-      </button>
+      {user.role != "admin" && (
+        <button className="modal-open" onClick={() => setOpen(true)}>
+          הוספת שיתוף
+        </button>
+      )}
       {open ? (
         <div className="modal">
           <div className="modal-content">

@@ -6,7 +6,7 @@ import removeIcon from "../../images/remove.png";
 const Article = () => {
   const { articles, deleteArticle, changeArticle } = useContext(ArticleContext);
   const { user } = useContext(UserContext);
-  
+
   const dropdowns = document.getElementsByClassName("editor-dropdown"); // aray of all card editor-dropdown buttons
 
   // funcion that change title/content or delete
@@ -80,11 +80,9 @@ const Article = () => {
           <div className="card-content">
             <h2 className="card-title">{article.title}</h2>
             <div className="card-body">
-              <div>
-                {article.content?.split(".").map((word, index) => (
-                  <p key={index}>{word + "."}</p>
-                ))}
-              </div>
+              {article.content?.split(".").map((word, index, row) => (
+                <p key={index}>{index === row.length - 1 ? "" : word + "."}</p>
+              ))}
             </div>
           </div>
         </div>
