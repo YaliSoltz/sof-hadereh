@@ -995,13 +995,64 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-/* -------------------------------------------edit database------------------------------- */
+/* -------------------------------------------edit/delete database ------------------------------- */
+
+.delete-btn{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  background-color: transparent;
+  width: 35px;
+  height: 35px;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  transform: scale(1.2);
+}
 
 .editor {
   position: absolute;
   top: 0;
-  width: 20%;
+  width: max-content;
 }
+.editor-btn {
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+
+.editor-btn:hover,
+.editor-btn:focus {
+  transform: scale(1.2);
+}
+
+.editor-dropdown {
+  display: none;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.editor-dropdown > * {
+  padding: 12px 16px;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.editor-dropdown > *:hover {
+  background-color: #ddd;
+}
+
+
+
 
 /* ----------------------------------------------------card------------------------------------------ */
 
@@ -1017,8 +1068,7 @@ textarea::placeholder {
   position: relative;
 }
 
-.card:hover,
-.card:focus-within {
+.card:hover {
   transform: scale(1.05);
 }
 
@@ -1046,7 +1096,6 @@ textarea::placeholder {
   bottom: -2px;
   width: calc(100% + var(--padding));
   background: linear-gradient(to top, #98b9b4, #e4e4c0);
-
   transform-origin: right;
   transition: transform 500ms ease;
 }
@@ -1118,13 +1167,12 @@ textarea::placeholder {
   height: 40px;
   background-size: cover;
   background-color: white;
-
   border-radius: 5px;
   cursor: pointer;
 }
 
 .order .icon:hover {
-  background-color: rgba(255, 255, 255, 0.756);
+  transform: scale(1.1);
 }
 
 /* --------------------------------------------home------------------------------------ */
@@ -1150,4 +1198,7 @@ textarea::placeholder {
   margin-right: 4vw;
   border-radius: 30px;
 }
+
+
+
 

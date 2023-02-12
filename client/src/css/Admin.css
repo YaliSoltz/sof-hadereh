@@ -80,3 +80,7 @@ td {
   margin-top: 10px;
   cursor: pointer;
 }
+
+.adminLogout:hover {
+  transform: scale(1.1);
+}

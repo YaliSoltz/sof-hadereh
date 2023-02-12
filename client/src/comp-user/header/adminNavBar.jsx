@@ -35,8 +35,8 @@ const AdminNavBar = () => {
         <Link to="/" onClick={() => window.scrollTo(0, 0)}>
           ביקורי בית פרטיים
         </Link> */}
-        <Link to="/מאמרים" onClick={() => window.scrollTo(0, 0)}>
-          מאמרים
+        <Link to="/בלוג" onClick={() => window.scrollTo(0, 0)}>
+          בלוג
         </Link>
         <Link to="/המלצות-קריאה" onClick={() => window.scrollTo(0, 0)}>
           המלצות קריאה
@@ -55,7 +55,7 @@ const AdminNavBar = () => {
           שיתופים חדשים
           <span className="badge"> {personalSharings.length}</span>
         </Link>
-        <img src={image}className="adminLogout" onClick={() => logout()}></img>
+        <img src={image} className="adminLogout" onClick={() => logout()}></img>
       </div>
     </div>
   );

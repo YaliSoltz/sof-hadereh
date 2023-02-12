@@ -13,7 +13,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<UserInterface />} />
-      <Route path="/מאמרים" element={<UserInterface id={0} />} />
+      <Route path="/בלוג" element={<UserInterface id={0} />} />
       <Route path="/מטופלים-משתפים" element={<UserInterface id={1} />} />
       <Route path="/הרצאות" element={<UserInterface id={2} />} />
       <Route path="/קצת-עליי" element={<UserInterface id={3} />} />

@@ -29,7 +29,7 @@ const UserNavBar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          הרצאות
+          בלוג
         </Link>
         {/* <Link to="/" className="labelNav" onClick={() => {setChosenLink('bio') ;window.scrollTo(0, 0)}}>
           ייעוץ משפחתי להוספיס בית
@@ -38,10 +38,10 @@ const UserNavBar = () => {
           ביקורי בית פרטיים
         </Link> */}
         <Link
-          to="/מאמרים"
-          style={{ color: chosenLink === "articles" && "white" }}
+          to="/בלוג"
+          style={{ color: chosenLink === "blog" && "white" }}
           onClick={() => {
-            setChosenLink("articles");
+            setChosenLink("blog");
             window.scrollTo(0, 0);
           }}
         >
