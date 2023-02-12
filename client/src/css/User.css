@@ -124,6 +124,7 @@ a {
   font-size: 21px;
   margin: 15px;
   color: #000000;
+  cursor: pointer;
 }
 .Navbar > .nav-items > a {
   color: #000000;

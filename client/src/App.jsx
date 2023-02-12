@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Route, Routes } from "react-router-dom";
-import AdminInterface from "./comp-admin/Admin-interface";
 import UserInterface from "./comp-user/User-interface";
 import { UserContext } from "./context/user";
 import Login from "./login";
@@ -9,7 +8,7 @@ import "./css/Admin.css";
 import "./css/Login.css";
 
 const App = () => {
-  const { token } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <Routes>
@@ -20,11 +19,11 @@ const App = () => {
       <Route path="/קצת-עליי" element={<UserInterface id={3} />} />
       <Route path="/המלצות-קריאה" element={<UserInterface id={4} />} />
       <Route path="*" element={<UserInterface id={5} />} />
-      {token && <Route path="/add" element={<UserInterface id={6} />} />}
-      {token && <Route path="/contact-us" element={<UserInterface id={7} />} />}
-      {token && <Route path="/personal-sharing" element={<UserInterface id={8} />} />}
+      {user.role === 'admin' && <Route path="/add" element={<UserInterface id={6} />} />}
+      {user.role === 'admin' && <Route path="/contact-us" element={<UserInterface id={7} />} />}
+      {user.role === 'admin' && <Route path="/personal-sharing" element={<UserInterface id={8} />} />}
 
-      <Route path="/login" element={<Login />} />
+      <Route path="/l1o2g3i4n5" element={<Login />} />
     </Routes>
   );
 };

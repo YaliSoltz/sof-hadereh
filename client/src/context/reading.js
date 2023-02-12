@@ -8,7 +8,7 @@ const ReadingProvider = ({ children }) => {
   const { user } = useContext(UserContext);
 
   const [readings, setReadings] = useState([]); // all the readings
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "http://localhost:4001/api/Readings/";
 
   // function that pulls all the readings from the server
@@ -26,77 +26,69 @@ const ReadingProvider = ({ children }) => {
       switch (reading.category) {
         case "ליווי ילדים":
           accompanyingChildren.books.push(
-            <div>
-              <div
-                className="book"
-                style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
-              >
-                {user.role === "admin" && (
-                  <span
-                    className="delete-book"
-                    onClick={() => deleteReading(reading._id)}
-                  >
-                    &times;
-                  </span>
-                )}
-              </div>
+            <div
+              className="book"
+              style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
+            >
+              {user.role === "admin" && (
+                <span
+                  className="delete-book"
+                  onClick={() => deleteReading(reading._id)}
+                >
+                  &times;
+                </span>
+              )}
             </div>
           );
           break;
         case "הגיל השלישי":
           elderly.books.push(
-            <div>
-              <div
-                className="book"
-                style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
-              >
-                {user.role === "admin" && (
-                  <span
-                    className="delete-book"
-                    onClick={() => deleteReading(reading._id)}
-                  >
-                    &times;
-                  </span>
-                )}
-              </div>
+            <div
+              className="book"
+              style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
+            >
+              {user.role === "admin" && (
+                <span
+                  className="delete-book"
+                  onClick={() => deleteReading(reading._id)}
+                >
+                  &times;
+                </span>
+              )}
             </div>
           );
           break;
         case "מה קורה ברגע המוות ואחרי":
           death.books.push(
-            <div>
-              <div
-                className="book"
-                style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
-              >
-                {user.role === "admin" && (
-                  <span
-                    className="delete-book"
-                    onClick={() => deleteReading(reading._id)}
-                  >
-                    &times;
-                  </span>
-                )}
-              </div>
+            <div
+              className="book"
+              style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
+            >
+              {user.role === "admin" && (
+                <span
+                  className="delete-book"
+                  onClick={() => deleteReading(reading._id)}
+                >
+                  &times;
+                </span>
+              )}
             </div>
           );
           break;
         case "ספרי השראה":
           inspiration.books.push(
-            <div>
-              <div
-                className="book"
-                style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
-              >
-                {user.role === "admin" && (
-                  <span
-                    className="delete-book"
-                    onClick={() => deleteReading(reading._id)}
-                  >
-                    &times;
-                  </span>
-                )}
-              </div>
+            <div
+              className="book"
+              style={{ backgroundImage: `url(${reading.imgUrl.url})` }}
+            >
+              {user.role === "admin" && (
+                <span
+                  className="delete-book"
+                  onClick={() => deleteReading(reading._id)}
+                >
+                  &times;
+                </span>
+              )}
             </div>
           );
           break;
@@ -113,16 +105,14 @@ const ReadingProvider = ({ children }) => {
   const addNewReading = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
-    setRefresh(!refresh)
-
+    setRefresh(!refresh);
   };
 
   // function that delete reading by id
   const deleteReading = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data);
-    setRefresh(!refresh)
-
+    setRefresh(!refresh);
   };
 
   // function that change reading
@@ -130,8 +120,7 @@ const ReadingProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
-    setRefresh(!refresh)
-
+    setRefresh(!refresh);
   };
 
   useEffect(() => {

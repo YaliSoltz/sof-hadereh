@@ -4,7 +4,7 @@ import { UserContext } from "../../context/user";
 
 const Lecture = () => {
   const { lectures, deleteLecture, changeLecture } = useContext(LectureContext);
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   const [open, setOpen] = useState(false);
   const [id, setId] = useState(); // selected lecture id
@@ -52,7 +52,7 @@ const Lecture = () => {
       </div>
       {lectures.map((lecture, index) => (
         <div className="lecture-card" key={index}>
-          {user.role ==='admin' && (
+          {user.role === "admin" && (
             <select
               className="editor"
               defaultValue=""

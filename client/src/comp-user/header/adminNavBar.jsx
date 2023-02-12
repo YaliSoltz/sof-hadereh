@@ -15,7 +15,7 @@ const AdminNavBar = () => {
   return (
     <div>
       <div className="admin-navBar">
-        <a className="active">היי {user.name}</a>
+        <a className="active"  onClick={() => window.scrollTo(0, 0)}>היי {user.name}</a>
 
         <Link to="/קצת-עליי" onClick={() => window.scrollTo(0, 0)}>
           קצת עליי

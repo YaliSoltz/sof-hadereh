@@ -86,7 +86,7 @@ const Article = () => {
           <h3 className="article-card-title">{article.title}</h3>
           <div className="article-card-content">
             <div>
-              {/* need to check if work */}
+             
               {article.content.split(".").map((word, index) => (
                 <p key={index}>{word + "."}</p>
               ))}

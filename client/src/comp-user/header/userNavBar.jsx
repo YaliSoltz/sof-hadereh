@@ -6,7 +6,7 @@ const UserNavBar = () => {
 
   return (
     <div className="Navbar">
-      <span className="nav-logo">הסוף הטוב</span>
+      <span className="nav-logo"  onClick={() => window.scrollTo(0, 0)}>הסוף הטוב</span>
       <div className={`nav-items ${isOpen && "open"}`}>
         <Link to="/קצת-עליי" onClick={() => window.scrollTo(0, 0)}>
           קצת עליי
