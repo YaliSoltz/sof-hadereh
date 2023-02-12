@@ -5,6 +5,7 @@ export const ContactUsContext = createContext(); // the contactUs context
 
 const ContactUsProvider = ({ children }) => {
   const [contactUs, setContactUs] = useState([]); // all the contactUs
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4002/api/contactUs/";
 
   // function that pulls all the contactUs from the server
@@ -18,17 +19,21 @@ const ContactUsProvider = ({ children }) => {
   const addNewContactUs = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete contactUs by id
   const deleteContactUs = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
     getContactUs();
-  }, []);
+  }, [refresh]);
 
   return (
     <ContactUsContext.Provider

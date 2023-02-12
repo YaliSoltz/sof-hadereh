@@ -5,6 +5,7 @@ export const SentenceContext = createContext(); // the sentence context
 
 const SentenceProvider = ({ children }) => {
   const [sentences, setSentences] = useState([]); // all the sentences
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/sentences/";
 
   // function that pulls all the sentences from the server
@@ -18,12 +19,16 @@ const SentenceProvider = ({ children }) => {
   const addNewSentence = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete sentence by id
   const deleteSentence = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that change sentence
@@ -31,10 +36,12 @@ const SentenceProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
-    getSentences();
+    getSentences(refresh);
   }, []);
 
   return (

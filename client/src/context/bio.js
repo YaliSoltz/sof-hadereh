@@ -5,6 +5,7 @@ export const BioContext = createContext(); // the bio context
 
 const BioProvider = ({ children }) => {
   const [bio, setBio] = useState([]); // all the bio
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/bio/";
 
   // function that pulls the bio from the server
@@ -18,12 +19,16 @@ const BioProvider = ({ children }) => {
   const addNewBio = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete bio by id
   const deleteBio = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   // function that change bio
@@ -31,11 +36,13 @@ const BioProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
     getBio();
-  }, []);
+  }, [refresh]);
 
   return (
     <BioContext.Provider

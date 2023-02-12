@@ -1,11 +1,12 @@
 import React, { useContext, useState } from "react";
 import { PersonalSharingContext } from "../../context/personalSharing";
 import { SharingContext } from "../../context/sharing";
+import { UserContext } from "../../context/user";
 
 const Sharing = () => {
   const { addNewPersonalSharing } = useContext(PersonalSharingContext);
-
-  const { sharings } = useContext(SharingContext);
+  const { sharings, deleteSharing } = useContext(SharingContext);
+  const { user } = useContext(UserContext);
 
   const [newPersonalSharing, setNewPersonalSharing] = useState({}); // new PersonalSharing object
   const [sended, setSended] = useState(false); // change the modal if the sharing is sended
@@ -28,6 +29,9 @@ const Sharing = () => {
     <div className="sharing-container">
       {sharings.map((sharing, index) => (
         <div className="sharing-card" key={index}>
+          {user.role === "admin" && (
+            <button className="delete-sharing-btn" onClick={() => deleteSharing(sharing._id)}>מחיקה</button>
+          )}
           <h3 className="sharing-card-title">שם: {sharing.name}</h3>
           <h3 className="sharing-card-title">גיל: {sharing.age}</h3>
           <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
@@ -76,12 +80,11 @@ const Sharing = () => {
                   type="number"
                   placeholder="גיל:"
                   min={1}
-                  maxLength={2}
                   required
                   onChange={(e) =>
                     setNewPersonalSharing({
                       ...newPersonalSharing,
-                      age: e.target.value,
+                      age: parseInt(e.target.value),
                     })
                   }
                 />

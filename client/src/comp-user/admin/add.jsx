@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Article from "./add/article";
 import Lecture from "./add/lecture";
 import Reading from "./add/reading";
+import Sentence from "./add/sentence";
 import Sharing from "./add/sharing";
 
 const Add = () => {
@@ -20,6 +21,9 @@ const Add = () => {
       case "sharing":
         setComp(<Sharing />);
         break;
+      case "sentence":
+        setComp(<Sentence />);
+        break;
 
       default:
         break;
@@ -36,6 +40,7 @@ const Add = () => {
         <option value="article">מאמר</option>
         <option value="reading">המלצת קריאה</option>
         <option value="sharing">שיתוף חדש</option>
+        <option value="sentence">משפט חדש</option>
       </select>
 
       {comp}

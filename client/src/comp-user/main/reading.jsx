@@ -5,7 +5,6 @@ import { ReadingContext } from "../../context/reading";
 
 const Reading = () => {
   const { readings } = useContext(ReadingContext);
-  console.log(readings);
 
   return (
     <div className="closet-container">

@@ -33,7 +33,7 @@ const PersonalSharing = mongoose.model("PersonalSharing", schema);
 // joi schema
 const joiSchema = Joi.object({
   name: Joi.string().max(55),
-  age: Joi.string().min(1).max(3).required(),
+  age: Joi.number().min(1).required(),
   status: Joi.string()
     .valid("נשוי/נשואה", "רווק/ה", "גרוש/ה", "אלמן/ה", "ערירי/ת")
     .required(),

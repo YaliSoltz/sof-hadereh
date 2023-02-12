@@ -5,6 +5,7 @@ export const ConsultationContext = createContext(); // the consultation context
 
 const ConsultationProvider = ({ children }) => {
   const [consultations, setConsultations] = useState([]); // all the consultations
+  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
   const url = "http://localhost:4001/api/consultations/";
 
   // function that pulls all the consultations from the server
@@ -18,12 +19,16 @@ const ConsultationProvider = ({ children }) => {
   const addNewConsultation = async (body) => {
     const { data } = await axios.post(url, body);
     console.log(data);
+    setRefresh(!refresh)
+
   };
 
   // function that delete consultation by id
   const deleteConsultation = async (id) => {
     const { data } = await axios.delete(url + id);
     console.log(data)
+    setRefresh(!refresh)
+
   };
 
   // function that change consultation
@@ -31,11 +36,13 @@ const ConsultationProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
+    setRefresh(!refresh)
+
   };
 
   useEffect(() => {
     getConsultations();
-  }, []);
+  }, [refresh]);
 
   return (
     <ConsultationContext.Provider
