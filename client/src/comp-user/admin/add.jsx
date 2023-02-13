@@ -42,7 +42,7 @@ const Add = () => {
         <option value="sharing">שיתוף חדש</option>
         <option value="sentence">משפט חדש</option>
       </select>
-
+      
       {comp}
     </div>
   );

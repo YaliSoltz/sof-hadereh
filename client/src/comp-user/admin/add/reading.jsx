@@ -28,43 +28,37 @@ const Reading = () => {
 
   return (
     <div>
-      <h2>המלצת קריאה חדשה</h2>
-      <form
-        id="form"
-        className="sharing-form"
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <select
-          required
-          onChange={(e) =>
-            setNewReading({
-              ...newReading,
-              category: e.target.value,
-            })
-          }
+      <div className="add-form">
+        <h2>הוספת המלצת קריאה חדשה</h2>
+
+        <form
+          id="form"
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
         >
-          <option value="ליווי ילדים">ליווי ילדים</option>
-          <option value="הגיל השלישי">הגיל השלישי</option>
-          <option value="מה קורה ברגע המוות ואחרי">מה קורה במוות ואחרי</option>
-          <option value="ספרי השראה">ספרי השראה</option>
-        </select>
-
-        <input
-          type="file"
-          className="img-upload"
-          name="img-upload"
-          required
-          onChange={(e) => setImgUrl(e)}
-        />
-
-        <div>
-          <button type="submit" className="send">
-            הוספה
-          </button>
-        </div>
-      </form>
+          <select
+            required
+            defaultValue=""
+            onChange={(e) =>
+              setNewReading({
+                ...newReading,
+                category: e.target.value,
+              })
+            }
+          >
+            <option value="" disabled>קטגוריה:</option>
+            <option value="ליווי ילדים">ליווי ילדים</option>
+            <option value="הגיל השלישי">הגיל השלישי</option>
+            <option value="מה קורה ברגע המוות ואחרי">
+              מה קורה במוות ואחרי
+            </option>
+            <option value="ספרי השראה">ספרי השראה</option>
+          </select>
+          <input type="file" required onChange={(e) => setImgUrl(e)} />
+          <button type="submit">הוספה</button>
+        </form>
+      </div>
     </div>
   );
 };
