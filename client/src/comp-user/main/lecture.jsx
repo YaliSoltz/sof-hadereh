@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { LectureContext } from "../../context/lecture";
 import { UserContext } from "../../context/user";
-import whatsApp from "../../images/whatsApp.png";
-import email from "../../images/email.png";
-import phone from "../../images/phone.png";
+import whatsApp from "../../images/whatsApp-white.png";
+import email from "../../images/email-white.png";
+import phone from "../../images/phone-white.png";
 import pencilIcon from "../../images/pencil-black.png";
 import removeIcon from "../../images/remove.png";
 
