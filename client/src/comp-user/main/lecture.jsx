@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { LectureContext } from "../../context/lecture";
 import { UserContext } from "../../context/user";
 import whatsApp from "../../images/whatsApp.png";
@@ -47,7 +47,7 @@ const Lecture = () => {
   };
 
   return (
-    <div className="lecture-container">
+    <div className="card-container">
       {lectures.map((lecture, index) => (
         <div
           key={index}

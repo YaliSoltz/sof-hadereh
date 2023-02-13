@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { ArticleContext } from "../../context/article";
 import { UserContext } from "../../context/user";
 import pencilIcon from "../../images/pencil-black.png";
@@ -38,7 +38,7 @@ const Article = () => {
   };
 
   return (
-    <div className="article-container">
+    <div className="card-container">
       {articles.map((article, index) => (
         <div
           key={index}
