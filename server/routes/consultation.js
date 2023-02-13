@@ -4,7 +4,7 @@ const {
   getAllConsultations,
   deleteConsultation,
   changeConsultation,
-} = require("../controllers/Consultation");
+} = require("../controllers/consultation");
 const router = Router();
 
 // get all the consultations
