@@ -5,7 +5,7 @@ const { contactUs, personalSharing } = require("./routes");
 
 mongoose.set("strictQuery", true);
 const app = express();
-const port = 4002;
+const port = 10000;
 
 app.use(cors());
 app.use(express.json());

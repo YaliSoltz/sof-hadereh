@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import { PersonalSharingContext } from "../../context/personalSharing";
 import { SharingContext } from "../../context/sharing";
 import { UserContext } from "../../context/user";
-import removeIcon from "../../images/remove.png";
+import removeIcon from "../../images/remove-white.png";
+import treeImg from "../../images/tree.jpg";
 
 const Sharing = () => {
   const { addNewPersonalSharing } = useContext(PersonalSharingContext);
@@ -30,19 +31,23 @@ const Sharing = () => {
     <div className="sharing-container">
       {sharings.map((sharing, index) => (
         <div className="sharing-card" key={index}>
-          {user.role === "admin" && (
-            <button
-              className="delete-btn"
-              onClick={() => deleteSharing(sharing._id)}
-              style={{ backgroundImage: `url(${removeIcon})` }}
-            ></button>
-          )}
-          <h3 className="sharing-card-title">שם: {sharing.name}</h3>
-          <h3 className="sharing-card-title">גיל: {sharing.age}</h3>
-          <h3 className="sharing-card-title">מצב משפחתי: {sharing.status}</h3>
-          <h3 className="sharing-card-title">הסיפור שלי</h3>
-          <div className="sharing-card-content">
-            <p>{sharing.content}</p>
+          <img src={treeImg} alt="" className="sharing-card-img" />
+          <div className="sharing-card-body">
+            {user.role === "admin" && (
+              <button
+                className="delete-btn"
+                onClick={() => deleteSharing(sharing._id)}
+                style={{ backgroundImage: `url(${removeIcon})` }}
+              ></button>
+            )}
+            <h2 className="sharing-card-title">שם: {sharing.name}</h2>
+            <h2 className="sharing-card-title">גיל: {sharing.age}</h2>
+            <h2 className="sharing-card-title">מצב משפחתי: {sharing.status}</h2>
+            <div className="sharing-card-info">
+              {sharing.content.split(".").map((word, index, row) => (
+                <p key={index}>{index === row.length - 1 ? "" : word + "."}</p>
+              ))}
+            </div>
           </div>
         </div>
       ))}

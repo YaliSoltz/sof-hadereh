@@ -6,7 +6,7 @@ export const BioContext = createContext(); // the bio context
 const BioProvider = ({ children }) => {
   const [bio, setBio] = useState([]); // all the bio
   const [refresh, setRefresh] = useState(false) // active useEffect on each axios
-  const url = "http://localhost:4001/api/bio/";
+  const url = "https://backend-server-h1qj.onrender.com/api/bio/";
 
   // function that pulls the bio from the server
   const getBio = async () => {

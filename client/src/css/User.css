@@ -44,28 +44,52 @@ a {
 }
 
 .sharing-card {
-  width: 33vw;
-  min-width: 20em;
-  height: 80vh;
-  background-color: white;
-  border-radius: 30px;
+  height: 85vh;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 8px solid black;
+  position: relative;
 }
 
 .sharing-card-img {
-  height: 30%;
   width: 100%;
-  border-radius: 30px 30px 0 0;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-.sharing-card-content {
-  overflow-y: auto;
-  height: 30vh;
-  padding: 0px 10% 0 10%;
-}
-
-.delete-sharing-btn {
+.sharing-card-body {
+  width: 100%;
+  height: 100%;
+  top: 0;
   position: absolute;
-  left: 0;
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  color: white;
+  background: linear-gradient(
+    hsl(0 0% 0% /0),
+    hsl(20 0% 0% / 0.3) 20%,
+    hsl(0 0% 0% /0.7)
+  );
+}
+
+.sharing-card-title {
+  padding-right: 20px;
+}
+
+.sharing-card-info {
+  font-size: 18px;
+  line-height: 25px;
+  margin: 40px 0;
+  font-weight: 400;
+  overflow-y: auto;
+  height: 480px;
+  padding: 0 20px 0 20px;
+  border-top: 2px solid white;
+}
+
+.sharing-card-info::-webkit-scrollbar {
+  display: none;
 }
 
 /* -----------------------------------------navbar----------------------------------------------- */
@@ -118,7 +142,6 @@ a {
 
 /* --------------------------------------------modal---------------------------------------------- */
 
-/* the open button */
 .modal-open {
   position: fixed;
   left: 1vw;
@@ -159,14 +182,13 @@ a {
   box-shadow: 0 0 0 0 black;
 }
 
-/* modal Content */
 .modal-content {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 40vw;
-  height: 50vh;
+  min-height: 60vh;
   border-radius: 5px;
   background-color: #f2f2f2;
   animation: modal-content-slide-in-top 0.8s
@@ -186,7 +208,6 @@ a {
   }
 }
 
-/* the close button */
 .modal-close {
   color: #aaaaaa;
   float: right;
@@ -241,7 +262,7 @@ textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 60vh;
 }
 
 /* ----------------------------------------contactUs------------------------- */
@@ -897,9 +918,10 @@ textarea {
   cursor: pointer;
 }
 
-/* -------------------------------------------edit/delete database ------------------------------- */
+/* -------------------------------------------edit/delete/add database ------------------------------- */
 
-.delete-btn {
+.delete-btn,
+.add-btn {
   position: absolute;
   top: 0;
   left: 0;
@@ -912,8 +934,16 @@ textarea {
   height: 35px;
 }
 
+.add-btn {
+  left: 100px;
+}
+
 .delete-btn:hover,
 .delete-btn:focus {
+  transform: scale(1.2);
+}
+.add-btn:hover,
+.add-btn:focus {
   transform: scale(1.2);
 }
 

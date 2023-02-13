@@ -6,7 +6,7 @@ export const HomeVisitContext = createContext(); // the homeVisit context
 const HomeVisitProvider = ({ children }) => {
   const [homeVisits, setHomeVisits] = useState([]); // all the homeVisits
   const [refresh, setRefresh] = useState(false) // active useEffect on each axios
-  const url = "http://localhost:4001/api/homeVisits/";
+  const url = "https://backend-server-h1qj.onrender.com/api/homeVisits/";
 
   // function that pulls all the homeVisits from the server
   const getHomeVisits = async () => {
