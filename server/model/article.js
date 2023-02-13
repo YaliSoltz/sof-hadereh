@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
   },
   content: {
     type: String,
-    max: 1024,
+
     required: true,
   },
   imgUrl: {
@@ -35,7 +35,7 @@ const Article = mongoose.model("Article", schema);
 const joiSchema = Joi.object({
 
   title: Joi.string().max(55).required(),
-  content: Joi.string().max(1024).required(),
+  content: Joi.string().required(),
   imgUrl: Joi.string().required(),
 });
 
