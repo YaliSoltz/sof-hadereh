@@ -18,7 +18,7 @@ if (!newContactUs.subject){
     errors.name="נושא חייב להכיל לפחות 3 אותיות"
 }
 if (!newContactUs.content){
-    errors.content="חובה להכניס שם"
+    errors.content="חובה להכניס תוכן"
 }else if(newContactUs.content.length<3){
     errors.content="תוכן חייב להכיל לפחות 3 אותיות"
 }
