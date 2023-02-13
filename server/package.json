@@ -2,7 +2,6 @@
   "scripts": {
     "start": "node index.js"
   },
-
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cloudinary": "^1.33.0",
@@ -16,5 +15,12 @@
     "mongoose-type-email": "^1.1.2",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
