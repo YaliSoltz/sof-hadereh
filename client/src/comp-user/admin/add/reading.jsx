@@ -10,8 +10,13 @@ const Reading = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewReading(newReading); // add newReading to database
-    document.getElementById("form").reset(); // reset the form
+    try {
+      addNewReading(newReading); // add newReading to database
+      document.getElementById("form").reset(); // reset the form
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert("שגיאה");
+    }
   };
 
   // function that set the newReading obj with imgUrl

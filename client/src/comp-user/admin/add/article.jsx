@@ -10,8 +10,13 @@ const Article = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewArticle(newArticle); // add newArticle to database
-    document.getElementById("form").reset(); // reset the form
+    try {
+      addNewArticle(newArticle); // add newArticle to database
+      document.getElementById("form").reset(); // reset the form
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert("שגיאה");
+    }
   };
 
   // function that set the newArticle obj with imgUrl
@@ -28,34 +33,34 @@ const Article = () => {
 
   return (
     <div className="add-form">
-    <h2>הוספת מאמר חדש</h2>
-    <form
-      id="form"
-      onSubmit={(e) => {
-        handleSubmit(e);
-      }}
-    >
-      <input
-        type="text"
-        placeholder="כותרת:"
-        required
-        onChange={(e) =>
-          setNewArticle({ ...newArticle, title: e.target.value })
-        }
-      />
-      <textarea
-        cols="30"
-        rows="10"
-        placeholder="תוכן:"
-        required
-        onChange={(e) =>
-          setNewArticle({ ...newArticle, content: e.target.value })
-        }
-      ></textarea>
-      <input type="file" required onChange={(e) => setImgUrl(e)} />
-      <button type="submit">הוספה</button>
-    </form>
-  </div>
+      <h2>הוספת מאמר חדש</h2>
+      <form
+        id="form"
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          type="text"
+          placeholder="כותרת:"
+          required
+          onChange={(e) =>
+            setNewArticle({ ...newArticle, title: e.target.value })
+          }
+        />
+        <textarea
+          cols="30"
+          rows="10"
+          placeholder="תוכן:"
+          required
+          onChange={(e) =>
+            setNewArticle({ ...newArticle, content: e.target.value })
+          }
+        ></textarea>
+        <input type="file" required onChange={(e) => setImgUrl(e)} />
+        <button type="submit">הוספה</button>
+      </form>
+    </div>
   );
 };
 

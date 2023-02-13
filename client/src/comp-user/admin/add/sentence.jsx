@@ -10,8 +10,13 @@ const Sentence = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewSentence(newSentence); // add newSentence to database
-    document.getElementById("form").reset(); // reset the form
+    try {
+      addNewSentence(newSentence); // add newSentence to database
+      document.getElementById("form").reset(); // reset the form
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert("שגיאה");
+    }
   };
 
   return (

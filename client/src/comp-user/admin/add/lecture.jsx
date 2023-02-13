@@ -10,8 +10,13 @@ const Lecture = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewLecture(newLecture); // add newLecture to database
-    document.getElementById("form").reset(); // reset the form
+    try {
+      addNewLecture(newLecture); // add newLecture to database
+      document.getElementById("form").reset(); // reset the form
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert("שגיאה");
+    }
   };
 
   // function that set the newLecture obj with imgUrl

@@ -11,8 +11,13 @@ const Sharing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    addNewSharing(newSharing); // add newSharing to database
-    document.getElementById("form").reset(); // reset the form
+    try {
+      addNewSharing(newSharing); // add newSharing to database
+      document.getElementById("form").reset(); // reset the form
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert("שגיאה");
+    }
   };
 
   // function that set the newSharing obj with imgUrl
