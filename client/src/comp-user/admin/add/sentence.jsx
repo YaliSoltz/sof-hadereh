@@ -15,29 +15,34 @@ const Sentence = () => {
   };
 
   return (
-    <div>
-      <h2>הוספת משפט חדש</h2>
-      <form
-        id="form"
-        className="sharing-form"
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <input
-          placeholder="תוכן:"
-          required
-          onChange={(e) =>
-            setNewSentence({ ...newSentence, content: e.target.value })
-          }
-        />
-        <div>
-          <button type="submit" className="send">
-            הוספה
-          </button>
-        </div>
-      </form>
-    </div>
+    <div className="add-form">
+    <h2>הוספת משפט חדש</h2>
+    <form
+      id="form"
+      onSubmit={(e) => {
+        handleSubmit(e);
+      }}
+    >
+      {/* <input
+        type="text"
+        placeholder="כותרת:"
+        required
+        onChange={(e) =>
+          setNewSentence({ ...newSentence, title: e.target.value })
+        }
+      /> */}
+      <textarea
+        cols="30"
+        rows="10"
+        placeholder="תוכן:"
+        required
+        onChange={(e) =>
+          setNewSentence({ ...newSentence, content: e.target.value })
+        }
+      ></textarea>
+      <button type="submit">הוספה</button>
+    </form>
+  </div>
   );
 };
 

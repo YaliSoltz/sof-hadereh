@@ -27,46 +27,35 @@ const Article = () => {
   };
 
   return (
-    <div>
-        <h2>הוספת מאמר חדש</h2>
-      <form
-        id="form"
-        className="sharing-form"
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <input
-          name="name"
-          type="text"
-          onChange={(e) =>
-            setNewArticle({ ...newArticle, title: e.target.value })
-          }
-          placeholder="כותרת:"
-        />
-
-        <input
-          type="file"
-          className="img-upload"
-          name="img-upload"
-          required
-          onChange={(e) => setImgUrl(e)}
-        />
-
-        <textarea
-          placeholder="תוכן:"
-          required
-          onChange={(e) =>
-            setNewArticle({ ...newArticle, content: e.target.value })
-          }
-        />
-        <div>
-          <button type="submit" className="send">
-            הוספה
-          </button>
-        </div>
-      </form>
-    </div>
+    <div className="add-form">
+    <h2>הוספת מאמר חדש</h2>
+    <form
+      id="form"
+      onSubmit={(e) => {
+        handleSubmit(e);
+      }}
+    >
+      <input
+        type="text"
+        placeholder="כותרת:"
+        required
+        onChange={(e) =>
+          setNewArticle({ ...newArticle, title: e.target.value })
+        }
+      />
+      <textarea
+        cols="30"
+        rows="10"
+        placeholder="תוכן:"
+        required
+        onChange={(e) =>
+          setNewArticle({ ...newArticle, content: e.target.value })
+        }
+      ></textarea>
+      <input type="file" required onChange={(e) => setImgUrl(e)} />
+      <button type="submit">הוספה</button>
+    </form>
+  </div>
   );
 };
 

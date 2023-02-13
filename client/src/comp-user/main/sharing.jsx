@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { PersonalSharingContext } from "../../context/personalSharing";
 import { SharingContext } from "../../context/sharing";
 import { UserContext } from "../../context/user";
+import removeIcon from "../../images/remove.png";
 
 const Sharing = () => {
   const { addNewPersonalSharing } = useContext(PersonalSharingContext);
@@ -31,11 +32,10 @@ const Sharing = () => {
         <div className="sharing-card" key={index}>
           {user.role === "admin" && (
             <button
-              className="delete-sharing-btn"
+              className="delete-btn"
               onClick={() => deleteSharing(sharing._id)}
-            >
-              מחיקה
-            </button>
+              style={{ backgroundImage: `url(${removeIcon})` }}
+            ></button>
           )}
           <h3 className="sharing-card-title">שם: {sharing.name}</h3>
           <h3 className="sharing-card-title">גיל: {sharing.age}</h3>
