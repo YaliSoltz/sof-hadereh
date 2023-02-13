@@ -20,19 +20,6 @@ const Sharing = () => {
     }
   };
 
-  // function that set the newSharing obj with imgUrl
-  const setImgUrl = (e) => {
-    const file = e.target.files[0]; // defines file as an object who contain image data
-    const reader = new FileReader(); // defines new instance from FileReader class
-    reader.readAsDataURL(file); // converts the file to base64
-
-    //func that get the image in base64 and add it to newSharing object
-    reader.onloadend = () => {
-      console.log(reader.result);
-      setNewSharing({ ...newSharing, imgUrl: "reader.result" });
-    };
-  };
-
   return (
     <div>
       <div className="add-form">
