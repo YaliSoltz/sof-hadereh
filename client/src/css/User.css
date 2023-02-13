@@ -207,7 +207,8 @@ a {
   flex-direction: column;
   justify-content: center;
   gap: 1em;
-  margin: 6% 4% 0 4%;
+  padding: 1em 1em 1em 1em;
+  
 }
 
 .sharing-form textarea {
@@ -217,7 +218,7 @@ a {
 .sharing-form input,
 select,
 textarea {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
