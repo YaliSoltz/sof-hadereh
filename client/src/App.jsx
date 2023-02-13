@@ -22,8 +22,8 @@ const App = () => {
       {user.role === 'admin' && <Route path="/add" element={<Interface id={6} />} />}
       {user.role === 'admin' && <Route path="/contact-us" element={<Interface id={7} />} />}
       {user.role === 'admin' && <Route path="/personal-sharing" element={<Interface id={8} />} />}
+      <Route path="/l1o2g3i4n5" element={<Login/>} />
 
-      <Route path="/l1o2g3i4n5" element={<Login />} />
     </Routes>
   );
 };
