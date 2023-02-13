@@ -25,10 +25,10 @@ const Reading = () => {
                   700: { items: 4 },
                 }}
                 disableDotsControls="true"
-                disableButtonsControls="true"
+                // disableButtonsControls="true"
                 items={reading.books}
-                autoPlay={true}
-                autoPlayInterval={5000}
+                // autoPlay={true}
+                // autoPlayInterval={5000}
                 infinite={true}
               />
             </div>

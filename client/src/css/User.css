@@ -1135,6 +1135,26 @@ textarea {
   border-radius: 30px;
 }
 
+
+
+
+/* ------------------------carousel---------------------------- */
+
+.alice-carousel__prev-btn,
+.alice-carousel__next-btn {
+    position: absolute;
+    top: 30px;
+    font-size: 70px;
+}
+
+.alice-carousel__next-btn {
+   right: -25vw
+}
+.alice-carousel__prev-btn {
+   left: -25vw
+}
+
+
 /* ----------------------------------------phone---------------------------------------------------- */
 @media (max-width: 700px) {
   .Navbar > .nav-items {
