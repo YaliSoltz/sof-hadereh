@@ -11,7 +11,6 @@ const ContactUsProvider = ({ children }) => {
   // function that pulls all the contactUs from the server
   const getContactUs = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setContactUs(data);
   };
 

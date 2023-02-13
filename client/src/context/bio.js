@@ -11,7 +11,6 @@ const BioProvider = ({ children }) => {
   // function that pulls the bio from the server
   const getBio = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setBio(data);
   };
 

@@ -11,7 +11,6 @@ const PersonalSharingProvider = ({ children }) => {
   // function that pulls all the personalSharings from the server
   const getPersonalSharing = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setPersonalSharings(data);
   };
 

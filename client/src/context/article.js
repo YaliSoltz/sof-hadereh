@@ -11,7 +11,6 @@ const ArticleProvider = ({ children }) => {
   // function that pulls all the articles from the server
   const getArticles = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setArticles(data);
   };
 

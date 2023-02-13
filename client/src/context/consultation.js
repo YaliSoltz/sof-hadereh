@@ -11,7 +11,6 @@ const ConsultationProvider = ({ children }) => {
   // function that pulls all the consultations from the server
   const getConsultations = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setConsultations(data);
   };
 

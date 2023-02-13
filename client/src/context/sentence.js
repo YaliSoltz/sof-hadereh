@@ -11,7 +11,6 @@ const SentenceProvider = ({ children }) => {
   // function that pulls all the sentences from the server
   const getSentences = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setSentences(data);
   };
 

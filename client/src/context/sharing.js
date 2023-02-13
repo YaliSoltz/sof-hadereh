@@ -11,7 +11,6 @@ const SharingProvider = ({ children }) => {
   // function that pulls all the sharings from the server
   const getSharings = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setSharings(data);
   };
 

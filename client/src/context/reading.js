@@ -96,8 +96,7 @@ const ReadingProvider = ({ children }) => {
           break;
       }
     });
-
-    console.log(data);
+    
     setReadings([accompanyingChildren, elderly, death, inspiration]);
   };
 

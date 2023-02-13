@@ -11,7 +11,6 @@ const LectureProvider = ({ children }) => {
   // function that pulls all the lectures from the server
   const getLectures = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setLectures(data);
   };
 

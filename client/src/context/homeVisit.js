@@ -11,7 +11,6 @@ const HomeVisitProvider = ({ children }) => {
   // function that pulls all the homeVisits from the server
   const getHomeVisits = async () => {
     const { data } = await axios.get(url);
-    console.log(data);
     setHomeVisits(data);
   };
 
