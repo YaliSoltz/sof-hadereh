@@ -103,7 +103,7 @@ const Lecture = () => {
               ></a>
               <a
                 className="icon"
-                href={emailUrl.replace("כותרת", lecture.title)}
+                href={emailUrl.replaceAll("כותרת", lecture.title)}
                 style={{ backgroundImage: `url(${email})` }}
               ></a>
               <a
