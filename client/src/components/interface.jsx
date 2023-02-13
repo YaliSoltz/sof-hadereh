@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/User.css";
-
 import Header from "./header";
 import Article from "./main/article";
 import Bio from "./main/bio";
@@ -13,7 +12,7 @@ import Add from "./admin/add";
 import ContactUs from "./admin/contactUs";
 import Home from "./main/home";
 import PersonalSharing from "./admin/personalSharing";
-const UserInterface = ({ id }) => {
+const Interface = ({ id }) => {
   return (
     <div>
       <Header />
@@ -48,4 +47,4 @@ const UserInterface = ({ id }) => {
   );
 };
 
-export default UserInterface;
+export default Interface;

@@ -73,7 +73,6 @@ const Login = () => {
             </span>
           </div>
           <div className="forgot-invalid">
-            <span className="forgot-password">שכחת סיסמא?</span>
             <article className="invalid" hidden={!show}>
               סיסמא או אימייל שגויים
             </article>

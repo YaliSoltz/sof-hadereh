@@ -2,18 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { contactUs, personalSharing } = require("./routes");
+require("dotenv").config();
 
 mongoose.set("strictQuery", true);
 const app = express();
-const port = 10000;
+const port = 8002;
 
 app.use(cors());
 app.use(express.json());
 
 mongoose // connection to the database
-  .connect(
-    "mongodb+srv://yalisoltz:yalisoltz@admin-management.olnorje.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.CONNECT_URL)
   .then(() => console.log("database connected successfully"))
   .catch((err) => console.log("database failed to connect"));
 
