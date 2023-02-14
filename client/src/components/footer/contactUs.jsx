@@ -24,7 +24,7 @@ const ContactUs = () => {
 
     setErrors(Validation(newContactUs)); // validate the inputs
     if (Object.keys(errors).length > 0) return;
-    addNewContactUs(newContactUs); // add newContactUs to database
+    await addNewContactUs(newContactUs); // add newContactUs to database
     document.getElementById("form").reset(); // reset the form
   };
 
@@ -36,8 +36,7 @@ const ContactUs = () => {
       newContactUs.email !== "" &&
       newContactUs.subject !== "" &&
       newContactUs.content !== ""
-    )
-      alert("נשלח בהצלחה");
+    );
   }, [errors]);
 
   return (

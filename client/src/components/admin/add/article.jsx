@@ -9,14 +9,8 @@ const Article = () => {
   // function that add new article and reset the form
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      addNewArticle(newArticle); // add newArticle to database
-      document.getElementById("form").reset(); // reset the form
-      alert("נוסף בהצלחה");
-    } catch (error) {
-      alert("שגיאה");
-    }
+    await addNewArticle(newArticle); // add newArticle to database
+    document.getElementById("form").reset(); // reset the form
   };
 
   // function that set the newArticle obj with imgUrl

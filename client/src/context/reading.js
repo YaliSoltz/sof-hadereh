@@ -96,22 +96,32 @@ const ReadingProvider = ({ children }) => {
           break;
       }
     });
-    
+
     setReadings([accompanyingChildren, elderly, death, inspiration]);
   };
 
   // function that add new reading
   const addNewReading = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh);
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that delete reading by id
   const deleteReading = async (id) => {
-    const { data } = await axios.delete(url + id);
-    console.log(data);
-    setRefresh(!refresh);
+    try {
+      const { data } = await axios.delete(url + id);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נמחק בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that change reading

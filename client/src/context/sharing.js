@@ -5,7 +5,7 @@ export const SharingContext = createContext(); // the sharing context
 
 const SharingProvider = ({ children }) => {
   const [sharings, setSharings] = useState([]); // all the sharings
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "https://backend-server-h1qj.onrender.com/api/sharings/";
 
   // function that pulls all the sharings from the server
@@ -16,27 +16,36 @@ const SharingProvider = ({ children }) => {
 
   // function that add new sharing
   const addNewSharing = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that delete sharing by id
   const deleteSharing = async (id) => {
-    const { data } = await axios.delete(url + id);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.delete(url + id);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נמחק בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that change Sharing
   const changeSharing = async (id, body) => {
-    const result = await axios.patch(url + id, body);
-    console.log(result);
-    console.log(body);
-    setRefresh(!refresh)
-
+    try {
+      const result = await axios.patch(url + id, body);
+      console.log(result);
+      console.log(body);
+      setRefresh(!refresh);
+    } catch (error) {}
   };
 
   useEffect(() => {

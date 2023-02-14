@@ -11,13 +11,8 @@ const Sharing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      addNewSharing(newSharing); // add newSharing to database
-      document.getElementById("form").reset(); // reset the form
-      alert("נוסף בהצלחה");
-    } catch (error) {
-      alert("שגיאה");
-    }
+    await addNewSharing(newSharing); // add newSharing to database
+    document.getElementById("form").reset(); // reset the form
   };
 
   return (
@@ -93,7 +88,6 @@ const Sharing = () => {
           <button type="submit">הוספה</button>
         </form>
       </div>
-
     </div>
   );
 };

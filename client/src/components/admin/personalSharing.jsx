@@ -37,7 +37,6 @@ const PersonalSharing = () => {
                   content: sharing.content,
                 });
                 deletePersonalSharing(sharing._id);
-                alert("נוסף בהצלחה");
               }}
             ></button>
 

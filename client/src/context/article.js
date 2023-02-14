@@ -5,7 +5,7 @@ export const ArticleContext = createContext(); // the article context
 
 const ArticleProvider = ({ children }) => {
   const [articles, setArticles] = useState([]); // all the articles
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "https://backend-server-h1qj.onrender.com/api/articles/";
 
   // function that pulls all the articles from the server
@@ -16,18 +16,26 @@ const ArticleProvider = ({ children }) => {
 
   // function that add new article
   const addNewArticle = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that delete article by id
   const deleteArticle = async (id) => {
-    const { data } = await axios.delete(url + id);
-    console.log(data)
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.delete(url + id);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נמחק בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that change article
@@ -35,7 +43,7 @@ const ArticleProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
-    setRefresh(!refresh)
+    setRefresh(!refresh);
   };
 
   useEffect(() => {

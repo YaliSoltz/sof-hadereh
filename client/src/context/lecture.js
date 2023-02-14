@@ -5,7 +5,7 @@ export const LectureContext = createContext(); // the lecture context
 
 const LectureProvider = ({ children }) => {
   const [lectures, setLectures] = useState([]); // all the lectures
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "https://backend-server-h1qj.onrender.com/api/lectures/";
 
   // function that pulls all the lectures from the server
@@ -16,18 +16,26 @@ const LectureProvider = ({ children }) => {
 
   // function that add new lecture
   const addNewLecture = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that delete lecture by id
   const deleteLecture = async (id) => {
-    const { data } = await axios.delete(url + id);
-    console.log(data)
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.delete(url + id);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נמחק בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that change Lecture
@@ -35,8 +43,7 @@ const LectureProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
-    setRefresh(!refresh)
-
+    setRefresh(!refresh);
   };
 
   useEffect(() => {

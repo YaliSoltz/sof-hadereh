@@ -10,13 +10,8 @@ const Lecture = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      addNewLecture(newLecture); // add newLecture to database
-      document.getElementById("form").reset(); // reset the form
-      alert("נוסף בהצלחה");
-    } catch (error) {
-      alert("שגיאה");
-    }
+    await addNewLecture(newLecture); // add newLecture to database
+    document.getElementById("form").reset(); // reset the form
   };
 
   // function that set the newLecture obj with imgUrl
@@ -33,37 +28,35 @@ const Lecture = () => {
   };
 
   return (
-   
-      <div className="add-form">
-        <h2>הוספת הרצאה חדשה</h2>
-        <form
-          id="form"
-          onSubmit={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="כותרת:"
-            required
-            onChange={(e) =>
-              setNewLecture({ ...newLecture, title: e.target.value })
-            }
-          />
-          <textarea
-            cols="30"
-            rows="10"
-            placeholder="תוכן:"
-            required
-            onChange={(e) =>
-              setNewLecture({ ...newLecture, content: e.target.value })
-            }
-          ></textarea>
-          <input type="file" required onChange={(e) => setImgUrl(e)} />
-          <button type="submit">הוספה</button>
-        </form>
-      </div>
-    
+    <div className="add-form">
+      <h2>הוספת הרצאה חדשה</h2>
+      <form
+        id="form"
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
+      >
+        <input
+          type="text"
+          placeholder="כותרת:"
+          required
+          onChange={(e) =>
+            setNewLecture({ ...newLecture, title: e.target.value })
+          }
+        />
+        <textarea
+          cols="30"
+          rows="10"
+          placeholder="תוכן:"
+          required
+          onChange={(e) =>
+            setNewLecture({ ...newLecture, content: e.target.value })
+          }
+        ></textarea>
+        <input type="file" required onChange={(e) => setImgUrl(e)} />
+        <button type="submit">הוספה</button>
+      </form>
+    </div>
   );
 };
 

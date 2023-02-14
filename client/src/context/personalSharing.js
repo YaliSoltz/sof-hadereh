@@ -5,7 +5,7 @@ export const PersonalSharingContext = createContext(); // the personalSharing co
 
 const PersonalSharingProvider = ({ children }) => {
   const [personalSharings, setPersonalSharings] = useState([]); // all the personalSharings
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "https://backend-server-admin.onrender.com/api/personalSharings/";
 
   // function that pulls all the personalSharings from the server
@@ -16,18 +16,20 @@ const PersonalSharingProvider = ({ children }) => {
 
   // function that add new personalSharing
   const addNewPersonalSharing = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+    } catch (error) {
+      alert("שיתוף לא בוצע בהצלחה, אנא נסה שנית.");
+    }
   };
 
   // function that delete personalSharing by id
   const deletePersonalSharing = async (id) => {
     const { data } = await axios.delete(url + id);
-    console.log(data)
-    setRefresh(!refresh)
-
+    console.log(data);
+    setRefresh(!refresh);
   };
 
   useEffect(() => {

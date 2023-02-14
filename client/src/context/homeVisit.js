@@ -5,7 +5,7 @@ export const HomeVisitContext = createContext(); // the homeVisit context
 
 const HomeVisitProvider = ({ children }) => {
   const [homeVisits, setHomeVisits] = useState([]); // all the homeVisits
-  const [refresh, setRefresh] = useState(false) // active useEffect on each axios
+  const [refresh, setRefresh] = useState(false); // active useEffect on each axios
   const url = "https://backend-server-h1qj.onrender.com/api/homeVisits/";
 
   // function that pulls all the homeVisits from the server
@@ -16,18 +16,26 @@ const HomeVisitProvider = ({ children }) => {
 
   // function that add new homeVisit
   const addNewHomeVisit = async (body) => {
-    const { data } = await axios.post(url, body);
-    console.log(data);
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.post(url, body);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נוסף בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that delete homeVisit by id
   const deleteHomeVisit = async (id) => {
-    const { data } = await axios.delete(url + id);
-    console.log(data)
-    setRefresh(!refresh)
-
+    try {
+      const { data } = await axios.delete(url + id);
+      console.log(data);
+      setRefresh(!refresh);
+      alert("נמחק בהצלחה");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   // function that change homeVisit
@@ -35,8 +43,7 @@ const HomeVisitProvider = ({ children }) => {
     const result = await axios.patch(url + id, body);
     console.log(result);
     console.log(body);
-    setRefresh(!refresh)
-
+    setRefresh(!refresh);
   };
 
   useEffect(() => {

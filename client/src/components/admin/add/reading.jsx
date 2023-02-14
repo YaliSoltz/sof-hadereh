@@ -10,13 +10,8 @@ const Reading = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      addNewReading(newReading); // add newReading to database
-      document.getElementById("form").reset(); // reset the form
-      alert("נוסף בהצלחה");
-    } catch (error) {
-      alert("שגיאה");
-    }
+    await addNewReading(newReading); // add newReading to database
+    document.getElementById("form").reset(); // reset the form
   };
 
   // function that set the newReading obj with imgUrl
@@ -52,7 +47,9 @@ const Reading = () => {
               })
             }
           >
-            <option value="" disabled>קטגוריה:</option>
+            <option value="" disabled>
+              קטגוריה:
+            </option>
             <option value="ליווי ילדים">ליווי ילדים</option>
             <option value="הגיל השלישי">הגיל השלישי</option>
             <option value="מה קורה ברגע המוות ואחרי">
