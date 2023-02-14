@@ -113,7 +113,7 @@ const Sharing = () => {
                   }
                 >
                   <option value="" disabled>
-                    סטטוס:
+                    מצב משפחתי:
                   </option>
                   <option value="נשוי/נשואה">נשוי/נשואה</option>
                   <option value="רווק/ה">רווק/ה</option>
